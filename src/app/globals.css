@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #050507;
+  --foreground: #f3f4f6;
+  --color-accent: #38bdf8;
+  --color-brand: #6366f1;
+}
+
+@layer base {
+  * {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    background-color: var(--background);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    tracking-tight: -0.025em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: rgba(255, 255, 255, 0.92);
+    letter-spacing: -0.03em;
+    font-weight: 600;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* Custom Utilities */
+.glass-panel {
+  background: rgba(13, 13, 18, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 50%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-radial-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.12) 0%, rgba(56, 189, 248, 0.05) 45%, transparent 70%);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* HIGH END UNIQUE FADE IN REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  filter: blur(8px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity, filter;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* SVG Keyframes for animated tools */
+@keyframes drawPath {
+  to { stroke-dashoffset: 0; }
+}
+.animate-svg-path-1 {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: drawPath 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.animate-svg-path-2 {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawPath 4s linear infinite;
+}
+@keyframes bracketMoveLeft {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-5px); }
+}
+@keyframes bracketMoveRight {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+.animate-bracket-left {
+  animation: bracketMoveLeft 2s ease-in-out infinite;
+}
+.animate-bracket-right {
+  animation: bracketMoveRight 2s ease-in-out infinite;
+}
+@keyframes scanMove {
+  0%, 100% { transform: translateY(-10px); opacity: 0.2; }
+  50% { transform: translateY(15px); opacity: 1; }
+}
+.animate-scanline {
+  animation: scanMove 2.5s ease-in-out infinite;
+}
+@keyframes pulseShield {
+  0%, 100% { stroke-opacity: 0.4; stroke-width: 2; }
+  50% { stroke-opacity: 1; stroke-width: 2.5; }
+}
+.animate-shield {
+  animation: pulseShield 3s ease-in-out infinite;
+}
+
+/* Custom Decrypt Glitch styles */
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #040406;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+/* Social SVGs Keyframe Animations */
+@keyframes fbPulse {
+  0%, 100% { stroke-width: 2; filter: drop-shadow(0 0 0px #c9f731); }
+  50% { stroke-width: 2.5; filter: drop-shadow(0 0 6px #c9f731); }
+}
+.animate-fb-path {
+  animation: fbPulse 2.5s ease-in-out infinite;
+}
+@keyframes mailFlap {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(1.5px); }
+}
+.animate-mail-flap {
+  animation: mailFlap 2s ease-in-out infinite;
+  transform-origin: top;
+}
+@keyframes gitWag {
+  0%, 100% { transform: rotate(0); }
+  50% { transform: rotate(-8deg); }
+}
+.animate-git-wag {
+  animation: gitWag 1.8s ease-in-out infinite;
+  transform-origin: bottom right;
+}
