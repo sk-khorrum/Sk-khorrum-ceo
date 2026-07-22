@@ -393,6 +393,7 @@ export default function Home() {
                 <Phone className="w-3.5 h-3.5" />
                 <span>+8809696789563</span>
               </a>
+              </div>
             </Reveal>
 
             <Reveal delay={0.4}>
@@ -424,8 +425,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            </Reveal>
           </div>
-        </motion.section>
+        </section>
 
         {/* SKILLS SECTION */}
         <section id="skills" className="py-28 px-6 md:px-16 max-w-7xl mx-auto">
@@ -460,6 +462,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
+            </Reveal>
 
             <div className="p-8 rounded-3xl bg-[#111111]/60 backdrop-blur-xl border border-white/10 hover:border-[#c9f731] transition-all">
               <div className="w-12 h-12 mb-6 flex items-center justify-center">
@@ -500,7 +503,7 @@ export default function Home() {
                   </span>
                 ))}
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
 
@@ -532,6 +535,12 @@ export default function Home() {
               ))}
             </div>
           </div>
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            {filteredProjects.map((proj, index) => (
+              <Reveal key={proj.id} delay={0.1 + (index * 0.1)}>
+                <a href={proj.link} target="_blank" rel="noreferrer" className="group p-8 rounded-3xl bg-[#111111]/60 backdrop-blur-xl border border-white/10 hover:border-[#c9f731] transition-all flex flex-col justify-between">
+                  <div>
                   <div className="flex items-center justify-between text-xs font-mono text-[#c9f731] mb-4">
                     <span className="uppercase">{proj.category}</span>
                     <span>{proj.badge}</span>
@@ -557,7 +566,7 @@ export default function Home() {
               </div>
             )}
           </div>
-        </motion.section>
+        </section>
 
         <WorkProcess />
 
@@ -627,7 +636,7 @@ export default function Home() {
               </div>
             )}
           </div>
-        </motion.section>
+        </section>
 
         {/* JOURNEY SECTION */}
         <section ref={journeySectionRef} id="journey" className="py-28 px-6 md:px-16 max-w-7xl mx-auto">
@@ -670,7 +679,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </motion.section>
+          </Reveal>
+        </section>
 
         <FAQSection />
 
@@ -718,7 +728,8 @@ export default function Home() {
               </a>
             </div>
           </div>
-        </motion.section>
+          </Reveal>
+        </section>
 
         {/* FOOTER */}
         <footer className="py-12 border-t border-white/10 text-center font-mono text-xs text-neutral-500 bg-[#050505]/70 backdrop-blur-md flex flex-col items-center gap-4 justify-between sm:flex-row px-8">
