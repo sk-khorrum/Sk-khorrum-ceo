@@ -140,13 +140,13 @@ export default function WorkProcess() {
         </div>
 
         {/* Tab Controls */}
-        <div className="flex p-1 rounded-2xl bg-neutral-900/50 border border-white/10 backdrop-blur-xl w-fit">
+        <div className="flex flex-col sm:flex-row p-1 rounded-2xl bg-neutral-900/50 border border-white/10 backdrop-blur-xl w-full sm:w-fit gap-1 sm:gap-0">
           <button
             onClick={() => {
               setActiveProcess("development");
               setActiveStep(0);
             }}
-            className={`px-5 py-2.5 rounded-xl text-xs font-mono tracking-wider transition-all uppercase flex items-center gap-2 ${
+            className={`w-full sm:w-auto justify-center px-5 py-2.5 rounded-xl text-xs font-mono tracking-wider transition-all uppercase flex items-center gap-2 ${
               activeProcess === "development"
                 ? "bg-[#c9f731] text-[#050505] font-bold shadow-lg"
                 : "text-neutral-400 hover:text-white"
@@ -161,7 +161,7 @@ export default function WorkProcess() {
               setActiveProcess("marketing");
               setActiveStep(0);
             }}
-            className={`px-5 py-2.5 rounded-xl text-xs font-mono tracking-wider transition-all uppercase flex items-center gap-2 ${
+            className={`w-full sm:w-auto justify-center px-5 py-2.5 rounded-xl text-xs font-mono tracking-wider transition-all uppercase flex items-center gap-2 ${
               activeProcess === "marketing"
                 ? "bg-[#c9f731] text-[#050505] font-bold shadow-lg"
                 : "text-neutral-400 hover:text-white"

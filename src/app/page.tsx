@@ -26,9 +26,10 @@ import {
   Send,
   Sparkles,
   Check,
+  Menu,
 } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 
 export default function Home() {
@@ -296,11 +297,12 @@ export default function Home() {
       {/* 2. FOREGROUND CONTENT (SK KHORRUM PORTFOLIO) */}
       <div className="relative z-10">
         {/* NAVBAR */}
-        <nav className="fixed top-0 left-0 right-0 z-50 px-8 py-5 flex items-center justify-between backdrop-blur-xl bg-[#050505]/60 border-b border-white/10 transition-all">
-          <a href="#hero" className="font-['Anton'] text-2xl tracking-wider text-white">
+        <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-8 py-4 md:py-5 flex items-center justify-between backdrop-blur-xl bg-[#050505]/80 border-b border-white/10 transition-all">
+          <a href="#hero" className="font-['Anton'] text-2xl tracking-wider text-white relative z-50">
             KHORRUM<em className="not-italic text-[#c9f731]">.</em>
           </a>
 
+          {/* Desktop Links */}
           <ul className="hidden md:flex items-center gap-8 text-xs font-mono tracking-widest uppercase text-neutral-400">
             <li><a href="#about" className="hover:text-[#c9f731] transition-colors">About</a></li>
             <li><a href="#skills" className="hover:text-[#c9f731] transition-colors">Skills</a></li>
@@ -311,15 +313,55 @@ export default function Home() {
             <li><a href="#contact" className="hover:text-[#c9f731] transition-colors">Contact</a></li>
           </ul>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 relative z-50">
             <a
               href="#contact"
               className="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#c9f731] text-[#050505] font-semibold text-xs hover:bg-[#a5cc28] transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#c9f731]/10"
             >
               <span>Get in Touch</span>
             </a>
+            
+            {/* Mobile Menu Toggle */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 text-white hover:text-[#c9f731] transition-colors"
+              aria-label="Toggle Menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </nav>
+
+        {/* Mobile Menu Drawer */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+              className="fixed top-[68px] left-0 right-0 z-40 bg-[#0c0c0e]/95 backdrop-blur-2xl border-b border-white/10 md:hidden flex flex-col px-6 py-8 shadow-2xl"
+            >
+              <ul className="flex flex-col gap-6 text-sm font-mono tracking-widest uppercase text-neutral-300">
+                <li><a href="#about" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#c9f731] transition-colors block">About</a></li>
+                <li><a href="#skills" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#c9f731] transition-colors block">Skills</a></li>
+                <li><a href="#projects" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#c9f731] transition-colors block">Projects</a></li>
+                <li><a href="#blogs" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#c9f731] transition-colors block">Blogs</a></li>
+                <li><a href="#journey" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#c9f731] transition-colors block">Journey</a></li>
+                <li><a href="#faqs" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#c9f731] transition-colors block">FAQs</a></li>
+                <li><a href="#contact" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#c9f731] transition-colors block">Contact</a></li>
+              </ul>
+              
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-8 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#c9f731] text-[#050505] font-semibold text-xs hover:bg-[#a5cc28] transition-all sm:hidden"
+              >
+                <span>Get in Touch</span>
+              </a>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* HERO SECTION */}
         <section id="hero" className="min-h-screen flex flex-col justify-center px-6 md:px-16 pt-32 pb-16 max-w-7xl mx-auto relative">
@@ -743,7 +785,7 @@ export default function Home() {
 
 
       {/* HUD FLOATING ACTIONS (BOTTOM RIGHT) */}
-      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2 sm:gap-3">
         {/* Download CV Button */}
         <a
           href="/assets/SK_Khorrum_CV.pdf"
