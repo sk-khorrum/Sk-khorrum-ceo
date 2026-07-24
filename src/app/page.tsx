@@ -99,11 +99,11 @@ export default function Home() {
     "@graph": [
       {
         "@type": "Person",
-        "@id": "https://skkhorrum.com/#person",
+        "@id": "https://khorrum.pro.bd/#person",
         "name": "SK Khorrum",
         "jobTitle": "Web App Designer, Frontend Developer & Creative Designer",
-        "url": "https://skkhorrum.com",
-        "image": "https://sk-khorrum-ceo.vercel.app/assets/img/about.jpg",
+        "url": "https://khorrum.pro.bd/",
+        "image": "https://assets-one-beta.vercel.app/portfolio/sk-khorrum.webp",
         "telephone": "+8809696789563",
         "sameAs": [
           "https://facebook.com/drt.ceo",
@@ -125,10 +125,10 @@ export default function Home() {
           "name": "SK Khorrum",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://sk-khorrum-ceo.vercel.app/assets/img/about.jpg"
+            "url": "https://assets-one-beta.vercel.app/portfolio/sk-khorrum.webp"
           }
         },
-        "mainEntityOfPage": "https://skkhorrum.com",
+        "mainEntityOfPage": "https://khorrum.pro.bd/",
         "articleBody": b.content
       })),
       ...projects.map((p) => ({
@@ -424,7 +424,7 @@ export default function Home() {
             <Reveal delay={0.2}>
               <div className="relative rounded-3xl overflow-hidden border border-white/15 bg-neutral-900/40 backdrop-blur-md aspect-[3/4]">
               <img
-                src="https://sk-khorrum-ceo.vercel.app/assets/img/about.jpg"
+                src="https://assets-one-beta.vercel.app/portfolio/sk-khorrum.webp"
                 alt="SK Khorrum"
                 className="w-full h-full object-cover"
               />
