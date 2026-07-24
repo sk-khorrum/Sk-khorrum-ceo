@@ -15,6 +15,7 @@ export const metadata: Metadata = {
         "MD Khorrum",
         "Khorrum"
       ],
+      <meta name="google-site-verification" content="m62MkCsKsFl6JReFjUAy0_PnTq38rs7ao2lSvNSszr0" />
       "url": "https://khorrum.pro.bd",
       "image": {
         "@type": "ImageObject",
