@@ -2,70 +2,96 @@ import type { Metadata } from "next";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import Preloader from "@/components/Preloader";
-
 export const metadata: Metadata = {
-  title: "SK Khorrum — Digital Marketer & Web App Maker",
+  metadataBase: new URL("https://khorrum.pro.bd"),
+
+  title: {
+    default: "SK Khorrum | Digital Marketing & Full Stack Web Developer",
+    template: "%s | SK Khorrum",
+  },
+
   description:
-    "Portfolio of SK Khorrum, a Digital Marketer and Web App Maker specializing in creative design and development.",
-  keywords: ["SK Khorrum", "Digital Marketer", "Web App Maker", "Frontend Developer", "Portfolio"],
+    "Official portfolio of SK Khorrum. Digital Marketing Expert, SEO Specialist, Full Stack Web Developer, UI/UX Designer and Creative Technology Consultant.",
+
+  keywords: [
+    "SK Khorrum",
+    "Khorrum",
+    "Digital Marketing",
+    "SEO Expert",
+    "Full Stack Developer",
+    "Next.js Developer",
+    "React Developer",
+    "TypeScript",
+    "Web Developer Bangladesh",
+    "Portfolio",
+    "UI UX Designer",
+    "App Developer",
+    "Freelancer Bangladesh"
+  ],
+
   authors: [{ name: "SK Khorrum" }],
   creator: "SK Khorrum",
   publisher: "SK Khorrum",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://skkhorrum.com",
-    title: "SK Khorrum — Digital Marketer & Web App Maker",
-    description: "Portfolio of SK Khorrum, a Digital Marketer and Web App Maker specializing in creative design and development.",
-    siteName: "SK Khorrum",
-    images: [
-      {
-        url: "https://skkhorrum.com/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "SK Khorrum — Digital Marketer & Web App Maker",
-      },
-    ],
+  applicationName: "SK Khorrum Portfolio",
+  category: "Technology",
+
+  alternates: {
+    canonical: "https://khorrum.pro.bd",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "SK Khorrum — Digital Marketer & Web App Maker",
-    description: "Portfolio of SK Khorrum, a Digital Marketer and Web App Maker specializing in creative design and development.",
-    images: ["https://skkhorrum.com/og-image.jpg"],
-    creator: "@skkhorrum",
-  },
+
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
-  alternates: {
-    canonical: "https://skkhorrum.com",
+
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://khorrum.pro.bd",
+    siteName: "SK Khorrum",
+
+    title: "SK Khorrum | Digital Marketing & Full Stack Web Developer",
+
+    description:
+      "Official portfolio of SK Khorrum showcasing Digital Marketing, SEO, Web Development, Mobile Apps and Creative Projects.",
+
+    images: [
+      {
+        url: "https://assets-one-beta.vercel.app/portfolio/sk-khorrum.webp",
+        width: 1200,
+        height: 630,
+        alt: "SK Khorrum",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "SK Khorrum Portfolio",
+
+    description:
+      "Digital Marketing, SEO & Full Stack Web Development Portfolio.",
+
+    creator: "@sk_khorrum",
+
+    images: [
+      "https://assets-one-beta.vercel.app/portfolio/sk-khorrum.webp",
+    ],
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "SK Khorrum",
-    url: "https://skkhorrum.com",
-    description: "Portfolio of SK Khorrum, a Digital Marketer and Web App Maker specializing in creative design and development.",
-    publisher: {
-      "@type": "Organization",
-      name: "SK Khorrum",
-    },
-  };
 
   return (
     <html lang="en" className="dark no-scrollbar">
