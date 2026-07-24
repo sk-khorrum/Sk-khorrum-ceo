@@ -518,9 +518,9 @@ export default function Home() {
                   </circle>
                 </svg>
               </div>
-              <h4 className="text-xl font-bold text-white mb-4">Backend & Tools</h4>
+              <h4 className="text-xl font-bold text-white mb-4">Digital Marketing Tools</h4>
               <div className="flex flex-wrap gap-2">
-                {["Firebase", "PostgreSQL", "Docker", "AWS", "FastAPI", "TensorFlow"].map((s) => (
+                {["Google Ads Meta Business Suite Google Analytics 4 SEMrush / Ahrefs Mailchimp / Klaviyo GTM & Pixel"].map((s) => (
                   <span key={s} className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-neutral-300">
                     {s}
                   </span>
