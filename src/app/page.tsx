@@ -112,7 +112,7 @@ export default function Home() {
       },
       ...blogs.map((b) => ({
         "@type": "BlogPosting",
-        "@id": `https://skkhorrum.com/blogs/#${b.id}`,
+        "@id": `https://khorrum.pro.bd/blogs/#${b.id}`,
         "headline": b.title,
         "description": b.summary,
         "datePublished": b.date,
@@ -133,7 +133,7 @@ export default function Home() {
       })),
       ...projects.map((p) => ({
         "@type": "CreativeWork",
-        "@id": `https://skkhorrum.com/projects/#${p.id}`,
+        "@id": `https://khorrum.pro.bd/projects/#${p.id}`,
         "name": p.title,
         "description": p.description,
         "url": p.link,
