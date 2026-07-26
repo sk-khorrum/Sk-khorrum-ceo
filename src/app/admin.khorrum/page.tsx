@@ -4,9 +4,11 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   getStoredProjects,
-  saveProjects,
   getStoredBlogs,
-  saveBlogs,
+  addProject,
+  deleteProject,
+  addBlog,
+  deleteBlog,
   ProjectItem,
   BlogItem,
 } from "@/utils/storage";
@@ -61,10 +63,12 @@ export default function AdminPage() {
     if (sessionAuth === "true") {
       setIsAuthenticated(true);
     }
-    setProjects(getStoredProjects());
-    setBlogs(getStoredBlogs());
 
-    // Load briefs
+    // Load from Firebase Firestore
+    getStoredProjects().then(setProjects);
+    getStoredBlogs().then(setBlogs);
+
+    // Load briefs (still local)
     try {
       const storedBriefsStr = localStorage.getItem("khorrum_portfolio_requirements");
       if (storedBriefsStr) {
@@ -109,23 +113,21 @@ export default function AdminPage() {
       imageUrl: projImage || undefined,
     };
 
-    const updated = [newProject, ...projects];
-    setProjects(updated);
-    saveProjects(updated);
+    setProjects((prev) => [newProject, ...prev]);
+    addProject(newProject);
 
     // Reset Form
     setProjTitle("");
     setProjDescription("");
     setProjLink("");
     setProjImage("");
-    showToast("Project added successfully to main portfolio!");
+    showToast("Project added successfully to Firebase!");
   };
 
   const handleDeleteProject = (id: string) => {
     if (confirm("Are you sure you want to delete this project?")) {
-      const updated = projects.filter((p) => p.id !== id);
-      setProjects(updated);
-      saveProjects(updated);
+      setProjects((prev) => prev.filter((p) => p.id !== id));
+      deleteProject(id);
       showToast("Project removed!");
     }
   };
@@ -149,23 +151,21 @@ export default function AdminPage() {
       imageUrl: blogImage || "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1000&auto=format&fit=crop",
     };
 
-    const updated = [newBlog, ...blogs];
-    setBlogs(updated);
-    saveBlogs(updated);
+    setBlogs((prev) => [newBlog, ...prev]);
+    addBlog(newBlog);
 
     // Reset Form
     setBlogTitle("");
     setBlogSummary("");
     setBlogContent("");
     setBlogImage("");
-    showToast("Blog post published successfully!");
+    showToast("Blog post published to Firebase!");
   };
 
   const handleDeleteBlog = (id: string) => {
     if (confirm("Are you sure you want to delete this blog post?")) {
-      const updated = blogs.filter((b) => b.id !== id);
-      setBlogs(updated);
-      saveBlogs(updated);
+      setBlogs((prev) => prev.filter((b) => b.id !== id));
+      deleteBlog(id);
       showToast("Blog post deleted!");
     }
   };

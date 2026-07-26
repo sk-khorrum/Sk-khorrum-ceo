@@ -16,9 +16,13 @@ import {
 export default function BlogListingPage() {
   const [blogs, setBlogs] = useState<BlogItem[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setBlogs(getStoredBlogs());
+    getStoredBlogs().then((data) => {
+      setBlogs(data);
+      setLoading(false);
+    });
   }, []);
 
   // Intersection Observer for reveal animations
