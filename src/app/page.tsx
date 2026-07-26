@@ -51,8 +51,8 @@ export default function Home() {
 
   // Fetch projects and blogs on mount
   useEffect(() => {
-    setProjects(getStoredProjects());
-    setBlogs(getStoredBlogs());
+    getStoredProjects().then(setProjects);
+    getStoredBlogs().then(setBlogs);
   }, []);
 
   // Framer Motion handles reveal animations natively now
