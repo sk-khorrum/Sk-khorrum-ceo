@@ -19,10 +19,11 @@ export default function BlogPostPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const blogs = getStoredBlogs();
-    const found = blogs.find((b) => b.id === params.id);
-    setBlog(found || null);
-    setIsLoading(false);
+    getStoredBlogs().then((blogs) => {
+      const found = blogs.find((b) => b.id === params.id);
+      setBlog(found || null);
+      setIsLoading(false);
+    });
   }, [params.id]);
 
   if (isLoading) {
