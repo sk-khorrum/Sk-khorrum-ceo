@@ -6,13 +6,13 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCMNgRLksOLsqmMSkDJUYZ2brxKVyN5jvY",
-  authDomain: "sk-khorrum.firebaseapp.com",
-  projectId: "sk-khorrum",
-  storageBucket: "sk-khorrum.firebasestorage.app",
-  messagingSenderId: "505612505807",
-  appId: "1:505612505807:web:aeef44bf2628d7c359ddba",
-  measurementId: "G-NTW729MSWP"
+  apiKey: "AIzaSyDPnMfqZoXjshNmhbq2XEaqNaVmhP2qFow",
+  authDomain: "sk-kho.firebaseapp.com",
+  projectId: "sk-kho",
+  storageBucket: "sk-kho.firebasestorage.app",
+  messagingSenderId: "575944457714",
+  appId: "1:575944457714:web:9f2039f17438ec6bd0ff6b",
+  measurementId: "G-6BEFP4Y8X0"
 };
 
 // Initialize Firebase (prevent re-initialization in Next.js hot reload)

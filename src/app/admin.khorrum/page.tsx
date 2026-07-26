@@ -12,6 +12,14 @@ import {
   ProjectItem,
   BlogItem,
 } from "@/utils/storage";
+import { auth } from "@/lib/firebase";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signOut
+} from "firebase/auth";
 import {
   Lock,
   Plus,
@@ -31,7 +39,8 @@ import {
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [passcode, setPasscode] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [authError, setAuthError] = useState("");
 
   const [activeTab, setActiveTab] = useState<"projects" | "blogs" | "seo" | "briefs">("projects");
@@ -58,11 +67,13 @@ export default function AdminPage() {
   const [notification, setNotification] = useState<string | null>(null);
 
   useEffect(() => {
-    // Check if session token exists
-    const sessionAuth = sessionStorage.getItem("admin_khorrum_auth");
-    if (sessionAuth === "true") {
-      setIsAuthenticated(true);
-    }
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
+    });
 
     // Load from Firebase Firestore
     getStoredProjects().then(setProjects);
@@ -77,17 +88,35 @@ export default function AdminPage() {
     } catch (e) {
       console.error("Error reading briefs from localStorage", e);
     }
+
+    return () => unsubscribe();
   }, []);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const loginWithEmail = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (passcode.toLowerCase() === "khorrum" || passcode === "admin.khorrum" || passcode === "admin123") {
-      setIsAuthenticated(true);
-      sessionStorage.setItem("admin_khorrum_auth", "true");
-      setAuthError("");
-    } else {
-      setAuthError("Incorrect admin passcode. Access denied.");
+    setAuthError("");
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      showToast("Logged in successfully!");
+    } catch (error: any) {
+      setAuthError(error.message || "Failed to login");
     }
+  };
+
+  const loginWithGoogle = async () => {
+    setAuthError("");
+    try {
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
+      showToast("Logged in with Google!");
+    } catch (error: any) {
+      setAuthError(error.message || "Google login failed");
+    }
+  };
+
+  const handleLogout = async () => {
+    await signOut(auth);
+    showToast("Logged out successfully");
   };
 
   const showToast = (msg: string) => {
@@ -239,33 +268,64 @@ export default function AdminPage() {
               </div>
             </div>
 
-            <form onSubmit={handleLogin} className="space-y-4 pt-2">
+            <form onSubmit={loginWithEmail} className="space-y-4 pt-2">
               <div>
                 <label className="block text-xs font-mono text-neutral-400 mb-2 uppercase tracking-wider">
-                  Admin Security Passcode
+                  Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="Enter email..."
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 focus:border-[#c9f731] focus:outline-none text-white text-sm font-mono placeholder:text-neutral-600 transition-all mb-4"
+                  autoFocus
+                />
+                
+                <label className="block text-xs font-mono text-neutral-400 mb-2 uppercase tracking-wider">
+                  Password
                 </label>
                 <input
                   type="password"
-                  placeholder="Enter passcode..."
-                  value={passcode}
-                  onChange={(e) => setPasscode(e.target.value)}
+                  placeholder="Enter password..."
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 focus:border-[#c9f731] focus:outline-none text-white text-sm font-mono placeholder:text-neutral-600 transition-all"
-                  autoFocus
                 />
               </div>
 
               {authError && (
-                <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-mono">
+                <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-mono break-words">
                   {authError}
                 </div>
               )}
 
               <button
                 type="submit"
+                className="w-full py-3.5 rounded-xl bg-white/5 border border-white/10 text-white font-bold text-sm hover:bg-white/10 transition-all flex items-center justify-center gap-2"
+              >
+                <Lock className="w-4 h-4 text-neutral-400" />
+                <span>Login with Email</span>
+              </button>
+
+              <div className="relative flex items-center py-2">
+                <div className="flex-grow border-t border-white/10"></div>
+                <span className="flex-shrink-0 mx-4 text-neutral-500 text-xs font-mono">OR</span>
+                <div className="flex-grow border-t border-white/10"></div>
+              </div>
+
+              <button
+                type="button"
+                onClick={loginWithGoogle}
                 className="w-full py-3.5 rounded-xl bg-[#c9f731] text-[#050505] font-bold text-sm hover:bg-[#a5cc28] transition-all shadow-lg shadow-[#c9f731]/20 flex items-center justify-center gap-2"
               >
-                <Lock className="w-4 h-4" />
-                <span>Authenticate Admin</span>
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#050505"/>
+                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#050505"/>
+                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#050505"/>
+                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#050505"/>
+                </svg>
+                <span>Login with Google</span>
               </button>
             </form>
 
@@ -317,10 +377,7 @@ export default function AdminPage() {
             <span>View Live Site</span>
           </Link>
           <button
-            onClick={() => {
-              sessionStorage.removeItem("admin_khorrum_auth");
-              setIsAuthenticated(false);
-            }}
+            onClick={handleLogout}
             className="px-4 py-2 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-mono hover:bg-red-500/20 transition-all"
           >
             Logout
