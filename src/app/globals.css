@@ -1,4 +1,50 @@
 @tailwind base;
+/* hero dot grid */
+.hero-grid {
+  background-image: radial-gradient(rgba(201,247,49,0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+/* outline/stroke text */
+.text-outline {
+  -webkit-text-stroke: 3px #c9f731;
+  color: transparent;
+}
+/* float keyframe for photo */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-14px) rotate(0.5deg); }
+  66% { transform: translateY(-6px) rotate(-0.5deg); }
+}
+.animate-float-photo {
+  animation: float 6s ease-in-out infinite;
+}
+/* scroll progress bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  z-index: 200;
+  background: linear-gradient(90deg, #c9f731, #a5cc28, #c9f731);
+  box-shadow: 0 0 10px rgba(201,247,49,0.6);
+  transition: width 0.05s linear;
+  pointer-events: none;
+}
+/* service card */
+.service-card {
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201,247,49,0.3) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,247,49,0.15);
+}
+/* typewriter cursor blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink { animation: blink 1s step-end infinite; }
 @tailwind components;
 @tailwind utilities;
 
@@ -119,6 +165,39 @@
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
+}
+
+/* ──────────────────────────────────────────
+   HERO SECTION EXTRAS
+────────────────────────────────────────── */
+.hero-name-solid {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(5rem, 13vw, 10rem);
+  line-height: 0.88;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+}
+.hero-name-outline {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(5rem, 13vw, 10rem);
+  line-height: 0.88;
+  letter-spacing: 0.04em;
+  -webkit-text-stroke: 2px #c9f731;
+  color: transparent;
+}
+
+/* premium glow text for hero */
+.hero-glow {
+  text-shadow: 0 0 40px rgba(201,247,49,0.15);
+}
+
+/* floating badge glass */
+.float-badge {
+  background: rgba(5,5,5,0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
 }
 
 /* ──────────────────────────────────────────
