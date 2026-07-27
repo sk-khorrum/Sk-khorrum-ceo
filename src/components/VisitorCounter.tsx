@@ -1,60 +1,82 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Users, Eye, Activity } from "lucide-react";
+import { Eye, Activity } from "lucide-react";
 
 export default function VisitorCounter() {
   const [totalVisits, setTotalVisits] = useState<number | string>("...");
-  const [liveVisitors, setLiveVisitors] = useState<number>(5);
+  const [todayVisits, setTodayVisits] = useState<number | string>("...");
 
   useEffect(() => {
-    // 1. Handle Total Visits
-    const fetchTotalVisits = async () => {
+    const fetchCounters = async () => {
+      // YYYY-MM-DD local date format for daily visits
+      const localDate = new Date();
+      const year = localDate.getFullYear();
+      const month = String(localDate.getMonth() + 1).padStart(2, "0");
+      const day = String(localDate.getDate()).padStart(2, "0");
+      const todayStr = `${year}-${month}-${day}`;
+
+      let todayCountVal = 1;
+      let totalCountVal = 12135;
+
+      // 1. Fetch Today's real visitor count
       try {
-        // Fetch and increment the global counter for SK Khorrum Portfolio
-        const response = await fetch("https://api.counterapi.dev/v1/skkhorrum_portfolio/visits/up");
-        if (response.ok) {
-          const data = await response.json();
+        const todayRes = await fetch(
+          `https://api.counterapi.dev/v1/skkhorrum_portfolio/today_${todayStr}/up`
+        );
+        if (todayRes.ok) {
+          const data = await todayRes.json();
           if (data && typeof data.value === "number") {
-            setTotalVisits(data.value);
-            return;
+            todayCountVal = data.value;
           }
         }
       } catch (err) {
-        console.warn("CounterAPI error, falling back to local storage:", err);
+        console.warn("CounterAPI today error, fallback to local storage:", err);
+        try {
+          const localToday = localStorage.getItem(`khorrum_portfolio_today_${todayStr}`);
+          let count = 1;
+          if (localToday) {
+            count = parseInt(localToday, 10) + 1;
+          }
+          localStorage.setItem(`khorrum_portfolio_today_${todayStr}`, count.toString());
+          todayCountVal = count;
+        } catch (e) {}
       }
 
-      // LocalStorage Fallback if API fails or offline
+      // 2. Fetch Total visits starting from 12135
       try {
-        const localCount = localStorage.getItem("khorrum_portfolio_total_visits");
-        let count = 1248; // Base starter value to make it look premium
-        if (localCount) {
-          count = parseInt(localCount, 10) + 1;
+        const totalRes = await fetch(
+          "https://api.counterapi.dev/v1/skkhorrum_portfolio/visits/up"
+        );
+        if (totalRes.ok) {
+          const data = await totalRes.json();
+          if (data && typeof data.value === "number") {
+            totalCountVal = 12135 + data.value;
+          }
         }
-        localStorage.setItem("khorrum_portfolio_total_visits", count.toString());
-        setTotalVisits(count);
-      } catch (e) {
-        setTotalVisits(1248);
+      } catch (err) {
+        console.warn("CounterAPI total error, fallback to local storage:", err);
+        try {
+          const localTotal = localStorage.getItem("khorrum_portfolio_total_visits");
+          let count = 12135 + 1;
+          if (localTotal) {
+            count = parseInt(localTotal, 10) + 1;
+          }
+          localStorage.setItem("khorrum_portfolio_total_visits", count.toString());
+          totalCountVal = count;
+        } catch (e) {}
       }
+
+      setTodayVisits(todayCountVal);
+      setTotalVisits(totalCountVal);
     };
 
-    fetchTotalVisits();
-
-    // 2. Simulate Active Live Visitors (fluctuates between 3 and 12)
-    const interval = setInterval(() => {
-      setLiveVisitors((prev) => {
-        const change = Math.random() > 0.5 ? 1 : -1;
-        const next = prev + change;
-        return Math.max(3, Math.min(12, next));
-      });
-    }, 4000);
-
-    return () => clearInterval(interval);
+    fetchCounters();
   }, []);
 
   return (
     <div className="flex flex-wrap items-center justify-center gap-6 px-5 py-3 rounded-2xl bg-neutral-900/40 backdrop-blur-md border border-white/10 font-mono text-[11px] uppercase tracking-wider text-neutral-400">
-      {/* Live Visitors Counter */}
+      {/* Today Visitor Counter */}
       <div className="flex items-center gap-2">
         <span className="relative flex h-2 w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c9f731] opacity-75"></span>
@@ -62,7 +84,10 @@ export default function VisitorCounter() {
         </span>
         <Activity className="w-3.5 h-3.5 text-[#c9f731]" />
         <span>
-          <strong className="text-white font-bold">{liveVisitors}</strong> Today Visitor
+          <strong className="text-white font-bold">
+            {typeof todayVisits === "number" ? todayVisits.toLocaleString() : todayVisits}
+          </strong>{" "}
+          Today Visitor
         </span>
       </div>
 
@@ -73,7 +98,10 @@ export default function VisitorCounter() {
       <div className="flex items-center gap-2">
         <Eye className="w-3.5 h-3.5 text-neutral-400" />
         <span>
-          Total Views: <strong className="text-white font-bold">{typeof totalVisits === "number" ? totalVisits.toLocaleString() : totalVisits}</strong>
+          Total Views:{" "}
+          <strong className="text-white font-bold">
+            {typeof totalVisits === "number" ? totalVisits.toLocaleString() : totalVisits}
+          </strong>
         </span>
       </div>
     </div>
