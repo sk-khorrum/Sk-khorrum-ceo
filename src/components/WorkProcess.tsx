@@ -140,7 +140,7 @@ export default function WorkProcess() {
         </div>
 
         {/* Tab Controls */}
-        <div className="flex flex-col sm:flex-row p-1 rounded-2xl bg-neutral-900/50 border border-white/10 backdrop-blur-xl w-full sm:w-fit gap-1 sm:gap-0">
+        <div className="flex flex-col sm:flex-row p-1 rounded-2xl bg-transparent border border-white/10 w-full sm:w-fit gap-1 sm:gap-0">
           <button
             onClick={() => {
               setActiveProcess("development");
@@ -186,8 +186,8 @@ export default function WorkProcess() {
                 onClick={() => setActiveStep(idx)}
                 className={`w-full text-left p-4 sm:p-5 rounded-2xl border transition-all flex items-center justify-between group ${
                   isActive
-                    ? "bg-[#111111]/80 border-[#c9f731] shadow-[0_0_20px_rgba(201,247,49,0.05)]"
-                    : "bg-[#111111]/30 border-white/5 hover:border-white/15 hover:bg-[#111111]/60"
+                    ? "bg-transparent border-[#c9f731] shadow-[0_0_20px_rgba(201,247,49,0.05)]"
+                    : "bg-transparent border-white/5 hover:border-white/15"
                 }`}
               >
                 <div className="flex items-center gap-4">
@@ -234,7 +234,7 @@ export default function WorkProcess() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="p-8 sm:p-10 rounded-3xl bg-[#111111]/80 backdrop-blur-xl border border-white/10 relative overflow-hidden flex flex-col justify-between min-h-[380px]"
+              className="p-8 sm:p-10 rounded-3xl bg-transparent border border-white/10 relative overflow-hidden flex flex-col justify-between min-h-[380px]"
             >
               {/* Card Background Glow */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#c9f731]/5 rounded-full filter blur-2xl pointer-events-none" />

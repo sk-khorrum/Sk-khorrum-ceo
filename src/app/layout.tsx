@@ -434,7 +434,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
         />
       </head>
-      <body className="bg-[#050507] text-[#f3f4f6] antialiased selection:bg-sky-500 selection:text-black min-h-screen">
+      <body className="bg-transparent text-[#f3f4f6] antialiased selection:bg-[#c9f731] selection:text-[#050507] min-h-screen" style={{ background: "#050505" }}>
         <Preloader />
         <CustomCursor />
         {children}
