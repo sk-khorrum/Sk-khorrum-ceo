@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /admin.khorrum/
+Disallow: /admin.khorrum
 
 Sitemap: https://khorrum.pro.bd/sitemap.xml

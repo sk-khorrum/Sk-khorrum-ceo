@@ -374,11 +374,6 @@ export default function RootLayout({
             "@type": "CollectionPage",
             "name": "Blog",
             "url": "https://khorrum.pro.bd/blog"
-          },
-          {
-            "@type": "WebPage",
-            "name": "Admin Portal",
-            "url": "https://khorrum.pro.bd/admin.khorrum"
           }
         ]
       },
