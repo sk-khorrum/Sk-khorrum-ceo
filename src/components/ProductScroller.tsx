@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence } from "framer-motion";
@@ -204,26 +204,26 @@ export default function ProductScroller() {
             <div className="relative flex flex-col items-center justify-center">
               {/* Outer cyber circle ring */}
               <div className="relative w-36 h-36 flex items-center justify-center mb-8">
-                <div className="absolute inset-0 rounded-full border border-white/5 border-t-[#c9f731] animate-spin" style={{ animationDuration: "2s" }} />
-                <div className="absolute inset-2 rounded-full border border-white/5 border-b-[#c9f731] animate-spin" style={{ animationDuration: "3s", animationDirection: "reverse" }} />
-                <div className="absolute inset-6 rounded-full border border-white/5 border-r-[#c9f731] animate-spin" style={{ animationDuration: "1.5s" }} />
+                <div className="absolute inset-0 rounded-full border border-white/5 border-t-[#f97316] animate-spin" style={{ animationDuration: "2s" }} />
+                <div className="absolute inset-2 rounded-full border border-white/5 border-b-[#f97316] animate-spin" style={{ animationDuration: "3s", animationDirection: "reverse" }} />
+                <div className="absolute inset-6 rounded-full border border-white/5 border-r-[#f97316] animate-spin" style={{ animationDuration: "1.5s" }} />
                 <span className="font-['Anton'] text-3xl tracking-widest text-white">SK</span>
               </div>
               
               <div className="text-center space-y-2">
                 <div className="font-mono text-[10px] uppercase tracking-[0.4em] text-white/40">SYSTEM INITIALIZING</div>
-                <div className="font-mono text-xs text-[#c9f731] font-bold tracking-widest uppercase h-6">
+                <div className="font-mono text-xs text-[#f97316] font-bold tracking-widest uppercase h-6">
                   {decryptedText}
                 </div>
               </div>
               
               <div className="mt-6 w-48 bg-white/5 h-[2px] rounded-full overflow-hidden relative border border-white/10">
                 <motion.div
-                  className="absolute left-0 top-0 h-full bg-[#c9f731]"
+                  className="absolute left-0 top-0 h-full bg-[#f97316]"
                   initial={{ width: "0%" }}
                   animate={{ width: `${loadPercentage}%` }}
                   transition={{ duration: 0.1 }}
-                  style={{ boxShadow: "0 0 10px #c9f731" }}
+                  style={{ boxShadow: "0 0 10px #f97316" }}
                 />
               </div>
               <div className="mt-2 text-[10px] font-mono text-white/30 tracking-widest">
@@ -376,3 +376,4 @@ export default function ProductScroller() {
     </div>
   );
 }
+

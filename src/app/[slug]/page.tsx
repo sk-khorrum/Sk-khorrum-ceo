@@ -24,7 +24,7 @@ export default function CustomPage({ params }: { params: { slug: string } }) {
     return (
       <div className="min-h-screen bg-[#050507] text-neutral-400 flex items-center justify-center font-mono text-xs">
         <div className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-[#c9f731] animate-ping" />
+          <span className="w-2 h-2 rounded-full bg-[#f97316] animate-ping" />
           <span>Fetching page telemetry...</span>
         </div>
       </div>

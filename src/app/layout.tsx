@@ -4,6 +4,7 @@ import CustomCursor from "@/components/CustomCursor";
 import Preloader from "@/components/Preloader";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollingBackground from "@/components/ScrollingBackground";
 
 const siteUrl = "https://khorrum.pro.bd";
 const siteName = "SK Khorrum Portfolio";
@@ -431,7 +432,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
         />
       </head>
-      <body className="bg-transparent text-[#f3f4f6] antialiased selection:bg-[#c9f731] selection:text-[#050507] min-h-screen" style={{ background: "#050505" }}>
+      <body className="bg-transparent text-[#f3f4f6] antialiased selection:bg-[#f97316] selection:text-[#050507] min-h-screen" style={{ background: "#050505" }}>
+        <ScrollingBackground />
         <Preloader />
         <CustomCursor />
         <Header />
@@ -441,3 +443,4 @@ export default function RootLayout({
     </html>
   );
 }
+

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -53,22 +53,22 @@ export default function BlogListingPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white selection:bg-[#c9f731] selection:text-[#050505] font-sans pt-28 pb-20">
+    <main className="min-h-screen bg-[#050505] text-white selection:bg-[#f97316] selection:text-[#050505] font-sans pt-28 pb-20">
       {/* Background Orbs */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#c9f731]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#f97316]/5 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-16 relative z-10">
         {/* Breadcrumbs */}
         <nav className="text-xs font-mono text-neutral-500 mb-8 flex items-center gap-2">
-          <Link href="/" className="hover:text-[#c9f731] transition-colors">HOME</Link>
+          <Link href="/" className="hover:text-[#f97316] transition-colors">HOME</Link>
           <span>/</span>
-          <span className="text-[#c9f731]">BLOG</span>
+          <span className="text-[#f97316]">BLOG</span>
         </nav>
 
         {/* Header Title */}
         <section className="mb-16 space-y-6">
           <div>
-            <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em] mb-2 block">Insights, Guides & Search News</span>
+            <span className="text-[#f97316] font-mono text-xs uppercase tracking-[0.25em] mb-2 block">Insights, Guides & Search News</span>
             <h1 className="font-['Anton'] text-5xl sm:text-7xl md:text-8xl tracking-wide uppercase leading-none">
               The SEO Journal
             </h1>
@@ -88,7 +88,7 @@ export default function BlogListingPage() {
                 placeholder="Search blog posts..."
                 value={searchQuery}
                 onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
-                className="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-[#111]/85 border border-white/10 focus:border-[#c9f731] focus:outline-none text-white text-xs font-mono placeholder:text-neutral-600 transition-all"
+                className="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-[#111]/85 border border-white/10 focus:border-[#f97316] focus:outline-none text-white text-xs font-mono placeholder:text-neutral-600 transition-all"
               />
             </div>
 
@@ -100,7 +100,7 @@ export default function BlogListingPage() {
                   onClick={() => { setSelectedCategory(cat.id); setCurrentPage(1); }}
                   className={`px-3.5 py-1.5 rounded-lg text-[10px] font-mono tracking-wider transition-all border ${
                     selectedCategory === cat.id
-                      ? "bg-[#c9f731] text-[#050505] border-[#c9f731] font-bold"
+                      ? "bg-[#f97316] text-[#050505] border-[#f97316] font-bold"
                       : "bg-white/5 text-neutral-400 border-white/5 hover:border-white/10 hover:text-white"
                   }`}
                 >
@@ -114,7 +114,7 @@ export default function BlogListingPage() {
         {/* BLOG GRID */}
         {loading ? (
           <div className="py-24 text-center space-y-3 font-mono text-neutral-500">
-            <div className="w-8 h-8 border-2 border-[#c9f731] border-t-transparent rounded-full animate-spin mx-auto" />
+            <div className="w-8 h-8 border-2 border-[#f97316] border-t-transparent rounded-full animate-spin mx-auto" />
             <div className="text-xs">Fetching SEO articles list...</div>
           </div>
         ) : (
@@ -124,7 +124,7 @@ export default function BlogListingPage() {
                 <Link
                   key={blog.id}
                   href={`/blog/${blog.id}`}
-                  className="group p-6 rounded-3xl bg-[#111]/40 border border-white/8 hover:border-[#c9f731]/30 transition-all flex flex-col justify-between"
+                  className="group p-6 rounded-3xl bg-[#111]/40 border border-white/8 hover:border-[#f97316]/30 transition-all flex flex-col justify-between"
                 >
                   <div>
                     {/* Cover image if present */}
@@ -143,7 +143,7 @@ export default function BlogListingPage() {
                     )}
 
                     <div className="flex items-center justify-between text-[10px] font-mono text-neutral-500 mb-4">
-                      <span className="px-2 py-0.5 rounded bg-[#c9f731]/10 text-[#c9f731] border border-[#c9f731]/20 uppercase">
+                      <span className="px-2 py-0.5 rounded bg-[#f97316]/10 text-[#f97316] border border-[#f97316]/20 uppercase">
                         {blog.category}
                       </span>
                       <span className="flex items-center gap-1">
@@ -152,7 +152,7 @@ export default function BlogListingPage() {
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-white group-hover:text-[#c9f731] transition-colors mb-3 leading-tight">
+                    <h3 className="text-lg font-bold text-white group-hover:text-[#f97316] transition-colors mb-3 leading-tight">
                       {blog.title}
                     </h3>
 
@@ -164,7 +164,7 @@ export default function BlogListingPage() {
                   <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-neutral-500">
                     <div className="flex items-center gap-3">
                       <div className="flex items-center gap-1">
-                        <User className="w-3.5 h-3.5 text-[#c9f731]" />
+                        <User className="w-3.5 h-3.5 text-[#f97316]" />
                         <span>{blog.author || "SK Khorrum"}</span>
                       </div>
                       <div className="flex items-center gap-1">
@@ -172,7 +172,7 @@ export default function BlogListingPage() {
                         <span>{blog.date}</span>
                       </div>
                     </div>
-                    <span className="text-[#c9f731] group-hover:underline flex items-center gap-0.5">
+                    <span className="text-[#f97316] group-hover:underline flex items-center gap-0.5">
                       Read <ChevronRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
@@ -194,7 +194,7 @@ export default function BlogListingPage() {
                 <button
                   onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                   disabled={currentPage === 1}
-                  className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-[#c9f731]/40 disabled:opacity-30 disabled:pointer-events-none transition-colors"
+                  className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-[#f97316]/40 disabled:opacity-30 disabled:pointer-events-none transition-colors"
                 >
                   Previous
                 </button>
@@ -204,7 +204,7 @@ export default function BlogListingPage() {
                 <button
                   onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                   disabled={currentPage === totalPages}
-                  className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-[#c9f731]/40 disabled:opacity-30 disabled:pointer-events-none transition-colors"
+                  className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-[#f97316]/40 disabled:opacity-30 disabled:pointer-events-none transition-colors"
                 >
                   Next
                 </button>
@@ -216,3 +216,4 @@ export default function BlogListingPage() {
     </main>
   );
 }
+

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -45,22 +45,22 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="relative min-h-screen text-white bg-[#050505] selection:bg-[#c9f731] selection:text-[#050505] overflow-x-hidden pt-28 pb-20">
+    <main className="relative min-h-screen text-white bg-[#050505] selection:bg-[#f97316] selection:text-[#050505] overflow-x-hidden pt-28 pb-20">
       {/* Background glow orbs */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#c9f731]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#c9f731]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#f97316]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#f97316]/5 rounded-full blur-[100px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-16 z-10 relative">
         {/* Breadcrumb Schema navigation (Manual rendering for visual aesthetics) */}
         <nav className="text-xs font-mono text-neutral-500 mb-8 flex items-center gap-2">
-          <Link href="/" className="hover:text-[#c9f731] transition-colors">HOME</Link>
+          <Link href="/" className="hover:text-[#f97316] transition-colors">HOME</Link>
           <span>/</span>
-          <span className="text-[#c9f731]">ABOUT</span>
+          <span className="text-[#f97316]">ABOUT</span>
         </nav>
 
         {/* Section Heading */}
         <div className="mb-16">
-          <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em] mb-3 block">My Profile & EEAT credentials</span>
+          <span className="text-[#f97316] font-mono text-xs uppercase tracking-[0.25em] mb-3 block">My Profile & EEAT credentials</span>
           <h1 className="font-['Anton'] text-5xl md:text-7xl tracking-wide uppercase leading-none">
             SK KHORRUM: Google SEO Specialist
           </h1>
@@ -82,7 +82,7 @@ export default function AboutPage() {
             {/* Vision and Mission Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
               <div className="p-6 rounded-2xl bg-[#111]/50 border border-white/5 space-y-3">
-                <div className="flex items-center gap-2.5 text-[#c9f731]">
+                <div className="flex items-center gap-2.5 text-[#f97316]">
                   <Target className="w-5 h-5" />
                   <h3 className="font-bold text-sm uppercase tracking-wider">Our Mission</h3>
                 </div>
@@ -91,7 +91,7 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="p-6 rounded-2xl bg-[#111]/50 border border-white/5 space-y-3">
-                <div className="flex items-center gap-2.5 text-[#c9f731]">
+                <div className="flex items-center gap-2.5 text-[#f97316]">
                   <ShieldCheck className="w-5 h-5" />
                   <h3 className="font-bold text-sm uppercase tracking-wider">Our Vision</h3>
                 </div>
@@ -121,12 +121,12 @@ export default function AboutPage() {
                 </div>
                 <div className="flex justify-between items-center border-b border-white/5 pb-2.5 text-sm">
                   <span className="text-neutral-400 font-mono">Specialization:</span>
-                  <span className="font-semibold text-white text-[#c9f731]">Technical & Core Web Vitals</span>
+                  <span className="font-semibold text-white text-[#f97316]">Technical & Core Web Vitals</span>
                 </div>
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-neutral-400 font-mono">Availability:</span>
                   <span className="font-semibold text-white flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#c9f731] animate-ping" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#f97316] animate-ping" />
                     Consulting Open
                   </span>
                 </div>
@@ -140,15 +140,15 @@ export default function AboutPage() {
             ───────────────────────────────────────────────────────────────────────────── */}
         <section className="mb-24">
           <div className="mb-12">
-            <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em] mb-2 block">Career Journey</span>
+            <span className="text-[#f97316] font-mono text-xs uppercase tracking-[0.25em] mb-2 block">Career Journey</span>
             <h2 className="font-['Anton'] text-3xl md:text-5xl tracking-wide uppercase">Chronological History</h2>
           </div>
 
           <div className="space-y-6 max-w-4xl">
             {milestones.map((m, idx) => (
-              <div key={idx} className="p-8 rounded-3xl bg-[#111]/30 border border-white/5 flex flex-col md:flex-row md:items-start justify-between gap-6 hover:border-[#c9f731]/30 transition-all duration-300">
+              <div key={idx} className="p-8 rounded-3xl bg-[#111]/30 border border-white/5 flex flex-col md:flex-row md:items-start justify-between gap-6 hover:border-[#f97316]/30 transition-all duration-300">
                 <div className="space-y-1.5 md:w-1/3">
-                  <div className="text-xs font-mono text-[#c9f731] flex items-center gap-2">
+                  <div className="text-xs font-mono text-[#f97316] flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
                     <span>{m.year}</span>
                   </div>
@@ -170,13 +170,13 @@ export default function AboutPage() {
           {/* Skills Checklist */}
           <div className="space-y-8">
             <div>
-              <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em] mb-2 block">Areas of Mastery</span>
+              <span className="text-[#f97316] font-mono text-xs uppercase tracking-[0.25em] mb-2 block">Areas of Mastery</span>
               <h2 className="font-['Anton'] text-3xl md:text-5xl tracking-wide uppercase">Core Capabilities</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {skills.map((skill, idx) => (
                 <div key={idx} className="flex items-start gap-3 p-4 rounded-xl bg-[#111]/30 border border-white/5">
-                  <CheckCircle className="w-4 h-4 text-[#c9f731] flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-4 h-4 text-[#f97316] flex-shrink-0 mt-0.5" />
                   <span className="text-xs font-mono text-neutral-300">{skill}</span>
                 </div>
               ))}
@@ -186,14 +186,14 @@ export default function AboutPage() {
           {/* Tools Grid */}
           <div className="space-y-8">
             <div>
-              <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em] mb-2 block">Technical Infrastructure</span>
+              <span className="text-[#f97316] font-mono text-xs uppercase tracking-[0.25em] mb-2 block">Technical Infrastructure</span>
               <h2 className="font-['Anton'] text-3xl md:text-5xl tracking-wide uppercase">Audit Diagnostics Stack</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {tools.map((tool, idx) => (
                 <div key={idx} className="p-4 rounded-xl bg-[#111]/30 border border-white/5 hover:border-neutral-700 transition-colors">
                   <div className="flex items-center gap-2 mb-1.5 text-white">
-                    <Laptop className="w-4 h-4 text-[#c9f731]" />
+                    <Laptop className="w-4 h-4 text-[#f97316]" />
                     <span className="text-sm font-bold">{tool.name}</span>
                   </div>
                   <p className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider">{tool.category}</p>
@@ -212,7 +212,7 @@ export default function AboutPage() {
             Let's evaluate your search assets, Crawlability obstacles, and key terms in Dhaka or globally. Schedule your initial consultation.
           </p>
           <div className="flex justify-center gap-4">
-            <Link href="/contact" className="px-6 py-3 rounded-xl bg-[#c9f731] text-[#050505] font-bold text-xs hover:bg-[#b8e220] transition-colors flex items-center gap-1.5">
+            <Link href="/contact" className="px-6 py-3 rounded-xl bg-[#f97316] text-[#050505] font-bold text-xs hover:bg-[#b8e220] transition-colors flex items-center gap-1.5">
               <span>Connect Now</span>
               <ChevronRight className="w-4 h-4" />
             </Link>
@@ -223,3 +223,4 @@ export default function AboutPage() {
     </main>
   );
 }
+

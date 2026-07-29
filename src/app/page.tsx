@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -51,7 +51,7 @@ function StatItem({ value, suffix, label }: { value: number; suffix: string; lab
 
   return (
     <div ref={ref} className="text-center md:text-left">
-      <div className="font-['Anton'] text-4xl sm:text-5xl text-[#c9f731] tracking-wider mb-2">
+      <div className="font-['Anton'] text-4xl sm:text-5xl text-[#f97316] tracking-wider mb-2">
         {count}
         {suffix}
       </div>
@@ -119,11 +119,11 @@ export default function HomePage() {
   };
 
   return (
-    <main className="relative min-h-screen text-white bg-[#050505] selection:bg-[#c9f731] selection:text-[#050505] overflow-x-hidden">
+    <main className="relative min-h-screen text-white bg-[#050505] selection:bg-[#f97316] selection:text-[#050505] overflow-x-hidden">
       {/* Dynamic Background elements */}
       <div className="absolute inset-0 hero-grid z-0 pointer-events-none opacity-40" />
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#c9f731]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-[#c9f731]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#f97316]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-[#f97316]/5 rounded-full blur-[100px] pointer-events-none" />
 
       {/* SEO Main Heading for Search Engines (Hidden visually, read by spiders) */}
       <h1 className="sr-only">Best SEO Specialist in Bangladesh - SK Khorrum | SEO Expert & Consultant</h1>
@@ -136,15 +136,15 @@ export default function HomePage() {
           
           {/* Left Text and Search Simulator */}
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-pill border border-[#c9f731]/25 text-xs font-mono">
-              <span className="w-2 h-2 rounded-full bg-[#c9f731] animate-pulse" />
-              <span className="text-[#c9f731] tracking-wider uppercase">Rank #1 in Google Bangladesh</span>
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-pill border border-[#f97316]/25 text-xs font-mono">
+              <span className="w-2 h-2 rounded-full bg-[#f97316] animate-pulse" />
+              <span className="text-[#f97316] tracking-wider uppercase">Rank #1 in Google Bangladesh</span>
             </div>
 
             <div className="space-y-4">
               <h2 className="font-['Anton'] text-5xl sm:text-7xl lg:text-8xl leading-none tracking-wide">
                 WE DOMINATE<br />
-                <span className="text-[#c9f731] hero-glow">SEARCH ENGINE</span><br />
+                <span className="text-[#f97316] hero-glow">SEARCH ENGINE</span><br />
                 REAL ESTATE.
               </h2>
               <p className="text-neutral-400 text-base sm:text-lg leading-relaxed max-w-xl">
@@ -154,11 +154,11 @@ export default function HomePage() {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 pt-2">
-              <Link href="/seo-audit" className="group flex items-center gap-2 px-8 py-4 rounded-2xl bg-[#c9f731] text-[#050505] font-bold text-sm hover:bg-[#b8e220] transition-all shadow-lg shadow-[#c9f731]/20">
+              <Link href="/seo-audit" className="group flex items-center gap-2 px-8 py-4 rounded-2xl bg-[#f97316] text-[#050505] font-bold text-sm hover:bg-[#b8e220] transition-all shadow-lg shadow-[#f97316]/20">
                 <span>Free SEO Diagnostics</span>
                 <Zap className="w-4 h-4" />
               </Link>
-              <Link href="/contact" className="group flex items-center gap-2 px-8 py-4 rounded-2xl border border-white/10 bg-white/5 hover:border-[#c9f731]/40 hover:text-[#c9f731] font-mono text-xs transition-all">
+              <Link href="/contact" className="group flex items-center gap-2 px-8 py-4 rounded-2xl border border-white/10 bg-white/5 hover:border-[#f97316]/40 hover:text-[#f97316] font-mono text-xs transition-all">
                 <span>Book Consulting Call</span>
                 <ChevronRight className="w-4 h-4" />
               </Link>
@@ -183,22 +183,22 @@ export default function HomePage() {
                 <div className="p-5 space-y-4 bg-black/60 min-h-[160px]">
                   <div className="flex items-center justify-between text-xs text-neutral-500 font-mono pb-2 border-b border-white/5">
                     <span>Google.com.bd Search Results</span>
-                    <span className="text-[#c9f731] font-bold">About 2,410,000 results (0.34s)</span>
+                    <span className="text-[#f97316] font-bold">About 2,410,000 results (0.34s)</span>
                   </div>
                   
                   {/* Result 1 (SK Khorrum) */}
                   <div className="space-y-1.5 group cursor-pointer" onClick={() => setShowResults(true)}>
                     <div className="text-xs font-mono text-neutral-500 flex items-center gap-1">
                       <span>https://khorrum.pro.bd</span>
-                      <span className="px-1 py-0.2 bg-[#c9f731]/10 text-[#c9f731] text-[9px] rounded font-bold">SPONSOR FREE</span>
+                      <span className="px-1 py-0.2 bg-[#f97316]/10 text-[#f97316] text-[9px] rounded font-bold">SPONSOR FREE</span>
                     </div>
-                    <h3 className="text-base font-bold text-[#c9f731] underline group-hover:text-white transition-colors">
+                    <h3 className="text-base font-bold text-[#f97316] underline group-hover:text-white transition-colors">
                       Best SEO Specialist in Bangladesh - SK Khorrum
                     </h3>
                     <p className="text-xs text-neutral-400 leading-relaxed">
                       5+ Years experienced Technical SEO Expert, Google Search Consultant & performance optimizer. Scale your business to Page 1 with proven case studies...
                     </p>
-                    <div className="flex items-center gap-4 pt-1.5 text-[10px] text-[#c9f731] font-mono">
+                    <div className="flex items-center gap-4 pt-1.5 text-[10px] text-[#f97316] font-mono">
                       <span>★ 5.0 (98 reviews)</span>
                       <span>• Audit Score: 98%</span>
                       <span>• Location: Dhaka, BD</span>
@@ -213,7 +213,7 @@ export default function HomePage() {
           {/* Right Image/Stats Display */}
           <div className="relative flex justify-center">
             {/* Visual glow frame */}
-            <div className="absolute inset-0 border border-[#c9f731]/20 rounded-[40px] transform rotate-3 scale-95 pointer-events-none" />
+            <div className="absolute inset-0 border border-[#f97316]/20 rounded-[40px] transform rotate-3 scale-95 pointer-events-none" />
             
             <div className="relative w-full max-w-sm rounded-[36px] overflow-hidden border border-white/10 bg-gradient-to-b from-white/10 to-transparent p-3 backdrop-blur-xl animate-float-photo">
               <img
@@ -223,8 +223,8 @@ export default function HomePage() {
               />
               
               {/* Floating indicators */}
-              <div className="absolute top-8 -left-8 glass-pill border border-[#c9f731]/30 p-3.5 rounded-2xl flex items-center gap-3 shadow-2xl">
-                <div className="w-9 h-9 rounded-xl bg-[#c9f731]/10 flex items-center justify-center text-[#c9f731]">
+              <div className="absolute top-8 -left-8 glass-pill border border-[#f97316]/30 p-3.5 rounded-2xl flex items-center gap-3 shadow-2xl">
+                <div className="w-9 h-9 rounded-xl bg-[#f97316]/10 flex items-center justify-center text-[#f97316]">
                   <BarChart3 className="w-5 h-5" />
                 </div>
                 <div>
@@ -234,7 +234,7 @@ export default function HomePage() {
               </div>
 
               <div className="absolute bottom-8 -right-8 glass-pill border border-white/10 p-3.5 rounded-2xl flex items-center gap-3 shadow-2xl">
-                <div className="w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center text-[#c9f731]">
+                <div className="w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center text-[#f97316]">
                   <Award className="w-5 h-5" />
                 </div>
                 <div>
@@ -266,7 +266,7 @@ export default function HomePage() {
           ───────────────────────────────────────────────────────────────────────────── */}
       <section className="py-24 px-6 md:px-16 max-w-7xl mx-auto z-10 relative">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em]">Interactive Diagnostics</span>
+          <span className="text-[#f97316] font-mono text-xs uppercase tracking-[0.25em]">Interactive Diagnostics</span>
           <h2 className="font-['Anton'] text-4xl sm:text-6xl tracking-wide">RUN AN INSTANT AUDIT REPORT</h2>
           <p className="text-neutral-400">
             Crawl your domain live. Inspect critical indexing signals, Core Web Vitals metrics, semantic errors, and get a customized recovery roadmap.
@@ -275,7 +275,7 @@ export default function HomePage() {
 
         <div className="max-w-4xl mx-auto">
           <div className="glass-panel border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
-            <div className="absolute top-0 right-10 w-24 h-24 bg-[#c9f731]/5 rounded-full blur-[40px] pointer-events-none" />
+            <div className="absolute top-0 right-10 w-24 h-24 bg-[#f97316]/5 rounded-full blur-[40px] pointer-events-none" />
 
             {!isScanning && !scanResults && (
               <form onSubmit={handleStartScan} className="space-y-6">
@@ -293,12 +293,12 @@ export default function HomePage() {
                         value={targetUrl}
                         onChange={(e) => setTargetUrl(e.target.value)}
                         required
-                        className="w-full bg-[#111]/85 border border-white/10 rounded-2xl pl-11 pr-4 py-4 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-[#c9f731] transition-all font-mono"
+                        className="w-full bg-[#111]/85 border border-white/10 rounded-2xl pl-11 pr-4 py-4 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-[#f97316] transition-all font-mono"
                       />
                     </div>
                     <button
                       type="submit"
-                      className="px-8 py-4 rounded-2xl bg-[#c9f731] text-[#050505] font-bold text-sm hover:bg-[#b8e220] transition-colors flex items-center justify-center gap-2"
+                      className="px-8 py-4 rounded-2xl bg-[#f97316] text-[#050505] font-bold text-sm hover:bg-[#b8e220] transition-colors flex items-center justify-center gap-2"
                     >
                       <span>Analyze Website</span>
                       <Zap className="w-4 h-4" />
@@ -306,7 +306,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-neutral-500 font-mono">
-                  <AlertCircle className="w-4 h-4 text-[#c9f731]" />
+                  <AlertCircle className="w-4 h-4 text-[#f97316]" />
                   <span>No credit card required. Free analysis scans technical index elements instantly.</span>
                 </div>
               </form>
@@ -316,11 +316,11 @@ export default function HomePage() {
             {isScanning && (
               <div className="py-12 flex flex-col items-center justify-center text-center space-y-6">
                 <div className="relative">
-                  <div className="w-16 h-16 border-2 border-[#c9f731]/10 border-t-[#c9f731] rounded-full animate-spin" />
-                  <RefreshCw className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 text-[#c9f731]" />
+                  <div className="w-16 h-16 border-2 border-[#f97316]/10 border-t-[#f97316] rounded-full animate-spin" />
+                  <RefreshCw className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 text-[#f97316]" />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-lg font-bold font-mono text-[#c9f731]">
+                  <h3 className="text-lg font-bold font-mono text-[#f97316]">
                     Analyzing {new URL(targetUrl).hostname}...
                   </h3>
                   <p className="text-xs text-neutral-400 font-mono animate-pulse max-w-sm mx-auto">
@@ -330,7 +330,7 @@ export default function HomePage() {
                 {/* Visual Progress bar */}
                 <div className="w-full max-w-md h-1 bg-white/5 rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-[#c9f731] transition-all duration-1000"
+                    className="h-full bg-[#f97316] transition-all duration-1000"
                     style={{ width: `${((scanStep + 1) / scanSteps.length) * 100}%` }}
                   />
                 </div>
@@ -347,7 +347,7 @@ export default function HomePage() {
                   </div>
                   <button 
                     onClick={() => { setScanResults(null); setTargetUrl(""); }}
-                    className="text-xs font-mono text-neutral-400 hover:text-[#c9f731] border border-white/10 rounded-lg px-3 py-1 hover:border-[#c9f731]/30 transition-all"
+                    className="text-xs font-mono text-neutral-400 hover:text-[#f97316] border border-white/10 rounded-lg px-3 py-1 hover:border-[#f97316]/30 transition-all"
                   >
                     Scan Another URL
                   </button>
@@ -356,12 +356,12 @@ export default function HomePage() {
                 {/* Score Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="p-5 rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center text-center">
-                    <div className="text-3xl font-bold font-mono text-[#c9f731] mb-1">{scanResults.seo}%</div>
+                    <div className="text-3xl font-bold font-mono text-[#f97316] mb-1">{scanResults.seo}%</div>
                     <div className="text-xs font-mono text-neutral-400 uppercase tracking-widest">SEO Score</div>
                     <div className="mt-3 text-[11px] text-neutral-500 leading-normal">On-page headers, structure & indexing elements need recovery.</div>
                   </div>
                   <div className="p-5 rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center text-center">
-                    <div className="text-3xl font-bold font-mono text-[#c9f731] mb-1">{scanResults.performance}%</div>
+                    <div className="text-3xl font-bold font-mono text-[#f97316] mb-1">{scanResults.performance}%</div>
                     <div className="text-xs font-mono text-neutral-400 uppercase tracking-widest">Page Speed</div>
                     <div className="mt-3 text-[11px] text-neutral-500 leading-normal">LCP and CLS values exceed modern thresholds on mobile channels.</div>
                   </div>
@@ -391,7 +391,7 @@ export default function HomePage() {
                   </div>
 
                   {leadSubmitted ? (
-                    <div className="p-6 rounded-2xl bg-[#c9f731]/10 border border-[#c9f731]/30 text-center text-[#c9f731] font-mono text-sm">
+                    <div className="p-6 rounded-2xl bg-[#f97316]/10 border border-[#f97316]/30 text-center text-[#f97316] font-mono text-sm">
                       ✨ Thank you! The detailed audit PDF has been queued for delivery to {leadEmail}. I will reach out shortly.
                     </div>
                   ) : (
@@ -402,11 +402,11 @@ export default function HomePage() {
                         value={leadEmail}
                         onChange={(e) => setLeadEmail(e.target.value)}
                         required
-                        className="flex-1 bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-[#c9f731] font-mono"
+                        className="flex-1 bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-[#f97316] font-mono"
                       />
                       <button
                         type="submit"
-                        className="px-6 py-3 rounded-xl bg-[#c9f731] text-[#050505] font-bold text-xs hover:bg-[#b8e220] transition-colors"
+                        className="px-6 py-3 rounded-xl bg-[#f97316] text-[#050505] font-bold text-xs hover:bg-[#b8e220] transition-colors"
                       >
                         Send Free Fix Guide
                       </button>
@@ -424,7 +424,7 @@ export default function HomePage() {
           ───────────────────────────────────────────────────────────────────────────── */}
       <section className="py-16 bg-[#09090b] border-y border-white/5 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-16 mb-10 text-center">
-          <p className="text-[10px] font-mono text-[#c9f731] uppercase tracking-[0.25em] mb-1">
+          <p className="text-[10px] font-mono text-[#f97316] uppercase tracking-[0.25em] mb-1">
             Trusted by Businesses Worldwide
           </p>
           <h2 className="text-2xl font-bold text-white">My SEO Clients</h2>
@@ -460,7 +460,7 @@ export default function HomePage() {
               { src: "/clients/sabikatours.svg", name: "Sabikatours" },
               { src: "/clients/cerium.svg", name: "Cerium" },
             ].map((c, i) => (
-              <div key={i} className="flex-shrink-0 flex items-center justify-center px-5 py-3 h-16 rounded-2xl bg-white/[0.03] border border-white/[0.07] hover:border-[#c9f731]/30 hover:bg-white/[0.07] grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300 min-w-[140px] group">
+              <div key={i} className="flex-shrink-0 flex items-center justify-center px-5 py-3 h-16 rounded-2xl bg-white/[0.03] border border-white/[0.07] hover:border-[#f97316]/30 hover:bg-white/[0.07] grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300 min-w-[140px] group">
                 <img src={c.src} alt={c.name} className="h-8 w-auto object-contain" />
               </div>
             ))}
@@ -491,7 +491,7 @@ export default function HomePage() {
               { src: "/clients/digitfy.svg", name: "Digitfy" },
               { src: "/clients/icon-sports.svg", name: "iCon Sports" },
             ].map((c, i) => (
-              <div key={i} className="flex-shrink-0 flex items-center justify-center px-5 py-3 h-16 rounded-2xl bg-white/[0.03] border border-white/[0.07] hover:border-[#c9f731]/30 hover:bg-white/[0.07] grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300 min-w-[140px]">
+              <div key={i} className="flex-shrink-0 flex items-center justify-center px-5 py-3 h-16 rounded-2xl bg-white/[0.03] border border-white/[0.07] hover:border-[#f97316]/30 hover:bg-white/[0.07] grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300 min-w-[140px]">
                 <img src={c.src} alt={c.name} className="h-8 w-auto object-contain" />
               </div>
             ))}
@@ -516,10 +516,10 @@ export default function HomePage() {
       <section className="py-24 px-6 md:px-16 max-w-7xl mx-auto z-10 relative">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <div>
-            <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em]">Audit, Strategy & Execution</span>
+            <span className="text-[#f97316] font-mono text-xs uppercase tracking-[0.25em]">Audit, Strategy & Execution</span>
             <h2 className="font-['Anton'] text-4xl sm:text-6xl tracking-wide mt-2">Core SEO Pillars</h2>
           </div>
-          <Link href="/services" className="font-mono text-xs text-[#c9f731] hover:underline flex items-center gap-1.5 uppercase tracking-widest">
+          <Link href="/services" className="font-mono text-xs text-[#f97316] hover:underline flex items-center gap-1.5 uppercase tracking-widest">
             <span>Explore All SEO Modules</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
@@ -546,19 +546,19 @@ export default function HomePage() {
               tag: "Pillar 03"
             }
           ].map((service, idx) => (
-            <div key={idx} className="group p-8 rounded-3xl bg-[#111]/40 border border-white/8 hover:border-[#c9f731]/40 transition-all duration-300 flex flex-col justify-between hover:shadow-2xl">
+            <div key={idx} className="group p-8 rounded-3xl bg-[#111]/40 border border-white/8 hover:border-[#f97316]/40 transition-all duration-300 flex flex-col justify-between hover:shadow-2xl">
               <div>
                 <div className="flex items-center justify-between text-xs font-mono text-neutral-500 mb-6">
                   <span>{service.tag}</span>
                   <span className="w-8 h-[1px] bg-white/10" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-white group-hover:text-[#c9f731] transition-colors">{service.title}</h3>
+                <h3 className="text-xl font-bold mb-4 text-white group-hover:text-[#f97316] transition-colors">{service.title}</h3>
                 <p className="text-sm text-neutral-400 leading-relaxed mb-6">{service.desc}</p>
               </div>
               <ul className="space-y-2 border-t border-white/5 pt-6 text-xs text-neutral-400 font-mono">
                 {service.bullets.map((b, bIdx) => (
                   <li key={bIdx} className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#c9f731]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#f97316]" />
                     {b}
                   </li>
                 ))}
@@ -573,7 +573,7 @@ export default function HomePage() {
           ───────────────────────────────────────────────────────────────────────────── */}
       <section className="py-24 px-6 md:px-16 max-w-7xl mx-auto z-10 relative">
         <div className="text-center mb-16">
-          <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em]">What I Do</span>
+          <span className="text-[#f97316] font-mono text-xs uppercase tracking-[0.25em]">What I Do</span>
           <h2 className="font-['Anton'] text-4xl sm:text-5xl tracking-wide mt-2">SEO Services I Offer</h2>
           <p className="text-neutral-400 mt-4 max-w-xl mx-auto text-sm">From technical foundations to content strategy — every service is laser-focused on growing your organic traffic.</p>
         </div>
@@ -584,13 +584,13 @@ export default function HomePage() {
             {
               title: "Technical SEO",
               desc: "Making your site fast, crawlable, and perfectly structured for Google to index every page.",
-              color: "#c9f731",
+              color: "#f97316",
               svg: (
                 <svg viewBox="0 0 120 100" className="w-full h-28" fill="none" xmlns="http://www.w3.org/2000/svg">
                   {/* Isometric server/gear */}
                   <defs>
                     <linearGradient id="g1t" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stopColor="#c9f731" stopOpacity="0.9"/>
+                      <stop offset="0%" stopColor="#f97316" stopOpacity="0.9"/>
                       <stop offset="100%" stopColor="#7ab800" stopOpacity="0.6"/>
                     </linearGradient>
                     <linearGradient id="g1s" x1="0" y1="0" x2="0" y2="1">
@@ -599,22 +599,22 @@ export default function HomePage() {
                     </linearGradient>
                   </defs>
                   {/* Base cube iso */}
-                  <polygon points="60,15 95,33 95,68 60,85 25,68 25,33" fill="url(#g1s)" stroke="#c9f731" strokeWidth="1.2" strokeOpacity="0.4"/>
+                  <polygon points="60,15 95,33 95,68 60,85 25,68 25,33" fill="url(#g1s)" stroke="#f97316" strokeWidth="1.2" strokeOpacity="0.4"/>
                   <polygon points="60,15 95,33 60,50 25,33" fill="url(#g1t)" fillOpacity="0.15"/>
-                  <polygon points="25,33 60,50 60,85 25,68" fill="#c9f731" fillOpacity="0.05"/>
-                  <polygon points="95,33 60,50 60,85 95,68" fill="#c9f731" fillOpacity="0.08"/>
+                  <polygon points="25,33 60,50 60,85 25,68" fill="#f97316" fillOpacity="0.05"/>
+                  <polygon points="95,33 60,50 60,85 95,68" fill="#f97316" fillOpacity="0.08"/>
                   {/* Gear icon center */}
-                  <circle cx="60" cy="50" r="14" stroke="#c9f731" strokeWidth="1.5" fill="none" strokeOpacity="0.8"/>
-                  <circle cx="60" cy="50" r="6" fill="#c9f731" fillOpacity="0.5"/>
+                  <circle cx="60" cy="50" r="14" stroke="#f97316" strokeWidth="1.5" fill="none" strokeOpacity="0.8"/>
+                  <circle cx="60" cy="50" r="6" fill="#f97316" fillOpacity="0.5"/>
                   {[0,45,90,135,180,225,270,315].map((a,i)=>(
-                    <rect key={i} x="58.5" y="34" width="3" height="5" rx="1" fill="#c9f731"
+                    <rect key={i} x="58.5" y="34" width="3" height="5" rx="1" fill="#f97316"
                       transform={`rotate(${a} 60 50)`} fillOpacity="0.9"/>
                   ))}
                   {/* Floating nodes */}
-                  <circle cx="30" cy="28" r="3" fill="#c9f731" fillOpacity="0.6"/>
-                  <circle cx="90" cy="28" r="3" fill="#c9f731" fillOpacity="0.6"/>
-                  <line x1="33" y1="28" x2="46" y2="36" stroke="#c9f731" strokeWidth="1" strokeOpacity="0.4"/>
-                  <line x1="87" y1="28" x2="74" y2="36" stroke="#c9f731" strokeWidth="1" strokeOpacity="0.4"/>
+                  <circle cx="30" cy="28" r="3" fill="#f97316" fillOpacity="0.6"/>
+                  <circle cx="90" cy="28" r="3" fill="#f97316" fillOpacity="0.6"/>
+                  <line x1="33" y1="28" x2="46" y2="36" stroke="#f97316" strokeWidth="1" strokeOpacity="0.4"/>
+                  <line x1="87" y1="28" x2="74" y2="36" stroke="#f97316" strokeWidth="1" strokeOpacity="0.4"/>
                 </svg>
               )
             },
@@ -745,14 +745,14 @@ export default function HomePage() {
               impact: "Rapid content mass indexation of high-intent pages and significant traffic growth without manual effort."
             }
           ].map((s, i) => (
-            <div key={i} className="p-7 rounded-3xl bg-[#111]/40 border border-white/8 hover:border-[#c9f731]/30 hover:shadow-[0_0_20px_rgba(201,247,49,0.06)] transition-all duration-300 flex flex-col gap-4">
+            <div key={i} className="p-7 rounded-3xl bg-[#111]/40 border border-white/8 hover:border-[#f97316]/30 hover:shadow-[0_0_20px_rgba(201,247,49,0.06)] transition-all duration-300 flex flex-col gap-4">
               <div className="flex flex-col items-start gap-3 pb-4 border-b border-white/8">
                 <span className="text-3xl">{s.icon}</span>
                 <h3 className="font-bold text-white text-lg">{s.title}</h3>
               </div>
               <div className="space-y-3 text-sm">
                 <p className="text-neutral-300 leading-relaxed">
-                  <span className="font-semibold text-[#c9f731]">What it is: </span>{s.what}
+                  <span className="font-semibold text-[#f97316]">What it is: </span>{s.what}
                 </p>
                 <p className="text-neutral-300 leading-relaxed">
                   <span className="font-semibold text-white">What I deliver: </span>{s.deliver}
@@ -771,7 +771,7 @@ export default function HomePage() {
           ───────────────────────────────────────────────────────────────────────────── */}
       <section className="py-24 px-6 md:px-16 max-w-7xl mx-auto z-10 relative">
         <div className="text-center mb-16">
-          <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em]">The Difference</span>
+          <span className="text-[#f97316] font-mono text-xs uppercase tracking-[0.25em]">The Difference</span>
           <h2 className="font-['Anton'] text-4xl sm:text-5xl tracking-wide mt-2">Why Choose Me as Your SEO Expert?</h2>
         </div>
 
@@ -783,7 +783,7 @@ export default function HomePage() {
                 <>
                   <p className="text-neutral-300 leading-relaxed text-sm mb-4">
                     I started in SEO in 2020 and have practiced it every single day since. That includes managing SEO for{" "}
-                    <a href="https://www.amardesh.com" target="_blank" rel="noopener" className="text-[#c9f731] hover:underline font-semibold">Daily Amar Desh</a>{" "}
+                    <a href="https://www.amardesh.com" target="_blank" rel="noopener" className="text-[#f97316] hover:underline font-semibold">Daily Amar Desh</a>{" "}
                     — a national news platform publishing hundreds of articles daily, with massive crawl complexity, rapid indexation demands, and fierce keyword competition.
                   </p>
                   <p className="text-neutral-300 leading-relaxed text-sm">
@@ -793,10 +793,10 @@ export default function HomePage() {
               ),
               image: (
                 <div className="w-full h-52 rounded-2xl bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[#c9f731]/5" />
+                  <div className="absolute inset-0 bg-[#f97316]/5" />
                   <div className="text-center p-6">
                     <div className="text-5xl mb-3">📈</div>
-                    <div className="font-mono text-xs text-[#c9f731] uppercase tracking-widest">5+ Years · 100+ Clients</div>
+                    <div className="font-mono text-xs text-[#f97316] uppercase tracking-widest">5+ Years · 100+ Clients</div>
                     <div className="text-neutral-400 text-xs mt-1">Bangladesh's Top SEO Specialist</div>
                   </div>
                 </div>
@@ -815,11 +815,11 @@ export default function HomePage() {
                 </>
               ),
               image: (
-                <div className="w-full h-52 rounded-2xl bg-gradient-to-br from-[#0d1117] to-[#1a1a2e] border border-[#c9f731]/10 flex items-center justify-center relative overflow-hidden">
+                <div className="w-full h-52 rounded-2xl bg-gradient-to-br from-[#0d1117] to-[#1a1a2e] border border-[#f97316]/10 flex items-center justify-center relative overflow-hidden">
                   <div className="grid grid-cols-3 gap-3 p-4 w-full">
                     {["Ahrefs","SEMrush","GSC","Screaming Frog","GA4","PageSpeed"].map((t,i)=>(
                       <div key={i} className="bg-white/5 border border-white/10 rounded-lg p-2 text-center">
-                        <div className="text-[10px] font-mono text-[#c9f731] font-bold">{t}</div>
+                        <div className="text-[10px] font-mono text-[#f97316] font-bold">{t}</div>
                       </div>
                     ))}
                   </div>
@@ -839,21 +839,21 @@ export default function HomePage() {
                 </>
               ),
               image: (
-                <div className="w-full h-52 rounded-2xl bg-gradient-to-br from-[#0d1117] to-[#1a1a2e] border border-[#c9f731]/10 flex items-center justify-center p-6">
+                <div className="w-full h-52 rounded-2xl bg-gradient-to-br from-[#0d1117] to-[#1a1a2e] border border-[#f97316]/10 flex items-center justify-center p-6">
                   <div className="w-full space-y-3">
                     {[["Organic Traffic","+340%"],["Keyword Rankings","#1 in 60 days"],["Conversion Rate","+85%"]].map(([label,val],i)=>(
                       <div key={i} className="flex justify-between items-center">
                         <span className="text-neutral-400 text-xs font-mono">{label}</span>
-                        <span className="text-[#c9f731] text-sm font-bold font-mono">{val}</span>
+                        <span className="text-[#f97316] text-sm font-bold font-mono">{val}</span>
                       </div>
                     ))}
-                    <div className="mt-2 h-[2px] bg-gradient-to-r from-[#c9f731]/40 via-[#c9f731] to-[#c9f731]/40 rounded-full" />
+                    <div className="mt-2 h-[2px] bg-gradient-to-r from-[#f97316]/40 via-[#f97316] to-[#f97316]/40 rounded-full" />
                   </div>
                 </div>
               )
             }
           ].map((item, i) => (
-            <div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 rounded-3xl bg-[#111]/40 border border-white/8 hover:border-[#c9f731]/20 transition-all duration-300 items-center">
+            <div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 rounded-3xl bg-[#111]/40 border border-white/8 hover:border-[#f97316]/20 transition-all duration-300 items-center">
               <div>
                 <h3 className="text-xl font-bold text-white mb-5">{item.title}</h3>
                 {item.body}
@@ -868,11 +868,11 @@ export default function HomePage() {
           CTA BANNER (CRO TARGETED)
           ───────────────────────────────────────────────────────────────────────────── */}
       <section className="py-24 px-6 md:px-16 max-w-7xl mx-auto z-10 relative">
-        <div className="glass-panel border border-[#c9f731]/30 rounded-[40px] p-8 sm:p-16 text-center space-y-8 relative overflow-hidden shadow-2xl">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#c9f731]/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="glass-panel border border-[#f97316]/30 rounded-[40px] p-8 sm:p-16 text-center space-y-8 relative overflow-hidden shadow-2xl">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#f97316]/5 rounded-full blur-[120px] pointer-events-none" />
 
           <div className="max-w-2xl mx-auto space-y-4">
-            <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em]">Ready to scale your organic presence?</span>
+            <span className="text-[#f97316] font-mono text-xs uppercase tracking-[0.25em]">Ready to scale your organic presence?</span>
             <h2 className="font-['Anton'] text-4xl sm:text-6xl tracking-wide leading-none">STOP LEAKING TRAFFIC TO COMPETITORS</h2>
             <p className="text-neutral-400 max-w-lg mx-auto">
               Schedule a technical assessment session today. We will map out your primary money keywords and identify why your competitors are ranking higher.
@@ -880,11 +880,11 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="px-8 py-4 rounded-2xl bg-[#c9f731] text-[#050505] font-bold text-sm hover:bg-[#b8e220] transition-colors flex items-center gap-2 shadow-lg">
+            <Link href="/contact" className="px-8 py-4 rounded-2xl bg-[#f97316] text-[#050505] font-bold text-sm hover:bg-[#b8e220] transition-colors flex items-center gap-2 shadow-lg">
               <span>Book Consultation Now</span>
               <ChevronRight className="w-4 h-4" />
             </Link>
-            <a href="/resume.pdf" download className="px-8 py-4 rounded-2xl border border-white/10 bg-white/5 hover:border-[#c9f731]/30 hover:text-[#c9f731] transition-all font-mono text-xs flex items-center gap-2">
+            <a href="/resume.pdf" download className="px-8 py-4 rounded-2xl border border-white/10 bg-white/5 hover:border-[#f97316]/30 hover:text-[#f97316] transition-all font-mono text-xs flex items-center gap-2">
               <Download className="w-4 h-4" />
               <span>Download SEO Resume</span>
             </a>
@@ -894,3 +894,4 @@ export default function HomePage() {
     </main>
   );
 }
+

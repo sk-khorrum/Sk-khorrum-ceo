@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -44,22 +44,22 @@ export default function SEOAuditPage() {
   };
 
   return (
-    <main className="relative min-h-screen text-white bg-[#050505] selection:bg-[#c9f731] selection:text-[#050505] overflow-x-hidden pt-28 pb-20">
+    <main className="relative min-h-screen text-white bg-[#050505] selection:bg-[#f97316] selection:text-[#050505] overflow-x-hidden pt-28 pb-20">
       {/* Background glow orbs */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#c9f731]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#c9f731]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#f97316]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#f97316]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-16 z-10 relative">
         {/* Breadcrumb Navigation */}
         <nav className="text-xs font-mono text-neutral-500 mb-8 flex items-center gap-2">
-          <Link href="/" className="hover:text-[#c9f731] transition-colors">HOME</Link>
+          <Link href="/" className="hover:text-[#f97316] transition-colors">HOME</Link>
           <span>/</span>
-          <span className="text-[#c9f731]">SEO AUDIT</span>
+          <span className="text-[#f97316]">SEO AUDIT</span>
         </nav>
 
         {/* Headline */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em]">Lead Generation Diagnostics</span>
+          <span className="text-[#f97316] font-mono text-xs uppercase tracking-[0.25em]">Lead Generation Diagnostics</span>
           <h1 className="font-['Anton'] text-5xl sm:text-7xl tracking-wide uppercase leading-none">
             Get A Free Technical SEO Audit
           </h1>
@@ -71,7 +71,7 @@ export default function SEOAuditPage() {
         <div className="max-w-3xl mx-auto">
           {/* Main Scanner Box */}
           <div className="glass-panel border border-white/10 rounded-3xl p-6 sm:p-12 shadow-2xl relative">
-            <div className="absolute top-0 left-1/4 w-32 h-32 bg-[#c9f731]/5 rounded-full blur-[50px] pointer-events-none" />
+            <div className="absolute top-0 left-1/4 w-32 h-32 bg-[#f97316]/5 rounded-full blur-[50px] pointer-events-none" />
 
             {!isScanning && !reportGenerated && (
               <form onSubmit={handleStartScan} className="space-y-6">
@@ -89,7 +89,7 @@ export default function SEOAuditPage() {
                         value={url}
                         onChange={(e) => setUrl(e.target.value)}
                         required
-                        className="w-full bg-[#111]/80 border border-white/10 rounded-2xl pl-11 pr-4 py-4 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-[#c9f731] font-mono"
+                        className="w-full bg-[#111]/80 border border-white/10 rounded-2xl pl-11 pr-4 py-4 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-[#f97316] font-mono"
                       />
                     </div>
                   </div>
@@ -107,7 +107,7 @@ export default function SEOAuditPage() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="w-full bg-[#111]/80 border border-white/10 rounded-2xl pl-11 pr-4 py-4 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-[#c9f731] font-mono"
+                        className="w-full bg-[#111]/80 border border-white/10 rounded-2xl pl-11 pr-4 py-4 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-[#f97316] font-mono"
                       />
                     </div>
                   </div>
@@ -115,7 +115,7 @@ export default function SEOAuditPage() {
 
                 <button
                   type="submit"
-                  className="w-full px-8 py-4.5 rounded-2xl bg-[#c9f731] text-[#050505] font-bold text-sm hover:bg-[#b8e220] transition-colors flex items-center justify-center gap-2"
+                  className="w-full px-8 py-4.5 rounded-2xl bg-[#f97316] text-[#050505] font-bold text-sm hover:bg-[#b8e220] transition-colors flex items-center justify-center gap-2"
                 >
                   <span>Scan Technical Signals</span>
                   <Zap className="w-4 h-4" />
@@ -127,18 +127,18 @@ export default function SEOAuditPage() {
             {isScanning && (
               <div className="py-12 flex flex-col items-center justify-center text-center space-y-6">
                 <div className="relative">
-                  <div className="w-16 h-16 border-2 border-[#c9f731]/10 border-t-[#c9f731] rounded-full animate-spin" />
-                  <RefreshCw className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 text-[#c9f731]" />
+                  <div className="w-16 h-16 border-2 border-[#f97316]/10 border-t-[#f97316] rounded-full animate-spin" />
+                  <RefreshCw className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 text-[#f97316]" />
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-lg font-bold font-mono text-white">Analyzing Crawler Feeds...</h3>
-                  <p className="text-xs text-[#c9f731] font-mono animate-pulse max-w-sm mx-auto">
+                  <p className="text-xs text-[#f97316] font-mono animate-pulse max-w-sm mx-auto">
                     {steps[scanStep]}
                   </p>
                 </div>
                 <div className="w-full max-w-md h-1 bg-white/5 rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-[#c9f731] transition-all duration-1000"
+                    className="h-full bg-[#f97316] transition-all duration-1000"
                     style={{ width: `${((scanStep + 1) / steps.length) * 100}%` }}
                   />
                 </div>
@@ -150,12 +150,12 @@ export default function SEOAuditPage() {
               <div className="space-y-8">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-white/5 pb-4 gap-4">
                   <div>
-                    <div className="text-xs font-mono text-[#c9f731] uppercase tracking-wider mb-0.5">Analysis Status: complete</div>
+                    <div className="text-xs font-mono text-[#f97316] uppercase tracking-wider mb-0.5">Analysis Status: complete</div>
                     <h3 className="text-xl font-bold font-mono text-white">{new URL(url).hostname}</h3>
                   </div>
                   <button 
                     onClick={() => { setReportGenerated(false); setUrl(""); setEmail(""); }}
-                    className="text-xs font-mono text-neutral-400 hover:text-[#c9f731] border border-white/10 rounded-lg px-3 py-1.5"
+                    className="text-xs font-mono text-neutral-400 hover:text-[#f97316] border border-white/10 rounded-lg px-3 py-1.5"
                   >
                     Run New Audit Scan
                   </button>
@@ -164,7 +164,7 @@ export default function SEOAuditPage() {
                 {/* Score breakdown */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   <div className="p-5 rounded-2xl bg-white/5 border border-white/8 text-center space-y-1">
-                    <div className="text-4xl font-bold font-mono text-[#c9f731]">82%</div>
+                    <div className="text-4xl font-bold font-mono text-[#f97316]">82%</div>
                     <div className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest">SEO Architecture</div>
                     <div className="text-[11px] text-red-500 pt-1">Duplicate H1 Tags found.</div>
                   </div>
@@ -174,9 +174,9 @@ export default function SEOAuditPage() {
                     <div className="text-[11px] text-red-500 pt-1">CLS Layout shifts alert.</div>
                   </div>
                   <div className="p-5 rounded-2xl bg-white/5 border border-white/8 text-center space-y-1">
-                    <div className="text-4xl font-bold font-mono text-[#c9f731]">90%</div>
+                    <div className="text-4xl font-bold font-mono text-[#f97316]">90%</div>
                     <div className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest">Indexing Compliance</div>
-                    <div className="text-[11px] text-[#c9f731] pt-1">Robots parameters verified.</div>
+                    <div className="text-[11px] text-[#f97316] pt-1">Robots parameters verified.</div>
                   </div>
                 </div>
 
@@ -194,9 +194,9 @@ export default function SEOAuditPage() {
                 </div>
 
                 {/* Success conversion block */}
-                <div className="p-6 rounded-2xl bg-[#c9f731]/10 border border-[#c9f731]/30 text-center space-y-4">
+                <div className="p-6 rounded-2xl bg-[#f97316]/10 border border-[#f97316]/30 text-center space-y-4">
                   <div className="max-w-md mx-auto space-y-1.5">
-                    <h4 className="font-bold text-[#c9f731] text-base">✨ PDF Audit & Audit Recovery Plan Sent</h4>
+                    <h4 className="font-bold text-[#f97316] text-base">✨ PDF Audit & Audit Recovery Plan Sent</h4>
                     <p className="text-xs text-neutral-300 leading-relaxed">
                       A detailed diagnostic breakdown and standard fix guide have been queued to **{email}**.
                     </p>
@@ -204,7 +204,7 @@ export default function SEOAuditPage() {
                   <div className="pt-2">
                     <Link
                       href="/contact"
-                      className="inline-flex items-center gap-1.5 px-6 py-3 rounded-xl bg-[#c9f731] text-[#050505] font-bold text-xs hover:bg-[#b8e220] transition-colors"
+                      className="inline-flex items-center gap-1.5 px-6 py-3 rounded-xl bg-[#f97316] text-[#050505] font-bold text-xs hover:bg-[#b8e220] transition-colors"
                     >
                       <span>Book Free 15-Min Strategy Session</span>
                       <Zap className="w-3.5 h-3.5" />
@@ -253,3 +253,4 @@ export default function SEOAuditPage() {
     </main>
   );
 }
+

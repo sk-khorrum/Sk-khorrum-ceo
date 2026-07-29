@@ -52,7 +52,7 @@ export default function BlogPostPage() {
     return (
       <main className="min-h-screen bg-[#050505] text-white flex items-center justify-center font-sans">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-8 h-8 border-2 border-[#c9f731] border-t-transparent rounded-full animate-spin" />
+          <div className="w-8 h-8 border-2 border-[#f97316] border-t-transparent rounded-full animate-spin" />
           <span className="text-xs font-mono text-neutral-500">Retrieving article metadata...</span>
         </div>
       </main>
@@ -68,7 +68,7 @@ export default function BlogPostPage() {
           </div>
           <h1 className="font-['Anton'] text-4xl tracking-wider uppercase">Article Not Found</h1>
           <p className="text-neutral-400 text-xs">The post you are seeking has been archived or relocated.</p>
-          <Link href="/blog" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#c9f731] text-[#050505] font-semibold text-sm hover:bg-[#a5cc28] transition-all">
+          <Link href="/blog" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#f97316] text-[#050505] font-semibold text-sm hover:bg-[#a5cc28] transition-all">
             <ArrowLeft className="w-4 h-4" />
             <span>Return to Blogs</span>
           </Link>
@@ -78,19 +78,19 @@ export default function BlogPostPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white selection:bg-[#c9f731] selection:text-[#050505] font-sans pt-28 pb-20">
+    <main className="min-h-screen bg-[#050505] text-white selection:bg-[#f97316] selection:text-[#050505] font-sans pt-28 pb-20">
       {/* Background glow orbs */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#c9f731]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#f97316]/5 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-16 relative z-10">
         
         {/* Breadcrumbs */}
         <nav className="text-xs font-mono text-neutral-500 mb-8 flex items-center gap-2">
-          <Link href="/" className="hover:text-[#c9f731] transition-colors">HOME</Link>
+          <Link href="/" className="hover:text-[#f97316] transition-colors">HOME</Link>
           <span>/</span>
-          <Link href="/blog" className="hover:text-[#c9f731] transition-colors">BLOG</Link>
+          <Link href="/blog" className="hover:text-[#f97316] transition-colors">BLOG</Link>
           <span>/</span>
-          <span className="text-[#c9f731] truncate max-w-xs">{blog.title.toUpperCase()}</span>
+          <span className="text-[#f97316] truncate max-w-xs">{blog.title.toUpperCase()}</span>
         </nav>
 
         {/* Blog layout grid (Content + Sidebar) */}
@@ -101,8 +101,8 @@ export default function BlogPostPage() {
             
             {/* Meta details header */}
             <div className="space-y-4">
-              <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[#c9f731]">
-                <span className="px-2.5 py-0.5 rounded bg-[#c9f731]/10 border border-[#c9f731]/20 uppercase">
+              <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[#f97316]">
+                <span className="px-2.5 py-0.5 rounded bg-[#f97316]/10 border border-[#f97316]/20 uppercase">
                   {blog.category}
                 </span>
                 <span className="flex items-center gap-1">
@@ -131,7 +131,7 @@ export default function BlogPostPage() {
             )}
 
             {/* Summary / Excerpt */}
-            <p className="text-base font-medium text-neutral-300 italic border-l-4 border-[#c9f731] pl-5 py-2 leading-relaxed">
+            <p className="text-base font-medium text-neutral-300 italic border-l-4 border-[#f97316] pl-5 py-2 leading-relaxed">
               {blog.summary}
             </p>
 
@@ -144,7 +144,7 @@ export default function BlogPostPage() {
                 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_ul]:mb-4
                 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-2 [&_ol]:mb-4
                 [&_li]:text-neutral-300
-                [&_a]:text-[#c9f731] [&_a]:underline
+                [&_a]:text-[#f97316] [&_a]:underline
                 [&_strong]:text-white [&_strong]:font-semibold"
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
@@ -160,7 +160,7 @@ export default function BlogPostPage() {
                 <div>
                   <h4 className="font-bold text-white flex items-center justify-center sm:justify-start gap-1.5 text-sm">
                     <span>SK Khorrum</span>
-                    <Award className="w-4 h-4 text-[#c9f731]" />
+                    <Award className="w-4 h-4 text-[#f97316]" />
                   </h4>
                   <p className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mt-0.5">Author & Technical Search Specialist</p>
                 </div>
@@ -178,14 +178,14 @@ export default function BlogPostPage() {
             {/* Table of Contents card */}
             {toc.length > 0 && (
               <div className="glass-panel border border-white/8 rounded-3xl p-6 space-y-4">
-                <h3 className="font-mono text-xs text-[#c9f731] uppercase tracking-[0.25em] flex items-center gap-2 border-b border-white/5 pb-3">
+                <h3 className="font-mono text-xs text-[#f97316] uppercase tracking-[0.25em] flex items-center gap-2 border-b border-white/5 pb-3">
                   <List className="w-4 h-4" />
                   <span>Table of Contents</span>
                 </h3>
                 <ul className="space-y-2.5 text-xs font-mono text-neutral-400">
                   {toc.map((heading, hIdx) => (
-                    <li key={hIdx} className="hover:text-[#c9f731] transition-colors flex gap-2">
-                      <span className="text-[#c9f731] opacity-60">#</span>
+                    <li key={hIdx} className="hover:text-[#f97316] transition-colors flex gap-2">
+                      <span className="text-[#f97316] opacity-60">#</span>
                       <a href={`#${heading.id}`}>{heading.text}</a>
                     </li>
                   ))}
@@ -194,12 +194,12 @@ export default function BlogPostPage() {
             )}
 
             {/* Free Audit Quick Call-out */}
-            <div className="p-6 rounded-3xl bg-[#c9f731]/5 border border-[#c9f731]/25 text-center space-y-4">
+            <div className="p-6 rounded-3xl bg-[#f97316]/5 border border-[#f97316]/25 text-center space-y-4">
               <h3 className="font-bold text-sm text-white">Require diagnostic technical auditing?</h3>
               <p className="text-xs text-neutral-400">Run your target domain live to identify duplicate H1 structures or indexing obstacles.</p>
               <Link
                 href="/seo-audit"
-                className="w-full py-3 rounded-xl bg-[#c9f731] text-[#050505] font-bold text-xs uppercase tracking-wider hover:bg-[#b8e220] transition-colors flex items-center justify-center gap-1"
+                className="w-full py-3 rounded-xl bg-[#f97316] text-[#050505] font-bold text-xs uppercase tracking-wider hover:bg-[#b8e220] transition-colors flex items-center justify-center gap-1"
               >
                 <span>Free Crawl Audit</span>
                 <Zap className="w-3.5 h-3.5" />
@@ -219,16 +219,16 @@ export default function BlogPostPage() {
                 <Link
                   key={post.id}
                   href={`/blog/${post.id}`}
-                  className="group p-5 rounded-2xl bg-[#111]/30 border border-white/5 hover:border-[#c9f731]/20 transition-all flex flex-col justify-between"
+                  className="group p-5 rounded-2xl bg-[#111]/30 border border-white/5 hover:border-[#f97316]/20 transition-all flex flex-col justify-between"
                 >
                   <div className="space-y-3">
-                    <div className="text-[9px] font-mono text-[#c9f731] uppercase tracking-wider">{post.category}</div>
-                    <h4 className="font-bold text-sm text-white group-hover:text-[#c9f731] transition-colors leading-snug line-clamp-2">{post.title}</h4>
+                    <div className="text-[9px] font-mono text-[#f97316] uppercase tracking-wider">{post.category}</div>
+                    <h4 className="font-bold text-sm text-white group-hover:text-[#f97316] transition-colors leading-snug line-clamp-2">{post.title}</h4>
                     <p className="text-neutral-500 text-[11px] leading-relaxed line-clamp-2">{post.summary}</p>
                   </div>
                   <div className="flex items-center justify-between text-[9px] font-mono text-neutral-500 pt-4 mt-4 border-t border-white/5">
                     <span>{post.date}</span>
-                    <span className="text-[#c9f731] flex items-center gap-0.5">Read <ChevronRight className="w-2.5 h-2.5" /></span>
+                    <span className="text-[#f97316] flex items-center gap-0.5">Read <ChevronRight className="w-2.5 h-2.5" /></span>
                   </div>
                 </Link>
               ))}

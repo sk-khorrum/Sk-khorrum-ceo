@@ -31,6 +31,7 @@ export interface BlogItem {
   content: string;
   imageUrl?: string;
   author: string;
+  featured?: boolean;
 }
 
 // ─── Collection references ────────────────────────────────────────────────────
@@ -220,6 +221,14 @@ export async function deleteBlog(id: string): Promise<void> {
     await deleteDoc(doc(db, BLOGS_COL, id));
   } catch (e) {
     console.error("Error deleting blog from Firestore", e);
+  }
+}
+
+export async function updateBlog(blog: BlogItem): Promise<void> {
+  try {
+    await setDoc(doc(db, BLOGS_COL, blog.id), blog, { merge: true });
+  } catch (e) {
+    console.error("Error updating blog in Firestore", e);
   }
 }
 

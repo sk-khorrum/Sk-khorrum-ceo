@@ -1,30 +1,30 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
 
 export default function PrivacyPage() {
   return (
-    <main className="relative min-h-screen text-white bg-[#050505] selection:bg-[#c9f731] selection:text-[#050505] overflow-x-hidden pt-28 pb-20 font-sans">
+    <main className="relative min-h-screen text-white bg-[#050505] selection:bg-[#f97316] selection:text-[#050505] overflow-x-hidden pt-28 pb-20 font-sans">
       <div className="max-w-4xl mx-auto px-6 md:px-16 relative z-10 space-y-8">
         
         {/* Breadcrumb */}
         <nav className="text-xs font-mono text-neutral-500 flex items-center gap-2">
-          <Link href="/" className="hover:text-[#c9f731] transition-colors">HOME</Link>
+          <Link href="/" className="hover:text-[#f97316] transition-colors">HOME</Link>
           <span>/</span>
-          <span className="text-[#c9f731]">PRIVACY POLICY</span>
+          <span className="text-[#f97316]">PRIVACY POLICY</span>
         </nav>
 
         {/* Heading */}
         <div className="border-b border-white/5 pb-6">
           <h1 className="font-['Anton'] text-4xl sm:text-5xl uppercase tracking-wide">Privacy Policy</h1>
-          <p className="text-xs font-mono text-[#c9f731] mt-2">LAST UPDATED: JULY 29, 2026</p>
+          <p className="text-xs font-mono text-[#f97316] mt-2">LAST UPDATED: JULY 29, 2026</p>
         </div>
 
         {/* Legal content */}
         <div className="space-y-6 text-sm text-neutral-300 leading-relaxed [&_h2]:text-lg [&_h2]:font-bold [&_h2]:text-white [&_h2]:pt-4 [&_h2]:pb-2">
           <p>
-            At <strong className="text-white">SK Khorrum</strong>, operating from <a href="https://khorrum.pro.bd" className="text-[#c9f731] hover:underline">https://khorrum.pro.bd</a>, one of our main priorities is the privacy of our visitors. This Privacy Policy document outlines the types of information collected and recorded by this platform and how we utilize it.
+            At <strong className="text-white">SK Khorrum</strong>, operating from <a href="https://khorrum.pro.bd" className="text-[#f97316] hover:underline">https://khorrum.pro.bd</a>, one of our main priorities is the privacy of our visitors. This Privacy Policy document outlines the types of information collected and recorded by this platform and how we utilize it.
           </p>
 
           <h2>1. Consent</h2>
@@ -66,13 +66,13 @@ export default function PrivacyPage() {
 
           <h2>6. Contact Us</h2>
           <p>
-            If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at <a href="mailto:khorrum@pro.bd" className="text-[#c9f731] hover:underline font-mono">khorrum@pro.bd</a>.
+            If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at <a href="mailto:khorrum@pro.bd" className="text-[#f97316] hover:underline font-mono">khorrum@pro.bd</a>.
           </p>
         </div>
 
         {/* Back Button */}
         <div className="pt-6 border-t border-white/5">
-          <Link href="/" className="inline-flex items-center gap-1.5 text-xs font-mono text-[#c9f731] hover:underline uppercase">
+          <Link href="/" className="inline-flex items-center gap-1.5 text-xs font-mono text-[#f97316] hover:underline uppercase">
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Return to Main Site</span>
           </Link>
@@ -102,3 +102,4 @@ function ArrowLeft(props: any) {
     </svg>
   );
 }
+

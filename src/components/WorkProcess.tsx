@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -123,11 +123,11 @@ export default function WorkProcess() {
   return (
     <section id="process" className="py-28 px-6 md:px-16 max-w-7xl mx-auto border-t border-white/5 relative z-10">
       {/* Decorative Glows */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-[#c9f731]/5 rounded-full filter blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-[#f97316]/5 rounded-full filter blur-[120px] pointer-events-none" />
 
       {/* Header */}
-      <div className="text-xs font-mono text-[#c9f731] uppercase tracking-widest mb-2 flex items-center gap-3">
-        <span className="w-8 h-[1px] bg-[#c9f731]" />
+      <div className="text-xs font-mono text-[#f97316] uppercase tracking-widest mb-2 flex items-center gap-3">
+        <span className="w-8 h-[1px] bg-[#f97316]" />
         <span>Workflow</span>
       </div>
       
@@ -148,7 +148,7 @@ export default function WorkProcess() {
             }}
             className={`w-full sm:w-auto justify-center px-5 py-2.5 rounded-xl text-xs font-mono tracking-wider transition-all uppercase flex items-center gap-2 ${
               activeProcess === "development"
-                ? "bg-[#c9f731] text-[#050505] font-bold shadow-lg"
+                ? "bg-[#f97316] text-[#050505] font-bold shadow-lg"
                 : "text-neutral-400 hover:text-white"
             }`}
           >
@@ -163,7 +163,7 @@ export default function WorkProcess() {
             }}
             className={`w-full sm:w-auto justify-center px-5 py-2.5 rounded-xl text-xs font-mono tracking-wider transition-all uppercase flex items-center gap-2 ${
               activeProcess === "marketing"
-                ? "bg-[#c9f731] text-[#050505] font-bold shadow-lg"
+                ? "bg-[#f97316] text-[#050505] font-bold shadow-lg"
                 : "text-neutral-400 hover:text-white"
             }`}
           >
@@ -186,7 +186,7 @@ export default function WorkProcess() {
                 onClick={() => setActiveStep(idx)}
                 className={`w-full text-left p-4 sm:p-5 rounded-2xl border transition-all flex items-center justify-between group ${
                   isActive
-                    ? "bg-transparent border-[#c9f731] shadow-[0_0_20px_rgba(201,247,49,0.05)]"
+                    ? "bg-transparent border-[#f97316] shadow-[0_0_20px_rgba(201,247,49,0.05)]"
                     : "bg-transparent border-white/5 hover:border-white/15"
                 }`}
               >
@@ -195,7 +195,7 @@ export default function WorkProcess() {
                   <div
                     className={`w-8 h-8 rounded-lg flex items-center justify-center font-mono text-xs font-bold transition-all ${
                       isActive
-                        ? "bg-[#c9f731] text-[#050505]"
+                        ? "bg-[#f97316] text-[#050505]"
                         : "bg-white/5 text-neutral-500 group-hover:text-neutral-300"
                     }`}
                   >
@@ -209,7 +209,7 @@ export default function WorkProcess() {
                         isActive ? "text-white" : "text-neutral-400 group-hover:text-white"
                       }`}
                     >
-                      <Icon className={`w-4 h-4 ${isActive ? "text-[#c9f731]" : "text-neutral-500"}`} />
+                      <Icon className={`w-4 h-4 ${isActive ? "text-[#f97316]" : "text-neutral-500"}`} />
                       <span>{step.title}</span>
                     </h4>
                   </div>
@@ -217,7 +217,7 @@ export default function WorkProcess() {
 
                 <ChevronRight
                   className={`w-4 h-4 transition-transform ${
-                    isActive ? "text-[#c9f731] translate-x-1" : "text-neutral-600 group-hover:text-neutral-400"
+                    isActive ? "text-[#f97316] translate-x-1" : "text-neutral-600 group-hover:text-neutral-400"
                   }`}
                 />
               </button>
@@ -237,13 +237,13 @@ export default function WorkProcess() {
               className="p-8 sm:p-10 rounded-3xl bg-transparent border border-white/10 relative overflow-hidden flex flex-col justify-between min-h-[380px]"
             >
               {/* Card Background Glow */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#c9f731]/5 rounded-full filter blur-2xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#f97316]/5 rounded-full filter blur-2xl pointer-events-none" />
 
               <div>
                 {/* Step Header */}
                 <div className="flex items-center justify-between border-b border-white/10 pb-5 mb-6">
                   <div className="space-y-1">
-                    <span className="text-[10px] font-mono text-[#c9f731] uppercase tracking-widest flex items-center gap-1.5">
+                    <span className="text-[10px] font-mono text-[#f97316] uppercase tracking-widest flex items-center gap-1.5">
                       <Sparkles className="w-3 h-3" />
                       <span>STAGE {(activeStep + 1).toString().padStart(2, "0")} OF 08</span>
                     </span>
@@ -253,7 +253,7 @@ export default function WorkProcess() {
                   </div>
 
                   {/* Icon Container */}
-                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#c9f731]">
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#f97316]">
                     {React.createElement(steps[activeStep].icon, { className: "w-6 h-6" })}
                   </div>
                 </div>
@@ -270,9 +270,9 @@ export default function WorkProcess() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: itemIdx * 0.08 }}
-                        className="flex items-start gap-2.5 p-3 rounded-xl bg-white/5 border border-white/5 font-mono text-xs text-neutral-300 hover:border-[#c9f731]/30 transition-colors"
+                        className="flex items-start gap-2.5 p-3 rounded-xl bg-white/5 border border-white/5 font-mono text-xs text-neutral-300 hover:border-[#f97316]/30 transition-colors"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#c9f731] mt-1.5 shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#f97316] mt-1.5 shrink-0" />
                         <span className="leading-relaxed">{item}</span>
                       </motion.li>
                     ))}
@@ -285,7 +285,7 @@ export default function WorkProcess() {
                 <span>Interactive Roadmap</span>
                 <a
                   href="#contact"
-                  className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:border-[#c9f731]/40 text-neutral-300 hover:text-[#c9f731] transition-all"
+                  className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:border-[#f97316]/40 text-neutral-300 hover:text-[#f97316] transition-all"
                 >
                   Discuss this stage
                 </a>
@@ -297,3 +297,4 @@ export default function WorkProcess() {
     </section>
   );
 }
+

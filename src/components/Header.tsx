@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -67,7 +67,7 @@ export default function Header() {
           href="/"
           className="font-['Anton'] text-2xl tracking-wider text-white"
         >
-          KHORRUM<em className="not-italic text-[#c9f731]">.</em>
+          KHORRUM<em className="not-italic text-[#f97316]">.</em>
         </Link>
 
         {/* Desktop nav */}
@@ -80,13 +80,13 @@ export default function Header() {
                   href={link.href}
                   className={`transition-colors duration-200 relative group py-1.5 ${
                     isActive
-                      ? "text-[#c9f731] font-bold"
-                      : "text-neutral-400 hover:text-[#c9f731]"
+                      ? "text-[#f97316] font-bold"
+                      : "text-neutral-400 hover:text-[#f97316]"
                   }`}
                 >
                   {link.label}
                   <span
-                    className={`absolute -bottom-0.5 left-0 h-[1.5px] bg-[#c9f731] transition-all duration-300 ${
+                    className={`absolute -bottom-0.5 left-0 h-[1.5px] bg-[#f97316] transition-all duration-300 ${
                       isActive ? "w-full" : "w-0 group-hover:w-full"
                     }`}
                   />
@@ -101,7 +101,7 @@ export default function Header() {
           {/* Light/Dark Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full border border-neutral-200/15 dark:border-white/10 hover:bg-[#c9f731]/10 text-neutral-400 hover:text-[#c9f731] transition-all"
+            className="p-2 rounded-full border border-neutral-200/15 dark:border-white/10 hover:bg-[#f97316]/10 text-neutral-400 hover:text-[#f97316] transition-all"
             aria-label="Toggle theme"
           >
             {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -110,7 +110,7 @@ export default function Header() {
           {/* CTA */}
           <Link
             href="/contact"
-            className="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#c9f731] hover:bg-[#b8e220] text-[#050505] font-bold text-xs transition-all shadow-lg shadow-[#c9f731]/15"
+            className="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#f97316] hover:bg-[#b8e220] text-[#050505] font-bold text-xs transition-all shadow-lg shadow-[#f97316]/15"
           >
             <Zap className="w-3.5 h-3.5" />
             <span>Consultation</span>
@@ -119,7 +119,7 @@ export default function Header() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden p-2 text-neutral-400 hover:text-[#c9f731] transition-colors"
+            className="xl:hidden p-2 text-neutral-400 hover:text-[#f97316] transition-colors"
             aria-label="Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -143,7 +143,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="hover:text-[#c9f731] transition-colors block py-1"
+                    className="hover:text-[#f97316] transition-colors block py-1"
                   >
                     {link.label}
                   </Link>
@@ -153,7 +153,7 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="mt-6 flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#c9f731] text-[#050505] font-bold text-xs"
+              className="mt-6 flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#f97316] text-[#050505] font-bold text-xs"
             >
               Get Free SEO Audit
             </Link>
@@ -163,3 +163,4 @@ export default function Header() {
     </>
   );
 }
+

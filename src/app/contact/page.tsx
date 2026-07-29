@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -37,22 +37,22 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="relative min-h-screen text-white bg-[#050505] selection:bg-[#c9f731] selection:text-[#050505] overflow-x-hidden pt-28 pb-20">
+    <main className="relative min-h-screen text-white bg-[#050505] selection:bg-[#f97316] selection:text-[#050505] overflow-x-hidden pt-28 pb-20">
       {/* Background glow orbs */}
-      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-[#c9f731]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-[#c9f731]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-[#f97316]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-[#f97316]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-16 z-10 relative">
         {/* Breadcrumb Navigation */}
         <nav className="text-xs font-mono text-neutral-500 mb-8 flex items-center gap-2">
-          <Link href="/" className="hover:text-[#c9f731] transition-colors">HOME</Link>
+          <Link href="/" className="hover:text-[#f97316] transition-colors">HOME</Link>
           <span>/</span>
-          <span className="text-[#c9f731]">CONTACT</span>
+          <span className="text-[#f97316]">CONTACT</span>
         </nav>
 
         {/* Title */}
         <div className="mb-16 text-center max-w-2xl mx-auto space-y-4">
-          <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em]">Start Crawl Diagnostics</span>
+          <span className="text-[#f97316] font-mono text-xs uppercase tracking-[0.25em]">Start Crawl Diagnostics</span>
           <h1 className="font-['Anton'] text-5xl md:text-7xl tracking-wide uppercase leading-none">
             Get in Touch
           </h1>
@@ -65,30 +65,30 @@ export default function ContactPage() {
           {/* Left Info and map */}
           <div className="lg:col-span-5 space-y-8">
             <div className="glass-panel border border-white/8 rounded-3xl p-6.5 space-y-6">
-              <h3 className="font-mono text-xs text-[#c9f731] uppercase tracking-[0.25em] border-b border-white/5 pb-3">Consultant Directories</h3>
+              <h3 className="font-mono text-xs text-[#f97316] uppercase tracking-[0.25em] border-b border-white/5 pb-3">Consultant Directories</h3>
               
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-[#c9f731] flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-[#f97316] flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="block text-xs font-mono text-neutral-500 uppercase">OFFICE LOCALITY</span>
                     <span className="text-sm font-bold text-white">Dhaka, Bangladesh</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-[#c9f731] flex-shrink-0 mt-0.5" />
+                  <Mail className="w-5 h-5 text-[#f97316] flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="block text-xs font-mono text-neutral-500 uppercase">DIRECT INQUIRIES</span>
-                    <a href="mailto:khorrum@pro.bd" className="text-sm font-bold text-white hover:text-[#c9f731] transition-colors font-mono">
+                    <a href="mailto:khorrum@pro.bd" className="text-sm font-bold text-white hover:text-[#f97316] transition-colors font-mono">
                       khorrum@pro.bd
                     </a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-[#c9f731] flex-shrink-0 mt-0.5" />
+                  <Phone className="w-5 h-5 text-[#f97316] flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="block text-xs font-mono text-neutral-500 uppercase">INSTANT WHATSAPP CHAT</span>
-                    <a href="https://wa.me/8801700000000" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-[#c9f731] hover:underline font-mono">
+                    <a href="https://wa.me/8801700000000" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-[#f97316] hover:underline font-mono">
                       +880 Chat Live
                     </a>
                   </div>
@@ -115,7 +115,7 @@ export default function ContactPage() {
               
               {isSuccess ? (
                 <div className="py-12 text-center space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-[#c9f731]/10 border border-[#c9f731]/30 flex items-center justify-center mx-auto text-[#c9f731]">
+                  <div className="w-16 h-16 rounded-full bg-[#f97316]/10 border border-[#f97316]/30 flex items-center justify-center mx-auto text-[#f97316]">
                     <Check className="w-8 h-8" />
                   </div>
                   <h3 className="text-xl font-bold font-['Anton'] uppercase tracking-wider text-white">Requirement Submitted</h3>
@@ -137,7 +137,7 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-[#111] border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-[#c9f731] font-mono"
+                        className="w-full bg-[#111] border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-[#f97316] font-mono"
                       />
                     </div>
 
@@ -152,7 +152,7 @@ export default function ContactPage() {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-[#111] border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-[#c9f731] font-mono"
+                        className="w-full bg-[#111] border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-[#f97316] font-mono"
                       />
                     </div>
                   </div>
@@ -168,7 +168,7 @@ export default function ContactPage() {
                       required
                       value={formData.website}
                       onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                      className="w-full bg-[#111] border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-[#c9f731] font-mono"
+                      className="w-full bg-[#111] border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-[#f97316] font-mono"
                     />
                   </div>
 
@@ -180,7 +180,7 @@ export default function ContactPage() {
                       id="contact-service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full bg-[#111] border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-[#c9f731] font-mono"
+                      className="w-full bg-[#111] border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-[#f97316] font-mono"
                     >
                       <option value="Technical SEO Audit">Technical SEO Audit</option>
                       <option value="Local SEO Bangladesh">Local SEO Bangladesh</option>
@@ -201,14 +201,14 @@ export default function ContactPage() {
                       required
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full bg-[#111] border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-[#c9f731] font-mono leading-relaxed"
+                      className="w-full bg-[#111] border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white focus:outline-none focus:border-[#f97316] font-mono leading-relaxed"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 rounded-xl bg-[#c9f731] text-[#050505] font-bold text-xs uppercase tracking-wider hover:bg-[#b8e220] transition-colors flex items-center justify-center gap-1.5"
+                    className="w-full py-4 rounded-xl bg-[#f97316] text-[#050505] font-bold text-xs uppercase tracking-wider hover:bg-[#b8e220] transition-colors flex items-center justify-center gap-1.5"
                   >
                     {isSubmitting ? (
                       <>
@@ -229,7 +229,7 @@ export default function ContactPage() {
             {/* Calendly Booking Placeholder Widget */}
             <div className="glass-panel border border-white/8 rounded-3xl p-6.5 flex flex-col sm:flex-row items-center justify-between gap-6">
               <div className="space-y-1 text-center sm:text-left">
-                <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs font-mono text-[#c9f731]">
+                <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs font-mono text-[#f97316]">
                   <Calendar className="w-4 h-4" />
                   <span>CALENDLY SCHEDULER</span>
                 </div>
@@ -238,7 +238,7 @@ export default function ContactPage() {
               </div>
               <button 
                 onClick={() => alert("Calendly scheduling modal placeholder triggered. In production, this opens your booking embed.")}
-                className="px-5 py-3 rounded-xl border border-white/10 bg-white/5 text-white hover:border-[#c9f731]/40 hover:text-[#c9f731] transition-all font-mono text-xs flex-shrink-0"
+                className="px-5 py-3 rounded-xl border border-white/10 bg-white/5 text-white hover:border-[#f97316]/40 hover:text-[#f97316] transition-all font-mono text-xs flex-shrink-0"
               >
                 Open Scheduler
               </button>
@@ -249,3 +249,4 @@ export default function ContactPage() {
     </main>
   );
 }
+

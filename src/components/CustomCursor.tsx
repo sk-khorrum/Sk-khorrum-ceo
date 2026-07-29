@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
@@ -58,7 +58,7 @@ export default function CustomCursor() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-[#c9f731] rounded-full pointer-events-none z-[9999] mix-blend-difference hidden md:block"
+        className="fixed top-0 left-0 w-3 h-3 bg-[#f97316] rounded-full pointer-events-none z-[9999] mix-blend-difference hidden md:block"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
@@ -69,7 +69,7 @@ export default function CustomCursor() {
         }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 border border-[#c9f731] rounded-full pointer-events-none z-[9998] transition-colors duration-300 hidden md:block"
+        className="fixed top-0 left-0 w-10 h-10 border border-[#f97316] rounded-full pointer-events-none z-[9998] transition-colors duration-300 hidden md:block"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
@@ -83,3 +83,4 @@ export default function CustomCursor() {
     </>
   );
 }
+

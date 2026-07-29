@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -72,22 +72,22 @@ export default function CaseStudiesPage() {
   ];
 
   return (
-    <main className="relative min-h-screen text-white bg-[#050505] selection:bg-[#c9f731] selection:text-[#050505] overflow-x-hidden pt-28 pb-20">
+    <main className="relative min-h-screen text-white bg-[#050505] selection:bg-[#f97316] selection:text-[#050505] overflow-x-hidden pt-28 pb-20">
       {/* Background glow orbs */}
-      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-[#c9f731]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-[#c9f731]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-[#f97316]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-[#f97316]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-16 z-10 relative">
         {/* Breadcrumb Navigation */}
         <nav className="text-xs font-mono text-neutral-500 mb-8 flex items-center gap-2">
-          <Link href="/" className="hover:text-[#c9f731] transition-colors">HOME</Link>
+          <Link href="/" className="hover:text-[#f97316] transition-colors">HOME</Link>
           <span>/</span>
-          <span className="text-[#c9f731]">CASE STUDIES</span>
+          <span className="text-[#f97316]">CASE STUDIES</span>
         </nav>
 
         {/* Title */}
         <div className="mb-16">
-          <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em] mb-3 block">Proven Organic Audited Outcomes</span>
+          <span className="text-[#f97316] font-mono text-xs uppercase tracking-[0.25em] mb-3 block">Proven Organic Audited Outcomes</span>
           <h1 className="font-['Anton'] text-5xl md:text-7xl tracking-wide uppercase leading-none">
             SEO Case Studies
           </h1>
@@ -104,8 +104,8 @@ export default function CaseStudiesPage() {
                 
                 {/* Left details */}
                 <div className="lg:col-span-7 space-y-6">
-                  <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[#c9f731]">
-                    <span className="px-2.5 py-1 rounded bg-[#c9f731]/10 border border-[#c9f731]/30 uppercase">
+                  <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[#f97316]">
+                    <span className="px-2.5 py-1 rounded bg-[#f97316]/10 border border-[#f97316]/30 uppercase">
                       {cs.category}
                     </span>
                     <span className="flex items-center gap-1.5 text-neutral-400">
@@ -130,7 +130,7 @@ export default function CaseStudiesPage() {
                     <ul className="space-y-2.5">
                       {cs.results.map((r, rIdx) => (
                         <li key={rIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-300">
-                          <CheckCircle2 className="w-4 h-4 text-[#c9f731] flex-shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-4 h-4 text-[#f97316] flex-shrink-0 mt-0.5" />
                           <span>{r}</span>
                         </li>
                       ))}
@@ -144,7 +144,7 @@ export default function CaseStudiesPage() {
                   <div className="p-6 rounded-2xl bg-black/60 border border-white/5 space-y-4">
                     <div className="flex items-center justify-between text-xs font-mono text-neutral-500">
                       <span>ORGANIC TRAFFIC ROADMAP</span>
-                      <span className="text-[#c9f731] flex items-center gap-1">
+                      <span className="text-[#f97316] flex items-center gap-1">
                         <TrendingUp className="w-3.5 h-3.5" />
                         Live data
                       </span>
@@ -163,14 +163,14 @@ export default function CaseStudiesPage() {
                       <svg className="w-full h-full" viewBox="0 0 500 100" preserveAspectRatio="none">
                         <defs>
                           <linearGradient id={`grad-${idx}`} x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#c9f731" stopOpacity="0.25"/>
-                            <stop offset="100%" stopColor="#c9f731" stopOpacity="0"/>
+                            <stop offset="0%" stopColor="#f97316" stopOpacity="0.25"/>
+                            <stop offset="100%" stopColor="#f97316" stopOpacity="0"/>
                           </linearGradient>
                         </defs>
                         <path 
                           d={cs.svgPath} 
                           fill="none" 
-                          stroke="#c9f731" 
+                          stroke="#f97316" 
                           strokeWidth="2.5" 
                           strokeLinecap="round"
                         />
@@ -192,7 +192,7 @@ export default function CaseStudiesPage() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="p-4.5 rounded-2xl bg-white/5 border border-white/8 text-center space-y-1">
                       <div className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Organic Traffic</div>
-                      <div className="text-sm font-bold text-[#c9f731] font-mono">{cs.metrics.traffic.split(" ")[0]}</div>
+                      <div className="text-sm font-bold text-[#f97316] font-mono">{cs.metrics.traffic.split(" ")[0]}</div>
                     </div>
                     <div className="p-4.5 rounded-2xl bg-white/5 border border-white/8 text-center space-y-1">
                       <div className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Keywords</div>
@@ -204,7 +204,7 @@ export default function CaseStudiesPage() {
                     </div>
                     <div className="p-4.5 rounded-2xl bg-white/5 border border-white/8 text-center space-y-1">
                       <div className="text-xs font-mono text-neutral-500 uppercase tracking-wider">Conversions</div>
-                      <div className="text-sm font-bold text-[#c9f731] font-mono">{cs.metrics.conversions.split(" ")[0]}</div>
+                      <div className="text-sm font-bold text-[#f97316] font-mono">{cs.metrics.conversions.split(" ")[0]}</div>
                     </div>
                   </div>
                 </div>
@@ -221,7 +221,7 @@ export default function CaseStudiesPage() {
             Let's evaluate your keyword footprints and resolve underlying crawl code bottlenecks.
           </p>
           <div className="flex justify-center gap-4">
-            <Link href="/seo-audit" className="px-6 py-3 rounded-xl bg-[#c9f731] text-[#050505] font-bold text-xs hover:bg-[#b8e220] transition-colors flex items-center gap-1">
+            <Link href="/seo-audit" className="px-6 py-3 rounded-xl bg-[#f97316] text-[#050505] font-bold text-xs hover:bg-[#b8e220] transition-colors flex items-center gap-1">
               <span>Run Free Crawl Scan</span>
               <ChevronRight className="w-4 h-4" />
             </Link>
@@ -231,3 +231,4 @@ export default function CaseStudiesPage() {
     </main>
   );
 }
+

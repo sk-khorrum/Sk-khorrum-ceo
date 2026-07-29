@@ -1,12 +1,12 @@
 @tailwind base;
 /* hero dot grid */
 .hero-grid {
-  background-image: radial-gradient(rgba(201,247,49,0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(249,115,22,0.06) 1px, transparent 1px);
   background-size: 44px 44px;
 }
 /* outline/stroke text */
 .text-outline {
-  -webkit-text-stroke: 3px #c9f731;
+  -webkit-text-stroke: 3px #f97316;
   color: transparent;
 }
 /* float keyframe for photo */
@@ -25,8 +25,8 @@
   left: 0;
   height: 2px;
   z-index: 200;
-  background: linear-gradient(90deg, #c9f731, #a5cc28, #c9f731);
-  box-shadow: 0 0 10px rgba(201,247,49,0.6);
+  background: linear-gradient(90deg, #f97316, #e4a75c, #f97316);
+  box-shadow: 0 0 10px rgba(249,115,22,0.6);
   transition: width 0.05s linear;
   pointer-events: none;
 }
@@ -36,8 +36,8 @@
 }
 .service-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(201,247,49,0.3) !important;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,247,49,0.15);
+  border-color: rgba(249,115,22,0.3) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(249,115,22,0.15);
 }
 /* typewriter cursor blink */
 @keyframes blink {
@@ -45,15 +45,24 @@
   50% { opacity: 0; }
 }
 .cursor-blink { animation: blink 1s step-end infinite; }
+
+/* scrolling background animation — 53 frames × 100vh, looping */
+@keyframes bg-scroll {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+.animate-bg-scroll {
+  animation: bg-scroll 120s linear infinite;
+}
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --background: #050507;
   --foreground: #f3f4f6;
-  --color-accent: #c9f731;
-  --color-brand: #c9f731;
-  --glow: rgba(201, 247, 49, 0.25);
+  --color-accent: #f97316;
+  --color-brand: #f97316;
+  --glow: rgba(249, 115, 22, 0.25);
 }
 
 @layer base {
@@ -125,21 +134,21 @@
    TEXT EFFECTS
 ────────────────────────────────────────── */
 .text-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 50%, #c9f731 100%);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 50%, #f97316 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-lime {
-  background: linear-gradient(135deg, #c9f731 0%, #a5cc28 50%, #e8ff85 100%);
+  background: linear-gradient(135deg, #f97316 0%, #a5cc28 50%, #e8ff85 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-neon {
-  color: #c9f731;
+  color: #f97316;
   text-shadow: 0 0 8px rgba(201, 247, 49, 0.6), 0 0 20px rgba(201, 247, 49, 0.3);
 }
 
@@ -182,13 +191,13 @@
   font-size: clamp(2.8rem, 12vw, 8.5rem);
   line-height: 0.88;
   letter-spacing: 0.04em;
-  -webkit-text-stroke: 2px #c9f731;
+  -webkit-text-stroke: 2px #f97316;
   color: transparent;
 }
 
 /* premium glow text for hero */
 .hero-glow {
-  text-shadow: 0 0 40px rgba(201,247,49,0.15);
+  text-shadow: 0 0 40px rgba(249,115,22,0.15);
 }
 
 /* floating badge glass */
@@ -297,7 +306,7 @@
 .btn-neon {
   position: relative;
   overflow: hidden;
-  background: #c9f731;
+  background: #f97316;
   color: #050507;
   transition: all 0.3s ease;
 }
@@ -327,7 +336,7 @@
 .skill-tag:hover {
   background: rgba(201, 247, 49, 0.12);
   border-color: rgba(201, 247, 49, 0.4);
-  color: #c9f731;
+  color: #f97316;
 }
 
 /* ──────────────────────────────────────────
@@ -388,8 +397,8 @@
    SOCIAL SVG ANIMATIONS
 ────────────────────────────────────────── */
 @keyframes fbPulse {
-  0%, 100% { stroke-width: 2; filter: drop-shadow(0 0 0px #c9f731); }
-  50% { stroke-width: 2.5; filter: drop-shadow(0 0 6px #c9f731); }
+  0%, 100% { stroke-width: 2; filter: drop-shadow(0 0 0px #f97316); }
+  50% { stroke-width: 2.5; filter: drop-shadow(0 0 6px #f97316); }
 }
 .animate-fb-path { animation: fbPulse 2.5s ease-in-out infinite; }
 
@@ -433,7 +442,7 @@
 .stat-number {
   font-family: 'Anton', sans-serif;
   font-size: 3rem;
-  color: #c9f731;
+  color: #f97316;
   text-shadow: 0 0 20px rgba(201,247,49,0.4);
   line-height: 1;
 }
@@ -463,3 +472,4 @@
   pointer-events: none;
   user-select: none;
 }
+

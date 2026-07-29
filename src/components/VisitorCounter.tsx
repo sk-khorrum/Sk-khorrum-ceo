@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import { Eye, Activity } from "lucide-react";
@@ -79,10 +79,10 @@ export default function VisitorCounter() {
       {/* Today Visitor Counter */}
       <div className="flex items-center gap-2">
         <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c9f731] opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c9f731]"></span>
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f97316] opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f97316]"></span>
         </span>
-        <Activity className="w-3.5 h-3.5 text-[#c9f731]" />
+        <Activity className="w-3.5 h-3.5 text-[#f97316]" />
         <span>
           <strong className="text-white font-bold">
             {typeof todayVisits === "number" ? todayVisits.toLocaleString() : todayVisits}
@@ -107,3 +107,4 @@ export default function VisitorCounter() {
     </div>
   );
 }
+

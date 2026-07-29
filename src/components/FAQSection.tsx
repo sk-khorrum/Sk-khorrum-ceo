@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useMemo, useEffect } from "react";
 import { Search, ChevronDown, HelpCircle, Sparkles, MessageSquare, Info, Link2, Check, ThumbsUp } from "lucide-react";
@@ -458,7 +458,7 @@ export default function FAQSection() {
     const parts = text.split(regex);
     return parts.map((part, i) =>
       regex.test(part) ? (
-        <mark key={i} className="bg-[#c9f731]/30 text-[#c9f731] px-0.5 rounded font-semibold">
+        <mark key={i} className="bg-[#f97316]/30 text-[#f97316] px-0.5 rounded font-semibold">
           {part}
         </mark>
       ) : (
@@ -475,13 +475,13 @@ export default function FAQSection() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(fullJsonLdSchema) }}
       />
 
-      <div className="absolute top-1/3 right-10 w-96 h-96 bg-[#c9f731]/5 rounded-full filter blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/3 right-10 w-96 h-96 bg-[#f97316]/5 rounded-full filter blur-[150px] pointer-events-none" />
 
       {/* Header */}
-      <div className="text-xs font-mono text-[#c9f731] uppercase tracking-widest mb-2 flex items-center justify-center gap-3">
-        <span className="w-8 h-[1px] bg-[#c9f731]" />
+      <div className="text-xs font-mono text-[#f97316] uppercase tracking-widest mb-2 flex items-center justify-center gap-3">
+        <span className="w-8 h-[1px] bg-[#f97316]" />
         <span>FAQ Help Center</span>
-        <span className="w-8 h-[1px] bg-[#c9f731]" />
+        <span className="w-8 h-[1px] bg-[#f97316]" />
       </div>
 
       <div className="text-center space-y-4 mb-16">
@@ -502,7 +502,7 @@ export default function FAQSection() {
               setSearchQuery(e.target.value);
               setExpandedId(null);
             }}
-            className="w-full px-5 py-3.5 pl-12 rounded-2xl bg-neutral-900/60 border border-white/10 text-white placeholder:text-neutral-500 focus:border-[#c9f731] focus:outline-none text-xs font-mono transition-all"
+            className="w-full px-5 py-3.5 pl-12 rounded-2xl bg-neutral-900/60 border border-white/10 text-white placeholder:text-neutral-500 focus:border-[#f97316] focus:outline-none text-xs font-mono transition-all"
           />
           <Search className="absolute left-4.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
         </div>
@@ -524,7 +524,7 @@ export default function FAQSection() {
               {isSelected && (
                 <motion.span
                   layoutId="activeTabIndicator"
-                  className="absolute inset-0 bg-[#c9f731] rounded-xl z-0"
+                  className="absolute inset-0 bg-[#f97316] rounded-xl z-0"
                   transition={{ type: "spring", stiffness: 350, damping: 30 }}
                 />
               )}
@@ -549,9 +549,9 @@ export default function FAQSection() {
               id={`faq-card-${faq.id}`}
               className={`rounded-2xl border transition-all duration-300 scroll-mt-28 ${
                 isOpen
-                  ? "bg-[#111111]/90 border-[#c9f731] shadow-[0_0_25px_rgba(201,247,49,0.05)]"
+                  ? "bg-[#111111]/90 border-[#f97316] shadow-[0_0_25px_rgba(201,247,49,0.05)]"
                   : isHighlighted
-                  ? "bg-[#111111]/90 border-[#c9f731] shadow-[0_0_40px_rgba(201,247,49,0.25)] scale-[1.01]"
+                  ? "bg-[#111111]/90 border-[#f97316] shadow-[0_0_40px_rgba(201,247,49,0.25)] scale-[1.01]"
                   : "bg-[#111111]/30 border-white/5 hover:border-white/15"
               }`}
             >
@@ -565,8 +565,8 @@ export default function FAQSection() {
                   className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-white group"
                 >
                   <span className="flex items-center gap-3">
-                    <HelpCircle className={`w-4 h-4 shrink-0 transition-colors ${isOpen ? "text-[#c9f731]" : "text-neutral-500 group-hover:text-neutral-300"}`} />
-                    <span className="group-hover:text-[#c9f731] transition-colors">
+                    <HelpCircle className={`w-4 h-4 shrink-0 transition-colors ${isOpen ? "text-[#f97316]" : "text-neutral-500 group-hover:text-neutral-300"}`} />
+                    <span className="group-hover:text-[#f97316] transition-colors">
                       {highlightText(faq.question, searchQuery)}
                     </span>
                   </span>
@@ -575,16 +575,16 @@ export default function FAQSection() {
                     <button
                       type="button"
                       onClick={(e) => handleCopyLink(e, faq.id)}
-                      className="p-1 rounded bg-white/5 border border-white/10 hover:border-[#c9f731] hover:text-[#c9f731] opacity-0 group-hover:opacity-100 focus:opacity-100 transition-all"
+                      className="p-1 rounded bg-white/5 border border-white/10 hover:border-[#f97316] hover:text-[#f97316] opacity-0 group-hover:opacity-100 focus:opacity-100 transition-all"
                       title="Copy Direct Link"
                       aria-label="Copy direct link to this question"
                     >
-                      {copiedId === faq.id ? <Check className="w-3 h-3 text-[#c9f731]" /> : <Link2 className="w-3 h-3 text-neutral-400" />}
+                      {copiedId === faq.id ? <Check className="w-3 h-3 text-[#f97316]" /> : <Link2 className="w-3 h-3 text-neutral-400" />}
                     </button>
 
                     <ChevronDown
                       className={`w-4 h-4 text-neutral-500 group-hover:text-white transition-transform duration-300 ${
-                        isOpen ? "rotate-180 text-[#c9f731]" : ""
+                        isOpen ? "rotate-180 text-[#f97316]" : ""
                       }`}
                     />
                   </div>
@@ -619,14 +619,14 @@ export default function FAQSection() {
                       {/* Voting Help Widget */}
                       <div className="flex items-center justify-between border-t border-white/5 pt-4 text-[10px] sm:text-xs font-mono text-neutral-500">
                         <span className="flex items-center gap-1.5">
-                          <Sparkles className="w-3.5 h-3.5 text-[#c9f731]/70" />
-                          <span>Direct Link ID: <code className="text-[#c9f731] bg-white/5 px-1.5 py-0.5 rounded">#faq-{faq.id}</code></span>
+                          <Sparkles className="w-3.5 h-3.5 text-[#f97316]/70" />
+                          <span>Direct Link ID: <code className="text-[#f97316] bg-white/5 px-1.5 py-0.5 rounded">#faq-{faq.id}</code></span>
                         </span>
 
                         <div className="flex items-center gap-3">
                           <span>Was this helpful?</span>
                           {hasVoted ? (
-                            <span className="text-[#c9f731] flex items-center gap-1 animate-fadeIn">
+                            <span className="text-[#f97316] flex items-center gap-1 animate-fadeIn">
                               <Check className="w-3 h-3" /> Thank you!
                             </span>
                           ) : (
@@ -634,7 +634,7 @@ export default function FAQSection() {
                               <button
                                 type="button"
                                 onClick={() => handleVote(faq.id, "yes")}
-                                className="px-2 py-1 rounded bg-white/5 border border-white/10 hover:border-[#c9f731] hover:text-[#c9f731] flex items-center gap-1 transition-all"
+                                className="px-2 py-1 rounded bg-white/5 border border-white/10 hover:border-[#f97316] hover:text-[#f97316] flex items-center gap-1 transition-all"
                               >
                                 <ThumbsUp className="w-3 h-3" /> Yes
                               </button>
@@ -668,7 +668,7 @@ export default function FAQSection() {
       {/* CTA section under FAQs */}
       <div className="mt-16 p-8 rounded-3xl bg-[#111111]/80 backdrop-blur-xl border border-white/10 text-center space-y-4">
         <h3 className="font-['Anton'] text-xl sm:text-2xl text-white tracking-wide uppercase flex items-center justify-center gap-2">
-          <MessageSquare className="w-5 h-5 text-[#c9f731]" />
+          <MessageSquare className="w-5 h-5 text-[#f97316]" />
           <span>STILL HAVE QUESTIONS?</span>
         </h3>
         <p className="text-neutral-400 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed">
@@ -677,7 +677,7 @@ export default function FAQSection() {
         <div className="pt-2">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#c9f731] text-[#050505] font-semibold text-xs hover:bg-[#a5cc28] transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#c9f731]/10"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#f97316] text-[#050505] font-semibold text-xs hover:bg-[#a5cc28] transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#f97316]/10"
           >
             <span>Get a Free Consultation</span>
           </a>
@@ -686,3 +686,4 @@ export default function FAQSection() {
     </section>
   );
 }
+

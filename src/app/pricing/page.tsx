@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -57,22 +57,22 @@ export default function PricingPage() {
   ];
 
   return (
-    <main className="relative min-h-screen text-white bg-[#050505] selection:bg-[#c9f731] selection:text-[#050505] overflow-x-hidden pt-28 pb-20">
+    <main className="relative min-h-screen text-white bg-[#050505] selection:bg-[#f97316] selection:text-[#050505] overflow-x-hidden pt-28 pb-20">
       {/* Background glow orbs */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#c9f731]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#c9f731]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#f97316]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#f97316]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-16 z-10 relative">
         {/* Breadcrumb Navigation */}
         <nav className="text-xs font-mono text-neutral-500 mb-8 flex items-center gap-2">
-          <Link href="/" className="hover:text-[#c9f731] transition-colors">HOME</Link>
+          <Link href="/" className="hover:text-[#f97316] transition-colors">HOME</Link>
           <span>/</span>
-          <span className="text-[#c9f731]">PRICING</span>
+          <span className="text-[#f97316]">PRICING</span>
         </nav>
 
         {/* Title */}
         <div className="mb-16 text-center max-w-2xl mx-auto space-y-4">
-          <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em]">Flexible Investment Models</span>
+          <span className="text-[#f97316] font-mono text-xs uppercase tracking-[0.25em]">Flexible Investment Models</span>
           <h1 className="font-['Anton'] text-5xl md:text-7xl tracking-wide uppercase leading-none">
             Transparent Pricing
           </h1>
@@ -88,12 +88,12 @@ export default function PricingPage() {
               key={idx}
               className={`p-8 rounded-[32px] bg-[#111]/40 border flex flex-col justify-between hover:scale-[1.02] transition-transform duration-300 relative ${
                 p.popular 
-                  ? "border-[#c9f731]/40 shadow-[0_0_40px_rgba(201,247,49,0.06)]" 
+                  ? "border-[#f97316]/40 shadow-[0_0_40px_rgba(201,247,49,0.06)]" 
                   : "border-white/8"
               }`}
             >
               {p.popular && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#c9f731] text-[#050505] font-mono text-[9px] font-bold uppercase tracking-wider">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#f97316] text-[#050505] font-mono text-[9px] font-bold uppercase tracking-wider">
                   Highly Popular
                 </div>
               )}
@@ -106,7 +106,7 @@ export default function PricingPage() {
 
                 <div className="flex items-baseline gap-1.5 border-y border-white/5 py-5">
                   <div className="flex items-center text-3xl sm:text-4.5xl font-['Anton'] text-white">
-                    <DollarSign className="w-6 h-6 text-[#c9f731]" />
+                    <DollarSign className="w-6 h-6 text-[#f97316]" />
                     <span>{p.price.replace("$", "")}</span>
                   </div>
                   <span className="text-xs font-mono text-neutral-400">{p.period}</span>
@@ -116,7 +116,7 @@ export default function PricingPage() {
                 <ul className="space-y-3 pt-2">
                   {p.features.map((f, fIdx) => (
                     <li key={fIdx} className="flex items-start gap-2.5 text-xs text-neutral-300 leading-normal">
-                      <CheckCircle2 className="w-4 h-4 text-[#c9f731] flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-[#f97316] flex-shrink-0 mt-0.5" />
                       <span>{f}</span>
                     </li>
                   ))}
@@ -128,8 +128,8 @@ export default function PricingPage() {
                   href="/contact"
                   className={`w-full py-4.5 rounded-2xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 ${
                     p.popular
-                      ? "bg-[#c9f731] text-[#050505] hover:bg-[#b8e220]"
-                      : "bg-white/5 border border-white/10 text-white hover:border-[#c9f731]/40 hover:text-[#c9f731]"
+                      ? "bg-[#f97316] text-[#050505] hover:bg-[#b8e220]"
+                      : "bg-white/5 border border-white/10 text-white hover:border-[#f97316]/40 hover:text-[#f97316]"
                   }`}
                 >
                   <span>{p.cta}</span>
@@ -144,7 +144,7 @@ export default function PricingPage() {
         {/* Pricing FAQ Section */}
         <section className="glass-panel border border-white/8 rounded-3xl p-8 md:p-12 max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-2">
-            <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em]">Clear Expectations</span>
+            <span className="text-[#f97316] font-mono text-xs uppercase tracking-[0.25em]">Clear Expectations</span>
             <h2 className="font-['Anton'] text-2xl sm:text-3.5xl tracking-wide uppercase">PRICING FAQS</h2>
           </div>
 
@@ -169,7 +169,7 @@ export default function PricingPage() {
             ].map((faq, idx) => (
               <div key={idx} className="space-y-2">
                 <h4 className="font-bold text-sm text-white flex items-start gap-1.5">
-                  <span className="text-[#c9f731]">Q:</span>
+                  <span className="text-[#f97316]">Q:</span>
                   {faq.q}
                 </h4>
                 <p className="text-xs text-neutral-400 leading-relaxed pl-5">
@@ -184,3 +184,4 @@ export default function PricingPage() {
     </main>
   );
 }
+

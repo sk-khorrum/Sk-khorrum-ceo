@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import { Copy, Share2, Calendar, Clock, Smile, ChevronDown, ChevronUp, Activity, ArrowLeft } from "lucide-react";
@@ -199,7 +199,7 @@ export default function BirthdayPage() {
   ];
 
   return (
-    <main className="relative min-h-screen text-white selection:bg-[#c9f731] selection:text-[#050505] font-sans overflow-x-hidden bg-[#050507]">
+    <main className="relative min-h-screen text-white selection:bg-[#f97316] selection:text-[#050505] font-sans overflow-x-hidden bg-[#050507]">
       {/* Scroll Progress */}
       <div
         className="scroll-progress-bar"
@@ -219,14 +219,14 @@ export default function BirthdayPage() {
           <div className="flex items-center gap-4">
             <Link
               href="/"
-              className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-[#c9f731]/40 text-neutral-400 hover:text-[#c9f731] transition-all flex items-center justify-center"
+              className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-[#f97316]/40 text-neutral-400 hover:text-[#f97316] transition-all flex items-center justify-center"
               title="Back to Portfolio"
             >
               <ArrowLeft className="w-4 h-4" />
             </Link>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-pill border border-[#c9f731]/20">
-              <span className="w-2 h-2 rounded-full bg-[#c9f731] timeline-dot" />
-              <span className="text-xs font-mono font-bold text-[#c9f731] tracking-wider uppercase">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-pill border border-[#f97316]/20">
+              <span className="w-2 h-2 rounded-full bg-[#f97316] timeline-dot" />
+              <span className="text-xs font-mono font-bold text-[#f97316] tracking-wider uppercase">
                 {greeting}
               </span>
             </div>
@@ -234,14 +234,14 @@ export default function BirthdayPage() {
           <div className="flex gap-2 w-full sm:w-auto">
             <button
               onClick={handleCopyDOB}
-              className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl glass-pill border border-white/10 text-white font-mono text-xs hover:border-[#c9f731]/30 hover:text-[#c9f731] transition-all"
+              className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl glass-pill border border-white/10 text-white font-mono text-xs hover:border-[#f97316]/30 hover:text-[#f97316] transition-all"
             >
               <Copy className="w-3.5 h-3.5" />
               <span>Copy DOB</span>
             </button>
             <button
               onClick={handleShare}
-              className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl glass-pill border border-white/10 text-white font-mono text-xs hover:border-[#c9f731]/30 hover:text-[#c9f731] transition-all"
+              className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl glass-pill border border-white/10 text-white font-mono text-xs hover:border-[#f97316]/30 hover:text-[#f97316] transition-all"
             >
               <Share2 className="w-3.5 h-3.5" />
               <span>Share</span>
@@ -253,7 +253,7 @@ export default function BirthdayPage() {
         <section className="text-center py-16 mb-8 rounded-3xl glass-card border border-white/8 relative overflow-hidden shimmer-border">
           <div className="absolute inset-0 hero-grid pointer-events-none opacity-40" />
           <div className="relative z-10 px-6">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#c9f731]/10 border border-[#c9f731]/20 text-[#c9f731] text-[10px] font-mono uppercase tracking-[0.2em] mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#f97316]/10 border border-[#f97316]/20 text-[#f97316] text-[10px] font-mono uppercase tracking-[0.2em] mb-4">
               Real-Time Life Telemetry
             </span>
             <h1 className="font-['Anton'] text-5xl md:text-7xl tracking-wider text-white mb-4">
@@ -262,7 +262,7 @@ export default function BirthdayPage() {
             <p className="text-neutral-400 text-sm md:text-base max-w-xl mx-auto mb-8 leading-relaxed">
               Automated biological telemetry, cumulative lifetime statistics, and real-time next birthday calculations.
             </p>
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-black/40 border border-white/8 text-[#c9f731] font-mono text-base font-semibold shadow-inner">
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-black/40 border border-white/8 text-[#f97316] font-mono text-base font-semibold shadow-inner">
               <Calendar className="w-4 h-4" />
               <span>27 October 2006</span>
             </div>
@@ -274,8 +274,8 @@ export default function BirthdayPage() {
           
           {/* Live Precision Age Card */}
           <article className="p-8 rounded-3xl glass-card border border-white/8 relative">
-            <div className="text-xs font-mono text-[#c9f731] uppercase tracking-widest mb-6 flex items-center gap-3">
-              <span className="w-6 h-[1px] bg-[#c9f731]" />
+            <div className="text-xs font-mono text-[#f97316] uppercase tracking-widest mb-6 flex items-center gap-3">
+              <span className="w-6 h-[1px] bg-[#f97316]" />
               <span>Precision Biological Age</span>
             </div>
             <div className="grid grid-cols-3 gap-4">
@@ -288,7 +288,7 @@ export default function BirthdayPage() {
                 { v: age.seconds, l: "Seconds" },
               ].map(({ v, l }) => (
                 <div key={l} className="bg-black/35 border border-white/5 rounded-2xl p-5 text-center relative overflow-hidden">
-                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#c9f731]/40 to-transparent" />
+                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#f97316]/40 to-transparent" />
                   <div className="font-['Anton'] text-3xl md:text-4xl text-white tracking-wider" style={{ textShadow: "0 0 16px rgba(255,255,255,0.15)" }}>
                     {v}
                   </div>
@@ -300,8 +300,8 @@ export default function BirthdayPage() {
 
           {/* Next Birthday Countdown */}
           <article className="p-8 rounded-3xl glass-card border border-white/8 relative">
-            <div className="text-xs font-mono text-[#c9f731] uppercase tracking-widest mb-6 flex items-center gap-3">
-              <span className="w-6 h-[1px] bg-[#c9f731]" />
+            <div className="text-xs font-mono text-[#f97316] uppercase tracking-widest mb-6 flex items-center gap-3">
+              <span className="w-6 h-[1px] bg-[#f97316]" />
               <span>Birthday Anniversary Countdown</span>
             </div>
             <div className="grid grid-cols-3 gap-4">
@@ -311,7 +311,7 @@ export default function BirthdayPage() {
                 { v: countdown.minutes, l: "Minutes" },
               ].map(({ v, l }) => (
                 <div key={l} className="bg-black/35 border border-white/5 rounded-2xl p-5 text-center relative overflow-hidden">
-                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#c9f731]/40 to-transparent" />
+                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#f97316]/40 to-transparent" />
                   <div className="font-['Anton'] text-3xl md:text-4xl text-white tracking-wider" style={{ textShadow: "0 0 16px rgba(255,255,255,0.15)" }}>
                     {v}
                   </div>
@@ -319,8 +319,8 @@ export default function BirthdayPage() {
                 </div>
               ))}
               <div className="col-span-3 bg-black/35 border border-white/5 rounded-2xl p-5 text-center relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#c9f731] to-transparent" />
-                <div className="font-['Anton'] text-4xl text-[#c9f731] tracking-wider" style={{ textShadow: "0 0 20px rgba(201,247,49,0.3)" }}>
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#f97316] to-transparent" />
+                <div className="font-['Anton'] text-4xl text-[#f97316] tracking-wider" style={{ textShadow: "0 0 20px rgba(201,247,49,0.3)" }}>
                   {countdown.seconds}
                 </div>
                 <div className="text-[10px] font-mono text-neutral-500 uppercase mt-2 tracking-widest">Seconds Remaining</div>
@@ -335,8 +335,8 @@ export default function BirthdayPage() {
           
           {/* Yearly Progress Ring */}
           <article className="p-8 rounded-3xl glass-card border border-white/8 flex flex-col items-center justify-center relative">
-            <div className="text-xs font-mono text-[#c9f731] uppercase tracking-widest mb-6 w-full flex items-center gap-3">
-              <span className="w-6 h-[1px] bg-[#c9f731]" />
+            <div className="text-xs font-mono text-[#f97316] uppercase tracking-widest mb-6 w-full flex items-center gap-3">
+              <span className="w-6 h-[1px] bg-[#f97316]" />
               <span>Current Year progress</span>
             </div>
             
@@ -351,7 +351,7 @@ export default function BirthdayPage() {
                 <circle
                   className="fill-none stroke-[12] stroke-linecap-round transition-all duration-1000"
                   style={{
-                    stroke: "#c9f731",
+                    stroke: "#f97316",
                     strokeDasharray: "597",
                     strokeDashoffset: `${strokeOffset}`,
                     filter: "drop-shadow(0 0 8px rgba(201, 247, 49, 0.4))",
@@ -374,11 +374,11 @@ export default function BirthdayPage() {
 
           {/* Zodiac card */}
           <article className="p-8 rounded-3xl glass-card border border-white/8 flex flex-col md:flex-row items-center justify-center gap-8 relative">
-            <div className="w-[100px] h-[100px] rounded-full bg-[#c9f731]/10 border border-[#c9f731]/30 flex items-center justify-center text-4xl shadow-xl shadow-[#c9f731]/5 text-[#c9f731]">
+            <div className="w-[100px] h-[100px] rounded-full bg-[#f97316]/10 border border-[#f97316]/30 flex items-center justify-center text-4xl shadow-xl shadow-[#f97316]/5 text-[#f97316]">
               ♏
             </div>
             <div className="text-center md:text-left">
-              <span className="text-[10px] font-mono text-[#c9f731] uppercase tracking-wider font-bold">
+              <span className="text-[10px] font-mono text-[#f97316] uppercase tracking-wider font-bold">
                 Astronomical Zodiac
               </span>
               <h3 className="font-['Anton'] text-2xl text-white mt-1 mb-2">Scorpio</h3>
@@ -392,8 +392,8 @@ export default function BirthdayPage() {
 
         {/* CUMULATIVE LIFE STATS */}
         <section className="mb-8">
-          <div className="text-xs font-mono text-[#c9f731] uppercase tracking-widest mb-6 flex items-center gap-3">
-            <span className="w-6 h-[1px] bg-[#c9f731]" />
+          <div className="text-xs font-mono text-[#f97316] uppercase tracking-widest mb-6 flex items-center gap-3">
+            <span className="w-6 h-[1px] bg-[#f97316]" />
             <span>Cumulative Life stats</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -403,7 +403,7 @@ export default function BirthdayPage() {
               { val: cumulative.minutes, title: "Total Minutes Lived" },
               { val: cumulative.seconds, title: "Total Seconds Lived" },
             ].map(({ val, title }) => (
-              <div key={title} className="p-6 rounded-3xl glass-card border border-white/8 relative overflow-hidden hover:border-[#c9f731]/30 transition-all">
+              <div key={title} className="p-6 rounded-3xl glass-card border border-white/8 relative overflow-hidden hover:border-[#f97316]/30 transition-all">
                 <div className="font-['Anton'] text-2xl text-white tracking-wider mb-1">
                   {val}
                 </div>
@@ -417,8 +417,8 @@ export default function BirthdayPage() {
 
         {/* CHRONOLOGY TIMELINE */}
         <section className="p-10 rounded-3xl glass-card border border-white/8 mb-10 relative overflow-hidden">
-          <div className="text-xs font-mono text-[#c9f731] uppercase tracking-widest mb-8 flex items-center gap-3">
-            <span className="w-6 h-[1px] bg-[#c9f731]" />
+          <div className="text-xs font-mono text-[#f97316] uppercase tracking-widest mb-8 flex items-center gap-3">
+            <span className="w-6 h-[1px] bg-[#f97316]" />
             <span>Life Chronology</span>
           </div>
           
@@ -432,7 +432,7 @@ export default function BirthdayPage() {
               { date: `27 Oct ${nextBdayYear}`, label: "Next Celebration" },
             ].map(({ date, label }, idx) => (
               <div key={label} className="flex flex-row md:flex-col items-center md:text-center gap-6 md:gap-4 relative z-10">
-                <div className="w-12 h-12 rounded-full bg-[#050507] border-2 border-[#c9f731] flex items-center justify-center font-bold text-xs text-[#c9f731] timeline-dot">
+                <div className="w-12 h-12 rounded-full bg-[#050507] border-2 border-[#f97316] flex items-center justify-center font-bold text-xs text-[#f97316] timeline-dot">
                   {idx + 1}
                 </div>
                 <div>
@@ -448,8 +448,8 @@ export default function BirthdayPage() {
 
         {/* FAQ ACCORDIONS */}
         <section className="mb-10">
-          <div className="text-xs font-mono text-[#c9f731] uppercase tracking-widest mb-6 flex items-center gap-3">
-            <span className="w-6 h-[1px] bg-[#c9f731]" />
+          <div className="text-xs font-mono text-[#f97316] uppercase tracking-widest mb-6 flex items-center gap-3">
+            <span className="w-6 h-[1px] bg-[#f97316]" />
             <span>Frequently Asked Questions</span>
           </div>
           <div className="space-y-4">
@@ -460,13 +460,13 @@ export default function BirthdayPage() {
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  className="w-full flex items-center justify-between p-5 text-left font-['Anton'] text-sm uppercase tracking-wider text-white hover:text-[#c9f731] transition-colors"
+                  className="w-full flex items-center justify-between p-5 text-left font-['Anton'] text-sm uppercase tracking-wider text-white hover:text-[#f97316] transition-colors"
                 >
                   <span>{faq.q}</span>
                   {openFaq === idx ? (
-                    <ChevronUp className="w-4 h-4 text-[#c9f731]" />
+                    <ChevronUp className="w-4 h-4 text-[#f97316]" />
                   ) : (
-                    <ChevronDown className="w-4 h-4 text-[#c9f731]" />
+                    <ChevronDown className="w-4 h-4 text-[#f97316]" />
                   )}
                 </button>
                 <div
@@ -485,13 +485,13 @@ export default function BirthdayPage() {
         <footer className="pt-8 border-t border-white/8 text-center text-[10px] font-mono text-neutral-500 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>
             &copy; {new Date().getFullYear()}{" "}
-            <Link href="/" className="text-[#c9f731] hover:underline">
+            <Link href="/" className="text-[#f97316] hover:underline">
               SK KHORRUM
             </Link>
             . ALL RIGHTS RESERVED.
           </p>
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#c9f731] animate-ping" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#f97316] animate-ping" />
             <span>Real-time Telemetry Dashboard v2.0</span>
           </div>
         </footer>
@@ -499,7 +499,7 @@ export default function BirthdayPage() {
 
       {/* TOAST NOTIFICATION */}
       <div
-        className={`fixed bottom-6 right-6 z-50 px-5 py-3 rounded-xl glass-panel border border-[#c9f731]/40 text-white font-mono text-xs shadow-2xl transition-all duration-300 ${
+        className={`fixed bottom-6 right-6 z-50 px-5 py-3 rounded-xl glass-panel border border-[#f97316]/40 text-white font-mono text-xs shadow-2xl transition-all duration-300 ${
           toastMessage ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0 pointer-events-none"
         }`}
       >
@@ -508,3 +508,4 @@ export default function BirthdayPage() {
     </main>
   );
 }
+
