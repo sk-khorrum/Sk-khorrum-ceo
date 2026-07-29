@@ -11,6 +11,10 @@ import {
   deleteBlog,
   ProjectItem,
   BlogItem,
+  getCustomPages,
+  saveCustomPage,
+  deleteCustomPage,
+  CustomPageItem,
 } from "@/utils/storage";
 import { auth } from "@/lib/firebase";
 import {
@@ -43,11 +47,12 @@ export default function AdminPage() {
   const [password, setPassword] = useState("");
   const [authError, setAuthError] = useState("");
 
-  const [activeTab, setActiveTab] = useState<"projects" | "blogs" | "seo" | "briefs">("projects");
+  const [activeTab, setActiveTab] = useState<"projects" | "blogs" | "seo" | "briefs" | "custom_pages">("projects");
 
   const [projects, setProjects] = useState<ProjectItem[]>([]);
   const [blogs, setBlogs] = useState<BlogItem[]>([]);
   const [briefs, setBriefs] = useState<any[]>([]);
+  const [customPages, setCustomPages] = useState<CustomPageItem[]>([]);
 
   const [projTitle, setProjTitle] = useState("");
   const [projCategory, setProjCategory] = useState("WEB");
@@ -64,6 +69,11 @@ export default function AdminPage() {
   const [blogContent, setBlogContent] = useState("");
   const [blogImage, setBlogImage] = useState("");
 
+  // Custom Pages state
+  const [customPageTitle, setCustomPageTitle] = useState("");
+  const [customPageSlug, setCustomPageSlug] = useState("");
+  const [customPageHtml, setCustomPageHtml] = useState("");
+
   const [notification, setNotification] = useState<string | null>(null);
 
   useEffect(() => {
@@ -78,6 +88,7 @@ export default function AdminPage() {
     // Load from Firebase Firestore
     getStoredProjects().then(setProjects);
     getStoredBlogs().then(setBlogs);
+    getCustomPages().then(setCustomPages);
 
     // Load briefs (still local)
     try {
@@ -210,6 +221,47 @@ export default function AdminPage() {
         console.error("Error deleting brief:", e);
         showToast("Error deleting client brief!");
       }
+    }
+  };
+
+  const handleAddCustomPage = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!customPageTitle || !customPageSlug || !customPageHtml) {
+      showToast("Please fill in Title, Slug/URL, and HTML Content!");
+      return;
+    }
+
+    const cleanSlug = customPageSlug.toLowerCase().replace(/[^a-z0-9-_]/g, "").trim();
+    if (!cleanSlug) {
+      showToast("Invalid URL slug format!");
+      return;
+    }
+
+    const newPage: CustomPageItem = {
+      slug: cleanSlug,
+      title: customPageTitle,
+      htmlContent: customPageHtml,
+      date: new Date().toISOString().split("T")[0],
+    };
+
+    saveCustomPage(newPage).then(() => {
+      setCustomPages((prev) => {
+        const filtered = prev.filter((p) => p.slug !== cleanSlug);
+        return [newPage, ...filtered];
+      });
+      setCustomPageTitle("");
+      setCustomPageSlug("");
+      setCustomPageHtml("");
+      showToast("Custom HTML page saved successfully!");
+    });
+  };
+
+  const handleDeleteCustomPage = (slug: string) => {
+    if (confirm(`Are you sure you want to delete the custom page "/${slug}"?`)) {
+      deleteCustomPage(slug).then(() => {
+        setCustomPages((prev) => prev.filter((p) => p.slug !== slug));
+        showToast("Custom HTML page deleted!");
+      });
     }
   };
 
@@ -435,6 +487,18 @@ export default function AdminPage() {
           >
             <Mail className="w-4 h-4" />
             <span>Client Briefs ({briefs.length})</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab("custom_pages")}
+            className={`flex items-center gap-2 px-6 py-3 rounded-2xl font-mono text-xs uppercase tracking-wider transition-all ${
+              activeTab === "custom_pages"
+                ? "bg-[#c9f731] text-[#050505] font-bold shadow-lg shadow-[#c9f731]/20"
+                : "bg-white/5 text-neutral-400 hover:text-white border border-white/10"
+            }`}
+          >
+            <Layout className="w-4 h-4" />
+            <span>Custom HTML Pages ({customPages.length})</span>
           </button>
         </div>
 
@@ -822,6 +886,118 @@ export default function AdminPage() {
                 ))}
               </div>
             )}
+          </div>
+        )}
+
+        {/* CUSTOM DYNAMIC PAGES TAB */}
+        {activeTab === "custom_pages" && (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* CREATE CUSTOM PAGE FORM */}
+            <div className="lg:col-span-1 p-6 rounded-3xl bg-[#111111]/80 backdrop-blur-xl border border-white/10 h-fit space-y-5">
+              <h3 className="font-['Anton'] text-xl tracking-wide flex items-center gap-2 text-[#c9f731]">
+                <Plus className="w-5 h-5" />
+                <span>CREATE HTML PAGE</span>
+              </h3>
+
+              <form onSubmit={handleAddCustomPage} className="space-y-4 text-xs font-mono">
+                <div>
+                  <label className="block text-neutral-400 mb-1 uppercase">Page Title *</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Special Campaign"
+                    value={customPageTitle}
+                    onChange={(e) => setCustomPageTitle(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 focus:border-[#c9f731] focus:outline-none text-white text-xs"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-neutral-400 mb-1 uppercase">URL Path Slug * (no slashes)</label>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-neutral-500 font-mono text-xs">/</span>
+                    <input
+                      type="text"
+                      placeholder="e.g. example"
+                      value={customPageSlug}
+                      onChange={(e) => setCustomPageSlug(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 focus:border-[#c9f731] focus:outline-none text-white text-xs"
+                      required
+                    />
+                  </div>
+                  <p className="text-[9px] text-neutral-500 mt-1">
+                    Access URL: khorrum.pro.bd/[slug]
+                  </p>
+                </div>
+
+                <div>
+                  <label className="block text-neutral-400 mb-1 uppercase">HTML Content *</label>
+                  <textarea
+                    placeholder="<h1>Custom Content</h1><p>Type your HTML here...</p>"
+                    value={customPageHtml}
+                    onChange={(e) => setCustomPageHtml(e.target.value)}
+                    rows={12}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 focus:border-[#c9f731] focus:outline-none text-white text-xs font-mono"
+                    required
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3 rounded-xl bg-[#c9f731] text-[#050505] font-bold text-xs hover:bg-[#a5cc28] transition-all shadow-lg shadow-[#c9f731]/10 flex items-center justify-center gap-2"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>Create HTML Page</span>
+                </button>
+              </form>
+            </div>
+
+            {/* LIST OF CUSTOM PAGES */}
+            <div className="lg:col-span-2 space-y-4">
+              <h3 className="font-['Anton'] text-xl tracking-wide flex items-center justify-between text-white">
+                <span>ACTIVE DYNAMIC PAGES</span>
+                <span className="text-xs font-mono text-[#c9f731]">{customPages.length} Pages</span>
+              </h3>
+
+              {customPages.length === 0 ? (
+                <div className="text-center py-16 rounded-2xl border border-white/5 bg-white/5 font-mono text-xs text-neutral-500">
+                  No custom HTML pages created yet.
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {customPages.map((p) => (
+                    <div
+                      key={p.slug}
+                      className="p-5 rounded-2xl bg-[#111111]/60 backdrop-blur-md border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:border-white/20 transition-all"
+                    >
+                      <div className="space-y-1.5">
+                        <h4 className="text-lg font-bold text-white">{p.title}</h4>
+                        <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-neutral-400">
+                          <a
+                            href={`/${p.slug}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-[#c9f731] hover:underline flex items-center gap-1"
+                          >
+                            <span>/{p.slug}</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                          <span>• Created: {p.date}</span>
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => handleDeleteCustomPage(p.slug)}
+                        className="p-2.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 hover:bg-red-500/20 transition-all"
+                        title="Delete Page"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>

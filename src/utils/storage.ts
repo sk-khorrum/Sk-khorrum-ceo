@@ -228,3 +228,41 @@ async function seedBlogs(blogs: BlogItem[]): Promise<void> {
   blogs.forEach((b) => batch.set(doc(db, BLOGS_COL, b.id), b));
   await batch.commit();
 }
+
+// ─── Custom Pages ─────────────────────────────────────────────────────────────
+
+export interface CustomPageItem {
+  slug: string;
+  title: string;
+  htmlContent: string;
+  date: string;
+}
+
+const CUSTOM_PAGES_COL = "custom_pages";
+
+export async function getCustomPages(): Promise<CustomPageItem[]> {
+  try {
+    const snapshot = await getDocs(collection(db, CUSTOM_PAGES_COL));
+    return snapshot.docs.map((d) => d.data() as CustomPageItem);
+  } catch (e) {
+    console.error("Error reading custom pages from Firestore", e);
+    return [];
+  }
+}
+
+export async function saveCustomPage(page: CustomPageItem): Promise<void> {
+  try {
+    await setDoc(doc(db, CUSTOM_PAGES_COL, page.slug.toLowerCase().trim()), page);
+  } catch (e) {
+    console.error("Error saving custom page to Firestore", e);
+  }
+}
+
+export async function deleteCustomPage(slug: string): Promise<void> {
+  try {
+    await deleteDoc(doc(db, CUSTOM_PAGES_COL, slug.toLowerCase().trim()));
+  } catch (e) {
+    console.error("Error deleting custom page from Firestore", e);
+  }
+}
+

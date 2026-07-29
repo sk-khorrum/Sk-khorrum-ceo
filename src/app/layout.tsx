@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import Preloader from "@/components/Preloader";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const siteUrl = "https://khorrum.pro.bd";
 const siteName = "SK Khorrum Portfolio";
@@ -432,7 +434,9 @@ export default function RootLayout({
       <body className="bg-transparent text-[#f3f4f6] antialiased selection:bg-[#c9f731] selection:text-[#050507] min-h-screen" style={{ background: "#050505" }}>
         <Preloader />
         <CustomCursor />
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
