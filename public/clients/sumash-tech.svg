@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" fill="none">
+  <rect x="4" y="8" width="24" height="24" rx="4" fill="none" stroke="#666" strokeWidth="1.5"/>
+  <path d="M10 20h12M16 14v12" stroke="#888" strokeWidth="2" strokeLinecap="round"/>
+  <text x="85" y="17" fontFamily="Arial" fontSize="10" fontWeight="700" fill="#bbb" textAnchor="middle">SUMASH</text>
+  <text x="85" y="30" fontFamily="Arial" fontSize="10" fontWeight="700" fill="#999" textAnchor="middle">TECH</text>
+</svg>

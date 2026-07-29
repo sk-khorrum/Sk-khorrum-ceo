@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 40" fill="none">
+  <path d="M22 10 A12 12 0 0 0 22 30" stroke="#777" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+  <path d="M18 14 A8 8 0 0 0 18 26" stroke="#999" strokeWidth="2" strokeLinecap="round" fill="none"/>
+  <text x="78" y="26" fontFamily="Arial" fontSize="14" fontWeight="700" fill="#bbb" textAnchor="middle" letterSpacing="1">Cerium</text>
+</svg>

@@ -420,62 +420,92 @@ export default function HomePage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────────────────
-          CLIENT LOGOS — INFINITE MARQUEE
+          CLIENT LOGOS — INFINITE MARQUEE WITH SVG LOGOS
           ───────────────────────────────────────────────────────────────────────────── */}
       <section className="py-16 bg-[#09090b] border-y border-white/5 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-16 mb-10">
-          <p className="text-center text-[10px] font-mono text-[#c9f731] uppercase tracking-[0.25em]">
-            Trusted by Businesses Worldwide – My SEO Clients
+        <div className="max-w-7xl mx-auto px-6 md:px-16 mb-10 text-center">
+          <p className="text-[10px] font-mono text-[#c9f731] uppercase tracking-[0.25em] mb-1">
+            Trusted by Businesses Worldwide
           </p>
+          <h2 className="text-2xl font-bold text-white">My SEO Clients</h2>
         </div>
 
-        {/* Marquee track */}
+        {/* Fade edges */}
         <div className="relative">
-          <div className="flex gap-12 animate-[marquee_30s_linear_infinite] w-max">
+          <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-[#09090b] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-[#09090b] to-transparent z-10 pointer-events-none" />
+
+          {/* Row 1 — left scroll */}
+          <div className="flex gap-6 mb-4 animate-[marqueeL_28s_linear_infinite] w-max">
             {[
-              { name: "iCon Sports", abbr: "iCS" },
-              { name: "Digitfy", abbr: "DGT" },
-              { name: "Amar Desh", abbr: "আমার" },
-              { name: "CompuTech", abbr: "CT" },
-              { name: "Zareen Group", abbr: "ZG" },
-              { name: "BME Global", abbr: "BME" },
-              { name: "BME Online Shop", abbr: "BME+" },
-              { name: "Saihan", abbr: "SH" },
-              { name: "S&M Associates", abbr: "S&M" },
-              { name: "Snub Elevator", abbr: "SNB" },
-              { name: "Snub Right Source", abbr: "SRS" },
-              { name: "Sound Space", abbr: "SS" },
-              { name: "TimerCo", abbr: "TMR" },
-              { name: "United Snub Global", abbr: "USG" },
-              { name: "Sabikatours", abbr: "SBK" },
-              { name: "Soli", abbr: "SLI" },
-              { name: "British American RC", abbr: "BARC" },
-              { name: "IELTS Live", abbr: "IL" },
-              { name: "Sumash Tech", abbr: "SMT" },
-              { name: "Cerium", abbr: "CRM" },
-              // duplicate for seamless loop
-              { name: "iCon Sports", abbr: "iCS" },
-              { name: "Digitfy", abbr: "DGT" },
-              { name: "Amar Desh", abbr: "আমার" },
-              { name: "CompuTech", abbr: "CT" },
-              { name: "Zareen Group", abbr: "ZG" },
-              { name: "BME Global", abbr: "BME" },
-              { name: "BME Online Shop", abbr: "BME+" },
-              { name: "Saihan", abbr: "SH" },
-              { name: "S&M Associates", abbr: "S&M" },
-              { name: "Snub Elevator", abbr: "SNB" },
+              { src: "/clients/icon-sports.svg", name: "iCon Sports" },
+              { src: "/clients/digitfy.svg", name: "Digitfy" },
+              { src: "/clients/amar-desh.svg", name: "Amar Desh" },
+              { src: "/clients/bme.svg", name: "BME Global" },
+              { src: "/clients/sound-space.svg", name: "Sound Space" },
+              { src: "/clients/ielts-live.svg", name: "IELTS Live" },
+              { src: "/clients/sumash-tech.svg", name: "Sumash Tech" },
+              { src: "/clients/soli.svg", name: "Soli" },
+              { src: "/clients/sabikatours.svg", name: "Sabikatours" },
+              { src: "/clients/cerium.svg", name: "Cerium" },
+              // duplicate
+              { src: "/clients/icon-sports.svg", name: "iCon Sports" },
+              { src: "/clients/digitfy.svg", name: "Digitfy" },
+              { src: "/clients/amar-desh.svg", name: "Amar Desh" },
+              { src: "/clients/bme.svg", name: "BME Global" },
+              { src: "/clients/sound-space.svg", name: "Sound Space" },
+              { src: "/clients/ielts-live.svg", name: "IELTS Live" },
+              { src: "/clients/sumash-tech.svg", name: "Sumash Tech" },
+              { src: "/clients/soli.svg", name: "Soli" },
+              { src: "/clients/sabikatours.svg", name: "Sabikatours" },
+              { src: "/clients/cerium.svg", name: "Cerium" },
             ].map((c, i) => (
-              <div key={i} className="flex-shrink-0 flex items-center justify-center px-6 py-3 rounded-xl bg-white/4 border border-white/8 grayscale opacity-50 hover:opacity-90 hover:grayscale-0 hover:border-[#c9f731]/30 transition-all duration-300 min-w-[110px]">
-                <span className="font-bold text-[11px] text-white uppercase tracking-wide whitespace-nowrap">{c.name}</span>
+              <div key={i} className="flex-shrink-0 flex items-center justify-center px-5 py-3 h-16 rounded-2xl bg-white/[0.03] border border-white/[0.07] hover:border-[#c9f731]/30 hover:bg-white/[0.07] grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300 min-w-[140px] group">
+                <img src={c.src} alt={c.name} className="h-8 w-auto object-contain" />
+              </div>
+            ))}
+          </div>
+
+          {/* Row 2 — right scroll */}
+          <div className="flex gap-6 animate-[marqueeR_34s_linear_infinite] w-max">
+            {[
+              { src: "/clients/cerium.svg", name: "Cerium" },
+              { src: "/clients/sabikatours.svg", name: "Sabikatours" },
+              { src: "/clients/soli.svg", name: "Soli" },
+              { src: "/clients/sumash-tech.svg", name: "Sumash Tech" },
+              { src: "/clients/ielts-live.svg", name: "IELTS Live" },
+              { src: "/clients/sound-space.svg", name: "Sound Space" },
+              { src: "/clients/bme.svg", name: "BME Global" },
+              { src: "/clients/amar-desh.svg", name: "Amar Desh" },
+              { src: "/clients/digitfy.svg", name: "Digitfy" },
+              { src: "/clients/icon-sports.svg", name: "iCon Sports" },
+              // duplicate
+              { src: "/clients/cerium.svg", name: "Cerium" },
+              { src: "/clients/sabikatours.svg", name: "Sabikatours" },
+              { src: "/clients/soli.svg", name: "Soli" },
+              { src: "/clients/sumash-tech.svg", name: "Sumash Tech" },
+              { src: "/clients/ielts-live.svg", name: "IELTS Live" },
+              { src: "/clients/sound-space.svg", name: "Sound Space" },
+              { src: "/clients/bme.svg", name: "BME Global" },
+              { src: "/clients/amar-desh.svg", name: "Amar Desh" },
+              { src: "/clients/digitfy.svg", name: "Digitfy" },
+              { src: "/clients/icon-sports.svg", name: "iCon Sports" },
+            ].map((c, i) => (
+              <div key={i} className="flex-shrink-0 flex items-center justify-center px-5 py-3 h-16 rounded-2xl bg-white/[0.03] border border-white/[0.07] hover:border-[#c9f731]/30 hover:bg-white/[0.07] grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300 min-w-[140px]">
+                <img src={c.src} alt={c.name} className="h-8 w-auto object-contain" />
               </div>
             ))}
           </div>
         </div>
 
         <style>{`
-          @keyframes marquee {
+          @keyframes marqueeL {
             0%   { transform: translateX(0); }
             100% { transform: translateX(-50%); }
+          }
+          @keyframes marqueeR {
+            0%   { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
           }
         `}</style>
       </section>
@@ -548,55 +578,123 @@ export default function HomePage() {
           <p className="text-neutral-400 mt-4 max-w-xl mx-auto text-sm">From technical foundations to content strategy — every service is laser-focused on growing your organic traffic.</p>
         </div>
 
-        {/* Top 3 — icon cards */}
+        {/* Top 3 — 3D isometric SVG cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           {[
             {
-              icon: (
-                <svg viewBox="0 0 40 40" className="w-10 h-10" fill="none">
-                  <rect x="14" y="4" width="12" height="12" rx="2" stroke="#c9f731" strokeWidth="1.8"/>
-                  <rect x="4" y="24" width="10" height="10" rx="2" stroke="#c9f731" strokeWidth="1.8"/>
-                  <rect x="16" y="24" width="10" height="10" rx="2" stroke="#c9f731" strokeWidth="1.8"/>
-                  <rect x="28" y="24" width="10" height="10" rx="2" stroke="#c9f731" strokeWidth="1.8"/>
-                  <path d="M9 24v-4h22v4" stroke="#c9f731" strokeWidth="1.8"/>
-                  <path d="M20 16v4" stroke="#c9f731" strokeWidth="1.8"/>
-                </svg>
-              ),
               title: "Technical SEO",
-              desc: "Making your site easy for Google to crawl, index, and understand"
+              desc: "Making your site fast, crawlable, and perfectly structured for Google to index every page.",
+              color: "#c9f731",
+              svg: (
+                <svg viewBox="0 0 120 100" className="w-full h-28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Isometric server/gear */}
+                  <defs>
+                    <linearGradient id="g1t" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stopColor="#c9f731" stopOpacity="0.9"/>
+                      <stop offset="100%" stopColor="#7ab800" stopOpacity="0.6"/>
+                    </linearGradient>
+                    <linearGradient id="g1s" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#1e2a00"/>
+                      <stop offset="100%" stopColor="#0a0f00"/>
+                    </linearGradient>
+                  </defs>
+                  {/* Base cube iso */}
+                  <polygon points="60,15 95,33 95,68 60,85 25,68 25,33" fill="url(#g1s)" stroke="#c9f731" strokeWidth="1.2" strokeOpacity="0.4"/>
+                  <polygon points="60,15 95,33 60,50 25,33" fill="url(#g1t)" fillOpacity="0.15"/>
+                  <polygon points="25,33 60,50 60,85 25,68" fill="#c9f731" fillOpacity="0.05"/>
+                  <polygon points="95,33 60,50 60,85 95,68" fill="#c9f731" fillOpacity="0.08"/>
+                  {/* Gear icon center */}
+                  <circle cx="60" cy="50" r="14" stroke="#c9f731" strokeWidth="1.5" fill="none" strokeOpacity="0.8"/>
+                  <circle cx="60" cy="50" r="6" fill="#c9f731" fillOpacity="0.5"/>
+                  {[0,45,90,135,180,225,270,315].map((a,i)=>(
+                    <rect key={i} x="58.5" y="34" width="3" height="5" rx="1" fill="#c9f731"
+                      transform={`rotate(${a} 60 50)`} fillOpacity="0.9"/>
+                  ))}
+                  {/* Floating nodes */}
+                  <circle cx="30" cy="28" r="3" fill="#c9f731" fillOpacity="0.6"/>
+                  <circle cx="90" cy="28" r="3" fill="#c9f731" fillOpacity="0.6"/>
+                  <line x1="33" y1="28" x2="46" y2="36" stroke="#c9f731" strokeWidth="1" strokeOpacity="0.4"/>
+                  <line x1="87" y1="28" x2="74" y2="36" stroke="#c9f731" strokeWidth="1" strokeOpacity="0.4"/>
+                </svg>
+              )
             },
             {
-              icon: (
-                <svg viewBox="0 0 40 40" className="w-10 h-10" fill="none">
-                  <rect x="6" y="4" width="24" height="30" rx="3" stroke="#c9f731" strokeWidth="1.8"/>
-                  <path d="M12 12h12M12 17h8" stroke="#c9f731" strokeWidth="1.8" strokeLinecap="round"/>
-                  <circle cx="28" cy="28" r="7" stroke="#c9f731" strokeWidth="1.8"/>
-                  <path d="M33 33l3 3" stroke="#c9f731" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              ),
               title: "On-Page SEO",
-              desc: "Optimizing your content and structure so Google ranks each page"
+              desc: "Optimizing every page's content, meta, headings and internal links so Google ranks you higher.",
+              color: "#60a5fa",
+              svg: (
+                <svg viewBox="0 0 120 100" className="w-full h-28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="g2t" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.9"/>
+                      <stop offset="100%" stopColor="#1d4ed8" stopOpacity="0.6"/>
+                    </linearGradient>
+                  </defs>
+                  {/* Document iso */}
+                  <polygon points="60,12 92,30 92,72 60,88 28,72 28,30" fill="#0a0f1e" stroke="#60a5fa" strokeWidth="1" strokeOpacity="0.3"/>
+                  <polygon points="60,12 92,30 60,47 28,30" fill="#60a5fa" fillOpacity="0.12"/>
+                  <polygon points="28,30 60,47 60,88 28,72" fill="#60a5fa" fillOpacity="0.05"/>
+                  <polygon points="92,30 60,47 60,88 92,72" fill="#60a5fa" fillOpacity="0.08"/>
+                  {/* Document lines */}
+                  <line x1="44" y1="44" x2="76" y2="44" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.9"/>
+                  <line x1="44" y1="52" x2="68" y2="52" stroke="#60a5fa" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.6"/>
+                  <line x1="44" y1="60" x2="72" y2="60" stroke="#60a5fa" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.4"/>
+                  {/* Search magnifier */}
+                  <circle cx="78" cy="66" r="8" stroke="#60a5fa" strokeWidth="1.5" fill="none" strokeOpacity="0.9"/>
+                  <line x1="84" y1="72" x2="90" y2="78" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.9"/>
+                  <circle cx="78" cy="66" r="3" fill="#60a5fa" fillOpacity="0.5"/>
+                </svg>
+              )
             },
             {
-              icon: (
-                <svg viewBox="0 0 40 40" className="w-10 h-10" fill="none">
-                  <path d="M20 6C12.3 6 6 12.3 6 20s6.3 14 14 14 14-6.3 14-14" stroke="#c9f731" strokeWidth="1.8"/>
-                  <path d="M28 4l4 4-4 4" stroke="#c9f731" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M20 12v8l5 3" stroke="#c9f731" strokeWidth="1.8" strokeLinecap="round"/>
-                </svg>
-              ),
               title: "Off-Page SEO",
-              desc: "Building authority through quality backlinks and digital credibility"
+              desc: "Building domain authority through premium backlinks, brand mentions and digital credibility signals.",
+              color: "#f97316",
+              svg: (
+                <svg viewBox="0 0 120 100" className="w-full h-28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="g3t" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stopColor="#f97316" stopOpacity="0.9"/>
+                      <stop offset="100%" stopColor="#c2410c" stopOpacity="0.6"/>
+                    </linearGradient>
+                  </defs>
+                  {/* Globe iso */}
+                  <polygon points="60,12 92,30 92,72 60,88 28,72 28,30" fill="#120800" stroke="#f97316" strokeWidth="1" strokeOpacity="0.3"/>
+                  <polygon points="60,12 92,30 60,47 28,30" fill="#f97316" fillOpacity="0.1"/>
+                  {/* Globe meridians */}
+                  <ellipse cx="60" cy="50" rx="18" ry="18" stroke="#f97316" strokeWidth="1.2" fill="none" strokeOpacity="0.8"/>
+                  <ellipse cx="60" cy="50" rx="10" ry="18" stroke="#f97316" strokeWidth="1" fill="none" strokeOpacity="0.5"/>
+                  <line x1="42" y1="50" x2="78" y2="50" stroke="#f97316" strokeWidth="1" strokeOpacity="0.5"/>
+                  <line x1="44" y1="42" x2="76" y2="42" stroke="#f97316" strokeWidth="0.8" strokeOpacity="0.3"/>
+                  <line x1="44" y1="58" x2="76" y2="58" stroke="#f97316" strokeWidth="0.8" strokeOpacity="0.3"/>
+                  {/* Link nodes */}
+                  <circle cx="28" cy="30" r="4" fill="#f97316" fillOpacity="0.7"/>
+                  <circle cx="92" cy="30" r="4" fill="#f97316" fillOpacity="0.7"/>
+                  <circle cx="60" cy="12" r="4" fill="#f97316" fillOpacity="0.7"/>
+                  <line x1="32" y1="30" x2="42" y2="38" stroke="#f97316" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="3,2"/>
+                  <line x1="88" y1="30" x2="78" y2="38" stroke="#f97316" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="3,2"/>
+                  <line x1="60" y1="16" x2="60" y2="32" stroke="#f97316" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="3,2"/>
+                </svg>
+              )
             }
           ].map((s, i) => (
-            <div key={i} className={`p-8 rounded-3xl bg-[#111]/60 border ${
-              i === 2 ? "border-[#c9f731]/50 shadow-[0_0_30px_rgba(201,247,49,0.08)]" : "border-white/8"
-            } flex flex-col items-center text-center gap-5 hover:border-[#c9f731]/40 transition-all duration-300`}>
-              <div className="w-16 h-16 rounded-2xl bg-[#c9f731]/10 flex items-center justify-center">
-                {s.icon}
+            <div key={i} className="group relative p-6 rounded-3xl bg-[#0d0d0d] border border-white/[0.06] hover:border-white/20 transition-all duration-500 flex flex-col gap-5 overflow-hidden cursor-pointer hover:-translate-y-1 hover:shadow-2xl"
+              style={{ boxShadow: `0 0 0 0 ${s.color}00` }}
+              onMouseEnter={e => (e.currentTarget.style.boxShadow = `0 0 40px -10px ${s.color}33`)}
+              onMouseLeave={e => (e.currentTarget.style.boxShadow = `0 0 0 0 ${s.color}00`)}
+            >
+              {/* Glow orb bg */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                style={{ background: s.color }}/>
+              {/* 3D SVG illustration */}
+              <div className="w-full">{s.svg}</div>
+              <div className="border-t border-white/5 pt-4">
+                <h3 className="font-bold text-white text-lg mb-2 group-hover:text-white transition-colors">{s.title}</h3>
+                <p className="text-sm text-neutral-500 leading-relaxed">{s.desc}</p>
               </div>
-              <h3 className="font-bold text-white text-lg">{s.title}</h3>
-              <p className="text-sm text-neutral-400 leading-relaxed">{s.desc}</p>
+              {/* Color accent bar bottom */}
+              <div className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-3xl"
+                style={{ background: `linear-gradient(90deg, transparent, ${s.color}, transparent)` }}/>
             </div>
           ))}
         </div>

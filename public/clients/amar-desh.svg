@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" fill="none">
+  <rect x="2" y="8" width="26" height="24" rx="3" fill="none" stroke="#555" strokeWidth="1.2"/>
+  <text x="15" y="25" fontFamily="Arial" fontSize="9" fontWeight="700" fill="#888" textAnchor="middle">আ.দ</text>
+  <text x="85" y="17" fontFamily="Arial" fontSize="9" fontWeight="700" fill="#bbb" textAnchor="middle">আমার দেশ</text>
+  <text x="82" y="30" fontFamily="Arial" fontSize="8" fill="#777" textAnchor="middle">Daily Newspaper</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 40" fill="none">
+  <path d="M20 30 L10 20 L20 10 L30 20Z" fill="none" stroke="#666" strokeWidth="1.5"/>
+  <circle cx="20" cy="20" r="4" fill="#888"/>
+  <text x="90" y="17" fontFamily="Arial" fontSize="9" fontWeight="700" fill="#bbb" textAnchor="middle">SABIKA</text>
+  <text x="90" y="30" fontFamily="Arial" fontSize="9" fontWeight="700" fill="#999" textAnchor="middle">TOURS</text>
+</svg>

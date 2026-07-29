@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" fill="none">
+  <rect x="2" y="2" width="36" height="36" rx="6" fill="#1a1a1a" stroke="#444" strokeWidth="1"/>
+  <text x="20" y="25" fontFamily="Arial Black" fontSize="11" fontWeight="900" fill="white" textAnchor="middle">iC</text>
+  <text x="60" y="16" fontFamily="Arial" fontSize="9" fontWeight="700" fill="#ccc" textAnchor="middle">iCON</text>
+  <text x="60" y="28" fontFamily="Arial" fontSize="9" fontWeight="700" fill="#ccc" textAnchor="middle">SPORTS</text>
+</svg>

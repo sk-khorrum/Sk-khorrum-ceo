@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 40" fill="none">
+  <text x="65" y="17" fontFamily="Arial Black" fontSize="11" fontWeight="900" fill="#bbb" textAnchor="middle" letterSpacing="3">IELTS</text>
+  <rect x="25" y="22" width="80" height="1" fill="#555"/>
+  <circle cx="95" cy="28" r="4" fill="#c00"/>
+  <text x="55" y="33" fontFamily="Arial" fontSize="9" fontWeight="600" fill="#999" textAnchor="middle">●Live</text>
+</svg>
