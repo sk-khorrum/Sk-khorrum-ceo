@@ -420,21 +420,64 @@ export default function HomePage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────────────────
-          CLIENT LOGOS & TRUST BADGES
+          CLIENT LOGOS — INFINITE MARQUEE
           ───────────────────────────────────────────────────────────────────────────── */}
       <section className="py-16 bg-[#09090b] border-y border-white/5 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-16">
-          <p className="text-center text-[10px] font-mono text-[#c9f731] uppercase tracking-[0.25em] mb-10">
-            Trusted by Brands & Enterprises Worldwide
+        <div className="max-w-7xl mx-auto px-6 md:px-16 mb-10">
+          <p className="text-center text-[10px] font-mono text-[#c9f731] uppercase tracking-[0.25em]">
+            Trusted by Businesses Worldwide – My SEO Clients
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20 opacity-40 grayscale">
-            {["Amazon SEO Certified", "Ahrefs Expert Academy", "Semrush Partner", "Google Search Console Qualified", "HubSpot SEO Core"].map((partner, idx) => (
-              <span key={idx} className="font-mono text-xs text-white uppercase tracking-widest font-bold">
-                {partner}
-              </span>
+        </div>
+
+        {/* Marquee track */}
+        <div className="relative">
+          <div className="flex gap-12 animate-[marquee_30s_linear_infinite] w-max">
+            {[
+              { name: "iCon Sports", abbr: "iCS" },
+              { name: "Digitfy", abbr: "DGT" },
+              { name: "Amar Desh", abbr: "আমার" },
+              { name: "CompuTech", abbr: "CT" },
+              { name: "Zareen Group", abbr: "ZG" },
+              { name: "BME Global", abbr: "BME" },
+              { name: "BME Online Shop", abbr: "BME+" },
+              { name: "Saihan", abbr: "SH" },
+              { name: "S&M Associates", abbr: "S&M" },
+              { name: "Snub Elevator", abbr: "SNB" },
+              { name: "Snub Right Source", abbr: "SRS" },
+              { name: "Sound Space", abbr: "SS" },
+              { name: "TimerCo", abbr: "TMR" },
+              { name: "United Snub Global", abbr: "USG" },
+              { name: "Sabikatours", abbr: "SBK" },
+              { name: "Soli", abbr: "SLI" },
+              { name: "British American RC", abbr: "BARC" },
+              { name: "IELTS Live", abbr: "IL" },
+              { name: "Sumash Tech", abbr: "SMT" },
+              { name: "Cerium", abbr: "CRM" },
+              // duplicate for seamless loop
+              { name: "iCon Sports", abbr: "iCS" },
+              { name: "Digitfy", abbr: "DGT" },
+              { name: "Amar Desh", abbr: "আমার" },
+              { name: "CompuTech", abbr: "CT" },
+              { name: "Zareen Group", abbr: "ZG" },
+              { name: "BME Global", abbr: "BME" },
+              { name: "BME Online Shop", abbr: "BME+" },
+              { name: "Saihan", abbr: "SH" },
+              { name: "S&M Associates", abbr: "S&M" },
+              { name: "Snub Elevator", abbr: "SNB" },
+            ].map((c, i) => (
+              <div key={i} className="flex-shrink-0 flex items-center justify-center px-6 py-3 rounded-xl bg-white/4 border border-white/8 grayscale opacity-50 hover:opacity-90 hover:grayscale-0 hover:border-[#c9f731]/30 transition-all duration-300 min-w-[110px]">
+                <span className="font-bold text-[11px] text-white uppercase tracking-wide whitespace-nowrap">{c.name}</span>
+              </div>
             ))}
           </div>
         </div>
+
+        <style>{`
+          @keyframes marquee {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+        `}</style>
       </section>
 
       {/* ─────────────────────────────────────────────────────────────────────────────
@@ -490,6 +533,234 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────────────────────
+          DETAILED SERVICE CARDS — ICON STYLE
+          ───────────────────────────────────────────────────────────────────────────── */}
+      <section className="py-24 px-6 md:px-16 max-w-7xl mx-auto z-10 relative">
+        <div className="text-center mb-16">
+          <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em]">What I Do</span>
+          <h2 className="font-['Anton'] text-4xl sm:text-5xl tracking-wide mt-2">SEO Services I Offer</h2>
+          <p className="text-neutral-400 mt-4 max-w-xl mx-auto text-sm">From technical foundations to content strategy — every service is laser-focused on growing your organic traffic.</p>
+        </div>
+
+        {/* Top 3 — icon cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          {[
+            {
+              icon: (
+                <svg viewBox="0 0 40 40" className="w-10 h-10" fill="none">
+                  <rect x="14" y="4" width="12" height="12" rx="2" stroke="#c9f731" strokeWidth="1.8"/>
+                  <rect x="4" y="24" width="10" height="10" rx="2" stroke="#c9f731" strokeWidth="1.8"/>
+                  <rect x="16" y="24" width="10" height="10" rx="2" stroke="#c9f731" strokeWidth="1.8"/>
+                  <rect x="28" y="24" width="10" height="10" rx="2" stroke="#c9f731" strokeWidth="1.8"/>
+                  <path d="M9 24v-4h22v4" stroke="#c9f731" strokeWidth="1.8"/>
+                  <path d="M20 16v4" stroke="#c9f731" strokeWidth="1.8"/>
+                </svg>
+              ),
+              title: "Technical SEO",
+              desc: "Making your site easy for Google to crawl, index, and understand"
+            },
+            {
+              icon: (
+                <svg viewBox="0 0 40 40" className="w-10 h-10" fill="none">
+                  <rect x="6" y="4" width="24" height="30" rx="3" stroke="#c9f731" strokeWidth="1.8"/>
+                  <path d="M12 12h12M12 17h8" stroke="#c9f731" strokeWidth="1.8" strokeLinecap="round"/>
+                  <circle cx="28" cy="28" r="7" stroke="#c9f731" strokeWidth="1.8"/>
+                  <path d="M33 33l3 3" stroke="#c9f731" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              ),
+              title: "On-Page SEO",
+              desc: "Optimizing your content and structure so Google ranks each page"
+            },
+            {
+              icon: (
+                <svg viewBox="0 0 40 40" className="w-10 h-10" fill="none">
+                  <path d="M20 6C12.3 6 6 12.3 6 20s6.3 14 14 14 14-6.3 14-14" stroke="#c9f731" strokeWidth="1.8"/>
+                  <path d="M28 4l4 4-4 4" stroke="#c9f731" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M20 12v8l5 3" stroke="#c9f731" strokeWidth="1.8" strokeLinecap="round"/>
+                </svg>
+              ),
+              title: "Off-Page SEO",
+              desc: "Building authority through quality backlinks and digital credibility"
+            }
+          ].map((s, i) => (
+            <div key={i} className={`p-8 rounded-3xl bg-[#111]/60 border ${
+              i === 2 ? "border-[#c9f731]/50 shadow-[0_0_30px_rgba(201,247,49,0.08)]" : "border-white/8"
+            } flex flex-col items-center text-center gap-5 hover:border-[#c9f731]/40 transition-all duration-300`}>
+              <div className="w-16 h-16 rounded-2xl bg-[#c9f731]/10 flex items-center justify-center">
+                {s.icon}
+              </div>
+              <h3 className="font-bold text-white text-lg">{s.title}</h3>
+              <p className="text-sm text-neutral-400 leading-relaxed">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom 6 — detail cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              title: "Keyword Research",
+              icon: "🔍",
+              what: "Finding the exact search terms your customers type into Google — filtered by intent, volume, difficulty, and business value.",
+              deliver: "A prioritized keyword map that connects your pages to your most profitable search opportunities.",
+              impact: "Smarter content strategy, faster rankings, and traffic that actually converts to customers."
+            },
+            {
+              title: "SEO Audit",
+              icon: "📋",
+              what: "A full review of your website covering technical health, content quality, backlink profile, and competitor positioning.",
+              deliver: "A detailed action plan — showing exactly what is hurting your rankings and what to fix first.",
+              impact: "Clear direction, faster wins, and a solid foundation for everything that follows."
+            },
+            {
+              title: "Local SEO",
+              icon: "📍",
+              what: "Optimizing your online presence so customers in your city find your business when they search on Google Maps or local search.",
+              deliver: "Google Business Profile optimization, local citation building, NAP consistency, map pack ranking.",
+              impact: "More phone calls, walk-ins, and local leads from customers near you."
+            },
+            {
+              title: "E-Commerce SEO",
+              icon: "🛒",
+              what: "Specialized SEO for online stores — targeting product pages, category pages, and site structure to drive more organic sales.",
+              deliver: "Shopify / WooCommerce optimization, duplicate description fixes, faceted navigation, schema markup.",
+              impact: "Higher organic revenue, lower ad spend dependency, and better product discoverability."
+            },
+            {
+              title: "Content SEO & Writing",
+              icon: "✍️",
+              what: "Creating SEO-optimized content that ranks on Google and guides visitors toward taking action.",
+              deliver: "Blog posts, service pages, landing pages, and product descriptions — all built around real search intent.",
+              impact: "More organic entry points, stronger topical authority, and higher engagement from the right audience."
+            },
+            {
+              title: "Programmatic SEO",
+              icon: "⚙️",
+              what: "Using automated, template-driven page creation to scale content across hundreds or thousands of URLs efficiently.",
+              deliver: "Structured data templates, bulk page generation strategy, and scalable internal linking architecture.",
+              impact: "Rapid content mass indexation of high-intent pages and significant traffic growth without manual effort."
+            }
+          ].map((s, i) => (
+            <div key={i} className="p-7 rounded-3xl bg-[#111]/40 border border-white/8 hover:border-[#c9f731]/30 hover:shadow-[0_0_20px_rgba(201,247,49,0.06)] transition-all duration-300 flex flex-col gap-4">
+              <div className="flex flex-col items-start gap-3 pb-4 border-b border-white/8">
+                <span className="text-3xl">{s.icon}</span>
+                <h3 className="font-bold text-white text-lg">{s.title}</h3>
+              </div>
+              <div className="space-y-3 text-sm">
+                <p className="text-neutral-300 leading-relaxed">
+                  <span className="font-semibold text-[#c9f731]">What it is: </span>{s.what}
+                </p>
+                <p className="text-neutral-300 leading-relaxed">
+                  <span className="font-semibold text-white">What I deliver: </span>{s.deliver}
+                </p>
+                <p className="text-neutral-300 leading-relaxed">
+                  <span className="font-semibold text-white">Business impact: </span>{s.impact}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────────────────────
+          WHY CHOOSE ME SECTION
+          ───────────────────────────────────────────────────────────────────────────── */}
+      <section className="py-24 px-6 md:px-16 max-w-7xl mx-auto z-10 relative">
+        <div className="text-center mb-16">
+          <span className="text-[#c9f731] font-mono text-xs uppercase tracking-[0.25em]">The Difference</span>
+          <h2 className="font-['Anton'] text-4xl sm:text-5xl tracking-wide mt-2">Why Choose Me as Your SEO Expert?</h2>
+        </div>
+
+        <div className="space-y-6">
+          {[
+            {
+              title: "I Have Been Doing This Since 2020",
+              body: (
+                <>
+                  <p className="text-neutral-300 leading-relaxed text-sm mb-4">
+                    I started in SEO in 2020 and have practiced it every single day since. That includes managing SEO for{" "}
+                    <a href="https://www.amardesh.com" target="_blank" rel="noopener" className="text-[#c9f731] hover:underline font-semibold">Daily Amar Desh</a>{" "}
+                    — a national news platform publishing hundreds of articles daily, with massive crawl complexity, rapid indexation demands, and fierce keyword competition.
+                  </p>
+                  <p className="text-neutral-300 leading-relaxed text-sm">
+                    That environment sharpens technical and strategic skills most freelancers simply never face.
+                  </p>
+                </>
+              ),
+              image: (
+                <div className="w-full h-52 rounded-2xl bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[#c9f731]/5" />
+                  <div className="text-center p-6">
+                    <div className="text-5xl mb-3">📈</div>
+                    <div className="font-mono text-xs text-[#c9f731] uppercase tracking-widest">5+ Years · 100+ Clients</div>
+                    <div className="text-neutral-400 text-xs mt-1">Bangladesh's Top SEO Specialist</div>
+                  </div>
+                </div>
+              )
+            },
+            {
+              title: "I Don't Guess — I Use Data",
+              body: (
+                <>
+                  <p className="text-neutral-300 leading-relaxed text-sm mb-4">
+                    Every decision I make is backed by tools like Ahrefs, SEMrush, Google Search Console, and Screaming Frog. No guesswork, no shortcuts — just proven strategies tailored to your market.
+                  </p>
+                  <p className="text-neutral-300 leading-relaxed text-sm">
+                    I analyze your competitors, identify content gaps, and build a roadmap that directly addresses what's holding your rankings back.
+                  </p>
+                </>
+              ),
+              image: (
+                <div className="w-full h-52 rounded-2xl bg-gradient-to-br from-[#0d1117] to-[#1a1a2e] border border-[#c9f731]/10 flex items-center justify-center relative overflow-hidden">
+                  <div className="grid grid-cols-3 gap-3 p-4 w-full">
+                    {["Ahrefs","SEMrush","GSC","Screaming Frog","GA4","PageSpeed"].map((t,i)=>(
+                      <div key={i} className="bg-white/5 border border-white/10 rounded-lg p-2 text-center">
+                        <div className="text-[10px] font-mono text-[#c9f731] font-bold">{t}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            },
+            {
+              title: "You Get Results, Not Reports",
+              body: (
+                <>
+                  <p className="text-neutral-300 leading-relaxed text-sm mb-4">
+                    My clients don't just get beautiful documents — they get rankings that climb, traffic that grows, and leads that actually convert. I've helped businesses in Bangladesh rank #1 for highly competitive keywords.
+                  </p>
+                  <p className="text-neutral-300 leading-relaxed text-sm">
+                    Every engagement comes with clear KPIs, monthly reporting, and transparent communication — so you always know exactly where your investment is going.
+                  </p>
+                </>
+              ),
+              image: (
+                <div className="w-full h-52 rounded-2xl bg-gradient-to-br from-[#0d1117] to-[#1a1a2e] border border-[#c9f731]/10 flex items-center justify-center p-6">
+                  <div className="w-full space-y-3">
+                    {[["Organic Traffic","+340%"],["Keyword Rankings","#1 in 60 days"],["Conversion Rate","+85%"]].map(([label,val],i)=>(
+                      <div key={i} className="flex justify-between items-center">
+                        <span className="text-neutral-400 text-xs font-mono">{label}</span>
+                        <span className="text-[#c9f731] text-sm font-bold font-mono">{val}</span>
+                      </div>
+                    ))}
+                    <div className="mt-2 h-[2px] bg-gradient-to-r from-[#c9f731]/40 via-[#c9f731] to-[#c9f731]/40 rounded-full" />
+                  </div>
+                </div>
+              )
+            }
+          ].map((item, i) => (
+            <div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 rounded-3xl bg-[#111]/40 border border-white/8 hover:border-[#c9f731]/20 transition-all duration-300 items-center">
+              <div>
+                <h3 className="text-xl font-bold text-white mb-5">{item.title}</h3>
+                {item.body}
+              </div>
+              <div>{item.image}</div>
             </div>
           ))}
         </div>
