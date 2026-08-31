@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /admin.khorrum
+Disallow: /admin/
+Disallow: /requirements/private
 
-Sitemap: https://khorrum.pro.bd/sitemap.xml
+Sitemap: https://sk-khorrum.vercel.app/sitemap.xml
