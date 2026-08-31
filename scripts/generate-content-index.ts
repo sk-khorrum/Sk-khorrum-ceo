@@ -4,7 +4,7 @@ import { join, extname, basename, resolve } from "node:path";
 type ContentRecord = { title: string; slug: string; description: string; url: string; source: string; type: string; content?: string; html?: string; image?: string; keywords?: string; schema?: string; [key: string]: unknown };
 const root = resolve(process.cwd());
 const contentRoots = ["posts", "pages", "projects", "case-studies"];
-const siteUrl = "https://desitalkhorrum.vercel.app";
+const siteUrl = "https://sk-khorrum-ceo.vercel.app";
 
 async function filesIn(folder: string): Promise<string[]> {
   try {
