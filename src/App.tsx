@@ -712,7 +712,7 @@ const manualReviews: ManualReview[] = [
 ];
 
 function VerifiedReviews() {
-  const profileUrl = import.meta.env.VITE_GOOGLE_BUSINESS_PROFILE_URL || "https://www.google.com/maps";
+  const profileUrl = import.meta.env.VITE_GOOGLE_BUSINESS_PROFILE_URL || "https://maps.app.goo.gl/78hssZZD7FbByZrH7";
   return <section className="reviews-section section-pad" aria-label="Client feedback">
     <div className="reviews-intro">
       <div className="section-kicker">Client feedback</div>
@@ -741,7 +741,7 @@ function VerifiedReviews() {
 
 const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || "";
 const contactAddress = import.meta.env.VITE_CONTACT_ADDRESS || "Bangladesh · Available worldwide";
-const mapUrl = import.meta.env.VITE_GOOGLE_BUSINESS_PROFILE_URL || "https://www.google.com/maps";
+const mapUrl = import.meta.env.VITE_GOOGLE_BUSINESS_PROFILE_URL || "https://maps.app.goo.gl/78hssZZD7FbByZrH7";
 
 function ContactDetails() {
   return <div className="contact-details">{contactEmail ? <a href={`mailto:${contactEmail}`}><Mail size={17} /><span><small>Email</small>{contactEmail}</span></a> : null}<a href="tel:+88013140589563"><Phone size={17} /><span><small>Phone</small>+880 1314 058963</span></a><a href={mapUrl} target="_blank" rel="noreferrer"><MapPin size={17} /><span><small>Location</small>{contactAddress}</span></a></div>;
