@@ -1,0 +1,89 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    function optionalString(field, maxLength) {
+      return !(field in request.resource.data)
+        || (request.resource.data[field] is string
+          && request.resource.data[field].size() <= maxLength);
+    }
+
+    function validContactMessage() {
+      return request.resource.data.keys().hasOnly([
+          'name', 'email', 'website', 'service', 'message', 'status', 'createdAt'
+        ])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 120
+        && request.resource.data.email is string
+        && request.resource.data.email.size() > 3
+        && request.resource.data.email.size() <= 254
+        && request.resource.data.message is string
+        && request.resource.data.message.size() > 0
+        && request.resource.data.message.size() <= 4000
+        && request.resource.data.status == 'New'
+        && request.resource.data.createdAt is timestamp
+        && optionalString('website', 2048)
+        && optionalString('service', 120);
+    }
+
+    function validClientRequirement() {
+      return request.resource.data.keys().hasOnly([
+          'Name', 'Email', 'Phone', 'Company', 'Website', 'Business Type',
+          'Target Country', 'Target Location', 'Main Services',
+          'Target Audience', 'Main SEO Problems', 'Competitors',
+          'Target Keywords', 'Budget Range', 'Deadline',
+          'Additional Requirements', 'status', 'createdAt'
+        ])
+        && request.resource.data.Name is string
+        && request.resource.data.Name.size() > 0
+        && request.resource.data.Name.size() <= 120
+        && request.resource.data.Email is string
+        && request.resource.data.Email.size() > 3
+        && request.resource.data.Email.size() <= 254
+        && request.resource.data.status == 'New'
+        && request.resource.data.createdAt is timestamp
+        && optionalString('Phone', 40)
+        && optionalString('Company', 200)
+        && optionalString('Website', 2048)
+        && optionalString('Business Type', 160)
+        && optionalString('Target Country', 160)
+        && optionalString('Target Location', 200)
+        && optionalString('Main Services', 2000)
+        && optionalString('Target Audience', 2000)
+        && optionalString('Main SEO Problems', 4000)
+        && optionalString('Competitors', 2000)
+        && optionalString('Target Keywords', 2000)
+        && optionalString('Budget Range', 160)
+        && optionalString('Deadline', 160)
+        && optionalString('Additional Requirements', 6000);
+    }
+
+    match /contactMessages/{id} {
+      allow create: if validContactMessage();
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /clientRequirements/{id} {
+      allow create: if validClientRequirement();
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /siteSettings/homepage {
+      // The homepage only reads the selected public slugs; only admins can change them.
+      allow read: if true;
+      allow write: if isAdmin()
+        && request.resource.data.keys().hasOnly(['featuredPostSlugs', 'updatedAt'])
+        && request.resource.data.featuredPostSlugs is list
+        && request.resource.data.featuredPostSlugs.size() <= 100;
+    }
+
+    match /{collection}/{id} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
