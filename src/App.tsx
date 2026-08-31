@@ -744,11 +744,11 @@ const contactAddress = import.meta.env.VITE_CONTACT_ADDRESS || "Bangladesh · Av
 const mapUrl = import.meta.env.VITE_GOOGLE_BUSINESS_PROFILE_URL || "https://maps.app.goo.gl/78hssZZD7FbByZrH7";
 
 function ContactDetails() {
-  return <div className="contact-details">{contactEmail ? <a href={`mailto:${contactEmail}`}><Mail size={17} /><span><small>Email</small>{contactEmail}</span></a> : null}<a href="tel:+88013140589563"><Phone size={17} /><span><small>Phone</small>01314089563</span></a><a href="https://wa.me/88013140589563?text=Hi%20SK%20Khorrum%2C%20I%27d%20like%20to%20discuss%20SEO%20support%20for%20my%20business." target="_blank" rel="noreferrer"><MessageCircle size={17} /><span><small>WhatsApp</small>Message SK Khorrum</span></a><a href={mapUrl} target="_blank" rel="noreferrer"><MapPin size={17} /><span><small>Location</small>{contactAddress}</span></a></div>;
+  return <div className="contact-details">{contactEmail ? <a href={`mailto:${contactEmail}`}><Mail size={17} /><span><small>Email</small>{contactEmail}</span></a> : null}<a href="tel:+8801314089563"><Phone size={17} /><span><small>Phone</small>01314089563</span></a><a href="https://wa.me/8801314089563?text=Hi%20SK%20Khorrum%2C%20I%27d%20like%20to%20discuss%20SEO%20support%20for%20my%20business." target="_blank" rel="noreferrer"><MessageCircle size={17} /><span><small>WhatsApp</small>Message SK Khorrum</span></a><a href={mapUrl} target="_blank" rel="noreferrer"><MapPin size={17} /><span><small>Location</small>{contactAddress}</span></a></div>;
 }
 
 function FloatingWhatsApp() {
-  return <a className="floating-whatsapp" href="https://wa.me/88013140589563?text=Hi%20SK%20Khorrum%2C%20I%27d%20like%20to%20discuss%20SEO%20support%20for%20my%20business." target="_blank" rel="noreferrer" aria-label="Chat with SK Khorrum on WhatsApp"><MessageCircle size={25} /><span>Chat on WhatsApp</span></a>;
+  return <a className="floating-whatsapp" href="https://wa.me/8801314089563?text=Hi%20SK%20Khorrum%2C%20I%27d%20like%20to%20discuss%20SEO%20support%20for%20my%20business." target="_blank" rel="noreferrer" aria-label="Chat with SK Khorrum on WhatsApp"><MessageCircle size={25} /><span>Chat on WhatsApp</span></a>;
 }
 
 function HomePage() {
