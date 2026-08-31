@@ -1,0 +1,18 @@
+[
+  {
+    "title": "SK Khorrum CEO",
+    "description": "A personal brand website designed to make SEO expertise clear and discoverable.",
+    "category": "SEO / Digital Marketing",
+    "url": "/projects/sk-khorrum-ceo",
+    "services": [
+      "SEO-Friendly Web Design",
+      "Content Structure"
+    ],
+    "clientType": "Personal brand",
+    "seoRelevance": "Information architecture and search-focused messaging.",
+    "slug": "sk-khorrum-ceo",
+    "externalUrl": "https://sk-khorrum-ceo.vercel.app/",
+    "type": "projects",
+    "source": "projects/sk-khorrum-ceo.json"
+  }
+]
