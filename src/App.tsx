@@ -32,7 +32,7 @@ import { addDoc, collection, doc, getDoc, getDocs, serverTimestamp, setDoc } fro
 import { auth, db } from "./firebase";
 import { seoRoadmap } from "./data/seoRoadmap";
 
-const SITE_URL = "https://desitalkhorrum.vercel.app";
+const SITE_URL = "https://sk-khorrum-ceo.vercel.app";
 
 type Web3FormsResponse = { success?: boolean; message?: string };
 
