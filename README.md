@@ -44,3 +44,6 @@ npm run build
 ```
 
 This validates TypeScript, content discovery, sitemap generation, and the production Vite bundle. `public/robots.txt` keeps `/admin/` out of crawling while allowing public content.
+
+
+Migration note: the active application is the Vite source copied from sk-khorrum/dfsf.
