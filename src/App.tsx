@@ -748,7 +748,7 @@ function ContactDetails() {
 }
 
 function FloatingWhatsApp() {
-  return <a className="floating-whatsapp" href="https://wa.me/88013140589563" target="_blank" rel="noreferrer" aria-label="Chat with SK Khorrum on WhatsApp"><MessageCircle size={25} /><span>Chat on WhatsApp</span></a>;
+  return <a className="floating-whatsapp" href="https://wa.me/88013140589563?text=Hi%20SK%20Khorrum%2C%20I%27d%20like%20to%20discuss%20SEO%20support%20for%20my%20business." target="_blank" rel="noreferrer" aria-label="Chat with SK Khorrum on WhatsApp"><MessageCircle size={25} /><span>Chat on WhatsApp</span></a>;
 }
 
 function HomePage() {
