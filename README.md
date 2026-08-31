@@ -50,3 +50,6 @@ Migration note: the active application is the Vite source copied from sk-khorrum
 
 
 Firebase auth domain configured for Vercel production.
+
+
+Final article batch deployed.
