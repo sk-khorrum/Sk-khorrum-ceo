@@ -47,3 +47,6 @@ This validates TypeScript, content discovery, sitemap generation, and the produc
 
 
 Migration note: the active application is the Vite source copied from sk-khorrum/dfsf.
+
+
+Firebase auth domain configured for Vercel production.
