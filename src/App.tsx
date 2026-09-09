@@ -1930,6 +1930,19 @@ function PostThumbnail({ post, iconSize = 29 }: { post: typeof posts[number]; ic
 }
 
 function BlogPage() {
+  const postsPerPage = 6;
+  const pageCount = Math.max(1, Math.ceil(posts.length / postsPerPage));
+  const requestedPage = Number(new URLSearchParams(window.location.search).get("page"));
+  const [page, setPage] = useState(() => Number.isInteger(requestedPage) && requestedPage > 0 ? Math.min(requestedPage, pageCount) : 1);
+  const visiblePosts = posts.slice((page - 1) * postsPerPage, page * postsPerPage);
+
+  const goToPage = (nextPage: number) => {
+    const safePage = Math.max(1, Math.min(nextPage, pageCount));
+    setPage(safePage);
+    window.history.replaceState(null, "", safePage === 1 ? "/blog" : `/blog?page=${safePage}`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <InnerPage
       title="SEO insights for clearer digital growth."
@@ -1939,26 +1952,44 @@ function BlogPage() {
       <section className="section-pad inner-section">
         <div className="blog-toolbar">
           <b>{posts.length} insights</b>
-          <span>Latest first</span>
+          <span>Page {page} of {pageCount} · 6 per page</span>
         </div>
         <div className="post-grid full-post-grid">
-          {posts.slice(0, 6)
-            .map((post, index) => (
-              <article className="post-card" key={`${post.title}-${index}`}>
-                <PostThumbnail post={post} />
-                <small>
-                  {post.date} <i /> {post.time}
-                </small>
-                <h3>{post.title}</h3>
-                <a
-                  className="text-link"
-                  href={`/blog/${post.slug}`}
-                >
-                  Read article <MoveRight size={16} />
-                </a>
-              </article>
-            ))}
+          {visiblePosts.map((post, index) => (
+            <article className="post-card" key={`${post.title}-${index}`}>
+              <PostThumbnail post={post} />
+              <small>
+                {post.date} <i /> {post.time}
+              </small>
+              <h3>{post.title}</h3>
+              <a
+                className="text-link"
+                href={`/blog/${post.slug}`}
+              >
+                Read article <MoveRight size={16} />
+              </a>
+            </article>
+          ))}
         </div>
+        <nav className="blog-pagination" aria-label="Blog pagination">
+          <button
+            className="button button-outline"
+            type="button"
+            onClick={() => goToPage(page - 1)}
+            disabled={page === 1}
+          >
+            Previous
+          </button>
+          <span aria-live="polite">Page {page} of {pageCount}</span>
+          <button
+            className="button button-primary"
+            type="button"
+            onClick={() => goToPage(page + 1)}
+            disabled={page === pageCount}
+          >
+            Next page <MoveRight size={16} />
+          </button>
+        </nav>
       </section>
     </InnerPage>
   );
