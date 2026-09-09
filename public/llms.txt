@@ -3,17 +3,17 @@
 > SK Khorrum is a Bangladesh-based SEO Expert and Digital Marketing Consultant serving businesses in Dhaka, Bangladesh, and worldwide.
 
 ## Canonical website
-- https://sk-khorrum-ceo.vercel.app/
+- https://khorrum.pro.bd/
 
 ## Primary pages
-- Homepage: https://sk-khorrum-ceo.vercel.app/
-- About: https://sk-khorrum-ceo.vercel.app/about
-- Services: https://sk-khorrum-ceo.vercel.app/services
-- SEO process: https://sk-khorrum-ceo.vercel.app/seo-process
-- Blog: https://sk-khorrum-ceo.vercel.app/blog
-- Contact: https://sk-khorrum-ceo.vercel.app/contact
-- Portfolio: https://sk-khorrum-ceo.vercel.app/portfolio
-- Case studies: https://sk-khorrum-ceo.vercel.app/case-studies
+- Homepage: https://khorrum.pro.bd/
+- About: https://khorrum.pro.bd/about
+- Services: https://khorrum.pro.bd/services
+- SEO process: https://khorrum.pro.bd/seo-process
+- Blog: https://khorrum.pro.bd/blog
+- Contact: https://khorrum.pro.bd/contact
+- Portfolio: https://khorrum.pro.bd/portfolio
+- Case studies: https://khorrum.pro.bd/case-studies
 
 ## Services
 - SEO audits
@@ -42,5 +42,5 @@
 - Blog content is authored by SK Khorrum unless a page states otherwise.
 
 ## Machine-readable indexes
-- Sitemap: https://sk-khorrum-ceo.vercel.app/sitemap.xml
-- Robots: https://sk-khorrum-ceo.vercel.app/robots.txt
+- Sitemap: https://khorrum.pro.bd/sitemap.xml
+- Robots: https://khorrum.pro.bd/robots.txt
