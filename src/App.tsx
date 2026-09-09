@@ -349,6 +349,7 @@ function SeoSignals({
     setMeta("twitter:description", description, "name");
     setMeta("twitter:image", socialImage, "name");
     setMeta("twitter:image:alt", socialImageAlt, "name");
+    setMeta("twitter:creator", "@sk_khorrum", "name");
     setMeta("theme-color", "#f7f9f7", "name");
     setLink("canonical", pageUrl);
     // There is currently one English version; these links make that explicit without inventing localized pages.
