@@ -43,6 +43,11 @@ const PERSON_SAME_AS = [
   "https://www.tiktok.com/@sk_khorrum",
   "https://www.facebook.com/drt.ceo",
 ];
+const SERVICE_AREA = [
+  { "@type": "City", name: "Dhaka", containedInPlace: { "@type": "Country", name: "Bangladesh" } },
+  { "@type": "Country", name: "Bangladesh" },
+  { "@type": "Place", name: "Worldwide" },
+];
 
 type Web3FormsResponse = { success?: boolean; message?: string };
 
@@ -359,6 +364,12 @@ function SeoSignals({
         image: { "@id": `${SITE_URL}/#profile-image` },
         jobTitle: "SEO Expert and Digital Marketing Consultant",
         description: "A Bangladesh-based SEO Expert and Digital Marketing Consultant serving businesses worldwide.",
+        birthDate: "2006-10-27",
+        homeLocation: {
+          "@type": "Place",
+          name: "Dhaka, Bangladesh",
+          address: { "@type": "PostalAddress", addressLocality: "Dhaka", addressCountry: "BD" },
+        },
         knowsAbout: ["Search Engine Optimization", "Technical SEO", "On-Page SEO", "Content SEO", "Local SEO", "Keyword Research", "Digital Marketing", "SEO-Friendly Web Design", "Google Search Console"],
         knowsLanguage: ["English"],
         sameAs: PERSON_SAME_AS,
@@ -391,6 +402,29 @@ function SeoSignals({
       },
     ];
 
+    if (window.location.pathname !== "/") {
+      const breadcrumbId = `${pageUrl}#breadcrumb`;
+      const segments = window.location.pathname.split("/").filter(Boolean);
+      const labels: Record<string, string> = {
+        about: "About", services: "Services", contact: "Contact", blog: "Blog", portfolio: "Portfolio",
+        "case-studies": "Case Studies", "seo-process": "SEO Process", "seo-guide": "SEO Guide",
+      };
+      const breadcrumbItems = [{ "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` }];
+      let currentUrl = SITE_URL;
+      segments.forEach((segment, index) => {
+        currentUrl += `/${segment}`;
+        breadcrumbItems.push({
+          "@type": "ListItem",
+          position: index + 2,
+          name: index === segments.length - 1 ? title.replace(/\s*\|\s*SK Khorrum$/, "") : (labels[segment] || segment.replace(/[-_]/g, " ")),
+          item: currentUrl,
+        });
+      });
+      graph.push({ "@id": breadcrumbId, "@type": "BreadcrumbList", itemListElement: breadcrumbItems });
+      const pageNode = graph.find((node) => node["@id"] === pageId);
+      if (pageNode) pageNode.breadcrumb = { "@id": breadcrumbId };
+    }
+
     if (window.location.pathname.startsWith("/services/")) {
       graph.push({
         "@id": `${pageUrl}#service`,
@@ -399,7 +433,12 @@ function SeoSignals({
         serviceType: title.replace(/\s*\|\s*SK Khorrum$/, ""),
         description,
         provider: { "@id": personId },
-        areaServed: "Worldwide",
+        areaServed: SERVICE_AREA,
+        availableChannel: {
+          "@type": "ServiceChannel",
+          serviceUrl: pageUrl,
+          availableLanguage: "English",
+        },
         audience: { "@type": "Audience", audienceType: "Small businesses, startups, e-commerce businesses, local businesses, international clients, and website owners" },
       });
     }
