@@ -1,15 +1,21 @@
-import { readdir, readFile, mkdir, writeFile } from "node:fs/promises";
+﻿import { readdir, readFile, mkdir, writeFile } from "node:fs/promises";
 import { join, extname, basename, resolve } from "node:path";
 
 type ContentRecord = { title: string; slug: string; description: string; url: string; source: string; type: string; content?: string; html?: string; image?: string; keywords?: string; schema?: string; [key: string]: unknown };
 const root = resolve(process.cwd());
 const contentRoots = ["posts", "pages", "projects", "case-studies"];
 const siteUrl = "https://sk-khorrum-ceo.vercel.app";
+const excludedContent = new Set([
+  "pages/test.html",
+  "posts/Ggggg.html",
+  "posts/tgy.html",
+  "case-studies/seo-foundation.json",
+]);
 
 async function filesIn(folder: string): Promise<string[]> {
   try {
     const entries = await readdir(join(root, folder), { withFileTypes: true });
-    return entries.filter((entry) => entry.isFile() && [".html", ".json"].includes(extname(entry.name).toLowerCase())).map((entry) => join(folder, entry.name));
+    return entries.filter((entry) => entry.isFile() && [".html", ".json"].includes(extname(entry.name).toLowerCase())).map((entry) => join(folder, entry.name)).filter((path) => !excludedContent.has(path.replaceAll("\\", "/")));
   } catch {
     return [];
   }
@@ -50,7 +56,15 @@ async function record(path: string, type: string): Promise<ContentRecord | null>
 const records: Record<string, ContentRecord[]> = {};
 for (const type of contentRoots) {
   const files = await filesIn(type);
-  records[type] = (await Promise.all(files.map((file) => record(file, type)))).filter(Boolean) as ContentRecord[];
+  const seenTitles = new Set<string>();
+  records[type] = (await Promise.all(files.map((file) => record(file, type))))
+    .filter(Boolean)
+    .filter((item) => {
+      const key = item!.title.trim().toLowerCase();
+      if (seenTitles.has(key)) return false;
+      seenTitles.add(key);
+      return true;
+    }) as ContentRecord[];
 }
 await mkdir(join(root, "public/generated"), { recursive: true });
 await mkdir(join(root, "src/data"), { recursive: true });
@@ -79,3 +93,5 @@ const urls = [...staticUrls, ...Object.values(records).flat().map((item) => item
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map((url) => `<url><loc>${siteUrl}${url}</loc></url>`).join("")}</urlset>`;
 await writeFile(join(root, "public/sitemap.xml"), sitemap);
 console.log(`Generated ${Object.values(records).flat().length} content records and sitemap.`);
+
+
