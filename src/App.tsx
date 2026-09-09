@@ -32,7 +32,7 @@ import { addDoc, collection, doc, getDoc, getDocs, serverTimestamp, setDoc } fro
 import { auth, db } from "./firebase";
 import { seoRoadmap } from "./data/seoRoadmap";
 
-const SITE_URL = "https://sk-khorrum-ceo.vercel.app";
+const SITE_URL = "https://khorrum.pro.bd";
 const PERSON_SAME_AS = [
   "https://www.linkedin.com/in/sk-khorrum-36107a263/",
   "https://github.com/sk-khorrum",
@@ -1344,7 +1344,7 @@ function HomePage() {
                 <a
                   href={
                     [
-                      "https://sk-khorrum-ceo.vercel.app/",
+                      "https://khorrum.pro.bd/",
                       "https://sk-khorruminfo.vercel.app/",
                       "https://sk-khorrum-life-line.vercel.app/",
                       "https://drt.vercel.app/",
@@ -1907,6 +1907,9 @@ function ServicePage({ service }: { service: string[] }) {
 
 const sanitizeArticleHtml = (html: string) =>
   html
+    .replaceAll("https://desitalkhorrum.vercel.app", SITE_URL)
+    .replaceAll("https://sk-khorrum.vercel.app", SITE_URL)
+    .replaceAll("https://sk-khorrum-ceo.vercel.app", SITE_URL)
     .replace(/<!doctype[^>]*>/gi, "")
     .replace(/<\/?(html|head|body|title|meta|link)\b[^>]*>/gi, "")
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "")
@@ -2389,7 +2392,7 @@ const legacyPortfolioProjects: SiteContent[] = [
     slug: "sk-khorrum-ceo",
     description: "A personal brand website designed to make SEO expertise clear and discoverable.",
     category: "SEO / Digital Marketing",
-    externalUrl: "https://sk-khorrum-ceo.vercel.app/",
+    externalUrl: "https://khorrum.pro.bd/",
     content: "",
     html: "",
     image: "",
