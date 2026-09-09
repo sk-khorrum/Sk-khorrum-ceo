@@ -380,6 +380,8 @@ function SeoSignals({
         url: "https://assets-one-beta.vercel.app/portfolio/sk-khorrum.webp",
         contentUrl: "https://assets-one-beta.vercel.app/portfolio/sk-khorrum.webp",
         caption: "SK Khorrum, SEO Expert and Digital Marketing Consultant",
+        width: 726,
+        height: 1024,
       },
       {
         "@id": websiteId,
@@ -401,6 +403,28 @@ function SeoSignals({
         inLanguage: "en",
       },
     ];
+
+    if (window.location.pathname === "/" || window.location.pathname === "/services") {
+      graph.push({
+        "@id": `${SITE_URL}/#professional-service`,
+        "@type": "ProfessionalService",
+        name: "SK Khorrum SEO Services",
+        url: `${SITE_URL}/services`,
+        description: "SEO and digital marketing services for businesses in Dhaka, Bangladesh, and worldwide.",
+        provider: { "@id": personId },
+        areaServed: SERVICE_AREA,
+        serviceType: ["SEO Audit", "Technical SEO", "On-Page SEO", "Local SEO", "International SEO", "Ecommerce SEO", "B2B Content SEO", "Digital Marketing Strategy"],
+      });
+    }
+
+    if (window.location.pathname === "/about") {
+      graph.push({
+        "@id": `${pageUrl}#profile`,
+        "@type": "ProfilePage",
+        mainEntity: { "@id": personId },
+        isPartOf: { "@id": websiteId },
+      });
+    }
 
     if (window.location.pathname !== "/") {
       const breadcrumbId = `${pageUrl}#breadcrumb`;
