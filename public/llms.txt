@@ -1,0 +1,46 @@
+# SK Khorrum
+
+> SK Khorrum is a Bangladesh-based SEO Expert and Digital Marketing Consultant serving businesses in Dhaka, Bangladesh, and worldwide.
+
+## Canonical website
+- https://sk-khorrum-ceo.vercel.app/
+
+## Primary pages
+- Homepage: https://sk-khorrum-ceo.vercel.app/
+- About: https://sk-khorrum-ceo.vercel.app/about
+- Services: https://sk-khorrum-ceo.vercel.app/services
+- SEO process: https://sk-khorrum-ceo.vercel.app/seo-process
+- Blog: https://sk-khorrum-ceo.vercel.app/blog
+- Contact: https://sk-khorrum-ceo.vercel.app/contact
+- Portfolio: https://sk-khorrum-ceo.vercel.app/portfolio
+- Case studies: https://sk-khorrum-ceo.vercel.app/case-studies
+
+## Services
+- SEO audits
+- Technical SEO
+- On-page SEO
+- Local SEO
+- International SEO
+- Ecommerce SEO
+- B2B content SEO
+- SEO-friendly web design
+- Digital marketing strategy
+
+## Entity profiles
+- LinkedIn: https://www.linkedin.com/in/sk-khorrum-36107a263/
+- GitHub: https://github.com/sk-khorrum
+- Gist: https://gist.github.com/sk-khorrum
+- CodePen: https://codepen.io/Khorrum
+- Instagram: https://www.instagram.com/sk_khorrum/
+- Threads: https://www.threads.net/@sk_khorrum
+- TikTok: https://www.tiktok.com/@sk_khorrum
+- Facebook: https://www.facebook.com/drt.ceo
+
+## Editorial policy
+- Client feedback and case studies are published only when permission and accurate details are available.
+- The site does not promise rankings or publish invented performance claims.
+- Blog content is authored by SK Khorrum unless a page states otherwise.
+
+## Machine-readable indexes
+- Sitemap: https://sk-khorrum-ceo.vercel.app/sitemap.xml
+- Robots: https://sk-khorrum-ceo.vercel.app/robots.txt
