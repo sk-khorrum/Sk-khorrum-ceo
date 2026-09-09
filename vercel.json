@@ -1,3 +1,26 @@
 {
+  "redirects": [
+    { "source": "/blog/Ggggg", "destination": "/blog/seo-foundations", "permanent": true },
+    { "source": "/test", "destination": "/", "permanent": true },
+    { "source": "/case-studies/seo-foundation", "destination": "/case-studies", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/admin",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+    },
+    {
+      "source": "/admin/:path*",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+    },
+    {
+      "source": "/requirements/private",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+    },
+    {
+      "source": "/requirements/private/:path*",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+    }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
