@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import {
   ArrowUpRight,
@@ -33,6 +33,16 @@ import { auth, db } from "./firebase";
 import { seoRoadmap } from "./data/seoRoadmap";
 
 const SITE_URL = "https://sk-khorrum-ceo.vercel.app";
+const PERSON_SAME_AS = [
+  "https://www.linkedin.com/in/sk-khorrum-36107a263/",
+  "https://github.com/sk-khorrum",
+  "https://gist.github.com/sk-khorrum",
+  "https://codepen.io/Khorrum",
+  "https://www.instagram.com/sk_khorrum/",
+  "https://www.threads.net/@sk_khorrum",
+  "https://www.tiktok.com/@sk_khorrum",
+  "https://www.facebook.com/drt.ceo",
+];
 
 type Web3FormsResponse = { success?: boolean; message?: string };
 
@@ -260,9 +270,9 @@ const faqs = [
 ];
 
 function SeoSignals({
-  title = "SK Khorrum | SEO Expert & Digital Marketer",
-  description = "SEO strategy, technical SEO, content optimization, and SEO-friendly web design for businesses ready to be found.",
-  type = "WebSite",
+  title = "SK Khorrum | SEO Expert & Digital Marketing Consultant",
+  description = "SK Khorrum is a Bangladesh-based SEO Expert and Digital Marketing Consultant serving businesses worldwide.",
+  type = "WebPage",
   canonicalUrl = "",
   image = "",
   imageAlt = "",
@@ -272,8 +282,8 @@ function SeoSignals({
     question,
     answer:
       question === "Who is SK Khorrum?"
-        ? "SK Khorrum is an SEO Expert and Digital Marketer focused on improving search visibility, organic growth, and SEO-friendly digital experiences."
-        : "The right answer depends on your website and goals. We start with discovery and evidence, then build a practical plan around the biggest opportunities.",
+        ? "SK Khorrum is a Bangladesh-based SEO Expert and Digital Marketing Consultant who helps businesses improve search visibility, website clarity, and organic growth through practical SEO strategy."
+        : "The right answer depends on the website, audience, competition, and business goal. The engagement starts with discovery and evidence before priorities are recommended.",
   })),
 }: {
   title?: string;
@@ -288,113 +298,159 @@ function SeoSignals({
 }) {
   useEffect(() => {
     document.title = title;
-    const setMeta = (
-      key: string,
-      value: string,
-      attribute: "name" | "property",
-    ) => {
+    const setMeta = (key: string, value: string, attribute: "name" | "property") => {
       const selector = `meta[${attribute}="${key}"]`;
-      const meta =
-        document.querySelector(selector) || document.createElement("meta");
+      const meta = document.querySelector(selector) || document.createElement("meta");
       meta.setAttribute(attribute, key);
       meta.setAttribute("content", value);
       document.head.appendChild(meta);
     };
-    const pageUrl = canonicalUrl || `${SITE_URL}${window.location.pathname}`;
+    const setLink = (rel: string, href: string, extra: Record<string, string> = {}) => {
+      const selector = `link[rel="${rel}"]${extra.hreflang ? `[hreflang="${extra.hreflang}"]` : ""}`;
+      const link = document.querySelector(selector) || document.createElement("link");
+      link.setAttribute("rel", rel);
+      link.setAttribute("href", href);
+      Object.entries(extra).forEach(([key, value]) => link.setAttribute(key, value));
+      document.head.appendChild(link);
+    };
+    const pageUrl = canonicalUrl || `${SITE_URL}${window.location.pathname === "/" ? "/" : window.location.pathname}`;
+    const socialImage = image || "https://assets-one-beta.vercel.app/portfolio/sk-khorrum.webp";
+    const socialImageAlt = imageAlt || "SK Khorrum, SEO Expert and Digital Marketing Consultant";
+    const pageType = type === "Article" ? "WebPage" : type;
+    const personId = `${SITE_URL}/#person`;
+    const websiteId = `${SITE_URL}/#website`;
+    const pageId = `${pageUrl}#webpage`;
+
     setMeta("description", description, "name");
+    setMeta("author", "SK Khorrum", "name");
+    setMeta("publisher", "SK Khorrum", "name");
+    setMeta("robots", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1", "name");
+    setMeta("googlebot", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1", "name");
+    setMeta("bingbot", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1", "name");
+    setMeta("language", "en", "name");
     if (keywords) setMeta("keywords", keywords, "name");
+    setMeta("og:type", type === "Article" ? "article" : "website", "property");
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
-    setMeta(
-      "og:url",
-      pageUrl,
-      "property",
-    );
+    setMeta("og:url", pageUrl, "property");
+    setMeta("og:site_name", "SK Khorrum", "property");
+    setMeta("og:locale", "en_US", "property");
+    setMeta("og:image", socialImage, "property");
+    setMeta("og:image:alt", socialImageAlt, "property");
+    setMeta("og:image:width", "726", "property");
+    setMeta("og:image:height", "1024", "property");
+    setMeta("twitter:card", "summary_large_image", "name");
     setMeta("twitter:title", title, "name");
     setMeta("twitter:description", description, "name");
-    setMeta("twitter:card", "summary_large_image", "name");
-    if (image) {
-      setMeta("og:image", image, "property");
-      if (imageAlt) setMeta("og:image:alt", imageAlt, "property");
-      setMeta("twitter:image", image, "name");
-    }
-    const canonical =
-      document.querySelector('link[rel="canonical"]') ||
-      document.createElement("link");
-    canonical.setAttribute("rel", "canonical");
-    canonical.setAttribute(
-      "href",
-      pageUrl,
-    );
-    document.head.appendChild(canonical);
-    const graph = [
+    setMeta("twitter:image", socialImage, "name");
+    setMeta("twitter:image:alt", socialImageAlt, "name");
+    setMeta("theme-color", "#f7f9f7", "name");
+    setLink("canonical", pageUrl);
+    // There is currently one English version; these links make that explicit without inventing localized pages.
+    setLink("alternate", pageUrl, { hreflang: "en" });
+    setLink("alternate", pageUrl, { hreflang: "x-default" });
+
+    const graph: Array<Record<string, unknown>> = [
       {
-        "@context": "https://schema.org",
+        "@id": personId,
         "@type": "Person",
         name: "SK Khorrum",
-        jobTitle: "SEO Expert & Digital Marketer",
-        url: SITE_URL,
-        image: "https://assets-one-beta.vercel.app/portfolio/sk-khorrum.webp",
-        sameAs: [
-          "https://github.com/sk-khorrum",
-          "https://linkedin.com/in/sk-khorrum-36107a263/",
-          "https://codepen.io/Khorrum",
-        ],
-        knowsAbout: [
-          "Search Engine Optimization",
-          "Technical SEO",
-          "Content SEO",
-          "Digital Marketing",
-          "SEO-Friendly Web Design",
-        ],
+              url: SITE_URL,
+        image: { "@id": `${SITE_URL}/#profile-image` },
+        jobTitle: "SEO Expert and Digital Marketing Consultant",
+        description: "A Bangladesh-based SEO Expert and Digital Marketing Consultant serving businesses worldwide.",
+        knowsAbout: ["Search Engine Optimization", "Technical SEO", "On-Page SEO", "Content SEO", "Local SEO", "Keyword Research", "Digital Marketing", "SEO-Friendly Web Design", "Google Search Console"],
+        knowsLanguage: ["English"],
+        sameAs: PERSON_SAME_AS,
       },
       {
-        "@context": "https://schema.org",
-        "@type": type,
+        "@id": `${SITE_URL}/#profile-image`,
+        "@type": "ImageObject",
+        url: "https://assets-one-beta.vercel.app/portfolio/sk-khorrum.webp",
+        contentUrl: "https://assets-one-beta.vercel.app/portfolio/sk-khorrum.webp",
+        caption: "SK Khorrum, SEO Expert and Digital Marketing Consultant",
+      },
+      {
+        "@id": websiteId,
+        "@type": "WebSite",
+        name: "SK Khorrum",
+        url: `${SITE_URL}/`,
+        description: "SEO and digital marketing services from SK Khorrum for businesses in Bangladesh and worldwide.",
+        publisher: { "@id": personId },
+        inLanguage: "en",
+      },
+      {
+        "@id": pageId,
+        "@type": pageType,
         name: title,
         description,
         url: pageUrl,
-        isPartOf: {
-          "@type": "WebSite",
-          name: "SK Khorrum",
-          url: SITE_URL,
-        },
+        isPartOf: { "@id": websiteId },
+        about: { "@id": personId },
+        inLanguage: "en",
       },
-      ...(window.location.pathname === "/"
-        ? [
-            {
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: faqItems.map(({ question, answer }) => ({
-                "@type": "Question",
-                name: question,
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: answer,
-                },
-              })),
-            },
-          ]
-        : []),
     ];
-    let script = document.getElementById(
-      "seo-jsonld",
-    ) as HTMLScriptElement | null;
+
+    if (window.location.pathname.startsWith("/services/")) {
+      graph.push({
+        "@id": `${pageUrl}#service`,
+        "@type": "Service",
+        name: title.replace(/\s*\|\s*SK Khorrum$/, ""),
+        serviceType: title.replace(/\s*\|\s*SK Khorrum$/, ""),
+        description,
+        provider: { "@id": personId },
+        areaServed: "Worldwide",
+        audience: { "@type": "Audience", audienceType: "Small businesses, startups, e-commerce businesses, local businesses, international clients, and website owners" },
+      });
+    }
+    if (window.location.pathname === "/") {
+      graph.push({
+        "@id": `${pageUrl}#faq`,
+        "@type": "FAQPage",
+        isPartOf: { "@id": pageId },
+        mainEntity: faqItems.map(({ question, answer }) => ({
+          "@type": "Question",
+          name: question,
+          acceptedAnswer: { "@type": "Answer", text: answer },
+        })),
+      });
+    }
+
+    if (structuredData) {
+      try {
+        const parsed = JSON.parse(structuredData) as Record<string, unknown>;
+        const extraNodes = Array.isArray(parsed["@graph"]) ? parsed["@graph"] : [parsed];
+        extraNodes.forEach((node) => {
+          if (!node || typeof node !== "object") return;
+          const normalized = { ...(node as Record<string, unknown>) };
+          delete normalized["@context"];
+          const nodeType = normalized["@type"];
+          if (["Person", "Organization", "ProfessionalService"].includes(String(nodeType))) return;
+          if (normalized["@type"] === "Article") normalized["@type"] = "BlogPosting";
+          if (normalized["@type"] === "BlogPosting") {
+            normalized["@id"] = `${pageUrl}#article`;
+            normalized.author = { "@id": personId };
+            normalized.publisher = { "@id": personId };
+            normalized.mainEntityOfPage = { "@id": pageId };
+            normalized.url = pageUrl;
+          }
+          if (normalized["@type"] === "BreadcrumbList") normalized["@id"] = `${pageUrl}#breadcrumb`;
+          const serialized = JSON.stringify(normalized).replaceAll("https://desitalkhorrum.vercel.app", SITE_URL).replaceAll("https://sk-khorrum.vercel.app", SITE_URL);
+          graph.push(JSON.parse(serialized));
+        });
+      } catch {
+        // Invalid author-supplied schema is ignored; the verified base graph remains.
+      }
+    }
+
+    let script = document.getElementById("seo-jsonld") as HTMLScriptElement | null;
     if (!script) {
       script = document.createElement("script");
       script.id = "seo-jsonld";
       script.type = "application/ld+json";
       document.head.appendChild(script);
     }
-    if (structuredData) {
-      try {
-        script.textContent = JSON.stringify(JSON.parse(structuredData));
-      } catch {
-        script.textContent = JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
-      }
-    } else {
-      script.textContent = JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
-    }
+    script.textContent = JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
   }, [title, description, type, canonicalUrl, image, imageAlt, keywords, structuredData, faqItems]);
   return null;
 }
@@ -415,7 +471,7 @@ function RequirementsPage() {
           Tell me what you want to <em>make more visible.</em>
         </h1>
         <p>
-          Share the useful context and I’ll come prepared with the right
+          Share the useful context and Iâ€™ll come prepared with the right
           questions.
         </p>
         {sent ? (
@@ -491,11 +547,11 @@ function RequirementsPage() {
 type AdminInquiry = Record<string, unknown> & { id: string };
 
 function displayAdminValue(value: unknown) {
-  if (value == null) return "—";
+  if (value == null) return "â€”";
   if (typeof value === "object" && "toDate" in value && typeof value.toDate === "function") {
     return value.toDate().toLocaleString();
   }
-  return String(value) || "—";
+  return String(value) || "â€”";
 }
 
 function InquiryList({ title, items, emptyText }: { title: string; items: AdminInquiry[]; emptyText: string }) {
@@ -638,7 +694,7 @@ function AdminPage() {
                   }
                 }}
               >
-                {selectionSaving ? "Saving…" : "Save homepage selection"}
+                {selectionSaving ? "Savingâ€¦" : "Save homepage selection"}
               </button>
               {selectionSaved && <p className="admin-save-confirmation">Homepage journal selection saved.</p>}
             </section>
@@ -678,69 +734,32 @@ const projectLogos = (discoveredProjectLogos as string[]).filter(Boolean);
 
 function ProjectLogoStrip() {
   const logos = [...projectLogos, ...projectLogos];
-  return <section className="logo-strip" aria-label="Selected client and project logos"><div className="logo-strip-head"><span className="section-kicker">Selected project logos</span><span>SEO thinking · digital experience · web design</span></div><div className="logo-marquee"><div className="logo-track">{logos.map((logo, index) => <span className="project-logo" key={`${logo}-${index}`}><img src={`/assets/logos/${logo}`} width="180" height="70" loading="lazy" alt="Selected digital project logo" onError={(event) => { event.currentTarget.style.display = "none"; }} /></span>)}</div></div>{!projectLogos.length && <p className="logo-upload-note">Add verified JPG logos to <code>public/assets/logos/</code> to update this strip.</p>}</section>;
+  return <section className="logo-strip" aria-label="Selected client and project logos"><div className="logo-strip-head"><span className="section-kicker">Selected project logos</span><span>SEO thinking Â· digital experience Â· web design</span></div><div className="logo-marquee"><div className="logo-track">{logos.map((logo, index) => <span className="project-logo" key={`${logo}-${index}`}><img src={`/assets/logos/${logo}`} width="180" height="70" loading="lazy" alt="Selected digital project logo" onError={(event) => { event.currentTarget.style.display = "none"; }} /></span>)}</div></div>{!projectLogos.length && <p className="logo-upload-note">Add verified JPG logos to <code>public/assets/logos/</code> to update this strip.</p>}</section>;
 }
-
-type ManualReview = { name: string; photo: string; company: string; designation: string; text: string; rating: number };
-
-// Sample layout content only. Replace these entries with approved client feedback before publishing.
-const manualReviews: ManualReview[] = [
-  {
-    name: "Sample Client 01",
-    photo: "https://ui-avatars.com/api/?name=Client+01&background=1d7a5b&color=ffffff&size=160",
-    company: "Bangladesh Growth Co.",
-    designation: "Managing Director",
-    text: "Sample testimonial — replace this with an approved client review.",
-    rating: 5,
-  },
-  {
-    name: "Sample Client 02",
-    photo: "https://ui-avatars.com/api/?name=Client+02&background=356b82&color=ffffff&size=160",
-    company: "Dhaka Digital Ltd.",
-    designation: "Founder",
-    text: "Sample testimonial — replace this with an approved client review.",
-    rating: 5,
-  },
-  {
-    name: "Sample Client 03",
-    photo: "https://ui-avatars.com/api/?name=Client+03&background=718a39&color=ffffff&size=160",
-    company: "Bangla Commerce BD",
-    designation: "Marketing Lead",
-    text: "Sample testimonial — replace this with an approved client review.",
-    rating: 5,
-  },
-];
 
 function VerifiedReviews() {
   const profileUrl = import.meta.env.VITE_GOOGLE_BUSINESS_PROFILE_URL || "https://maps.app.goo.gl/78hssZZD7FbByZrH7";
   return <section className="reviews-section section-pad" aria-label="Client feedback">
     <div className="reviews-intro">
       <div className="section-kicker">Client feedback</div>
-      <h2>Real words from <em>real work.</em></h2>
-      <p>Sample Bangladesh client cards are shown here so you can preview the design. Replace the sample details with approved client feedback before publishing.</p>
+      <h2>Verified feedback, <em>when it is ready to share.</em></h2>
+      <p>Client feedback is published only with permission and with the clientâ€™s real identity. No sample testimonials, invented companies, or unverified outcomes are used here.</p>
       <div className="review-actions">
         <a className="button button-outline" href={profileUrl} target="_blank" rel="noreferrer">View Google Maps profile <ArrowUpRight size={16} /></a>
         <a className="text-link" href={profileUrl} target="_blank" rel="noreferrer">Open Google Maps <MoveRight size={16} /></a>
       </div>
     </div>
     <div className="reviews-panel">
-      <div className="review-grid">
-        {manualReviews.map((review) => <article className="review-card" key={review.name}>
-          <div className="review-person">
-            <img src={review.photo} width="52" height="52" loading="lazy" alt={review.name} />
-            <div><b>{review.name}</b><small>{review.designation} · {review.company}</small></div>
-          </div>
-          <div className="stars" aria-label={String(review.rating) + " out of 5 stars"}>{"★".repeat(Math.min(5, review.rating))}</div>
-          <p>“{review.text}”</p>
-          <small className="review-placeholder">Sample content — replace before publishing</small>
-        </article>)}
+      <div className="case-placeholder">
+        <ShieldCheck size={25} />
+        <div><b>Approved client feedback is not published yet.</b><p>This section will be updated only when real feedback is available and approved for publication.</p></div>
       </div>
     </div>
   </section>;
 }
 
 const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || "";
-const contactAddress = import.meta.env.VITE_CONTACT_ADDRESS || "Bangladesh · Available worldwide";
+const contactAddress = import.meta.env.VITE_CONTACT_ADDRESS || "Bangladesh Â· Available worldwide";
 const mapUrl = import.meta.env.VITE_GOOGLE_BUSINESS_PROFILE_URL || "https://maps.app.goo.gl/78hssZZD7FbByZrH7";
 
 function ContactDetails() {
@@ -822,7 +841,7 @@ function HomePage() {
         <section className="hero section-pad">
           <div className="hero-copy">
             <div className="eyebrow">
-              <span className="pulse" /> SEO EXPERT & DIGITAL MARKETER <i>·</i> WEB DESIGNER
+              <span className="pulse" /> SEO EXPERT & DIGITAL MARKETER <i>Â·</i> WEB DESIGNER
             </div>
             <h1>
               Make your best work <em>easier to find.</em>
@@ -872,7 +891,7 @@ function HomePage() {
             <small>First, always</small>
           </div>
           <div>
-            <strong>360°</strong>
+            <strong>360Â°</strong>
             <small>Digital perspective</small>
           </div>
           <div>
@@ -902,7 +921,7 @@ function HomePage() {
                 Technical health, crawlability, speed, indexation, and a
                 structure search engines can understand.
               </p>
-              <small>Technical SEO · Performance · Architecture</small>
+              <small>Technical SEO Â· Performance Â· Architecture</small>
             </div>
             <div>
               <span>02</span>
@@ -911,7 +930,7 @@ function HomePage() {
                 Keyword research, search intent, page structure, and content
                 that answers the right questions.
               </p>
-              <small>On-page SEO · Content · Internal linking</small>
+              <small>On-page SEO Â· Content Â· Internal linking</small>
             </div>
             <div>
               <span>03</span>
@@ -920,7 +939,7 @@ function HomePage() {
                 Topical depth, local signals, competitor gaps, and useful
                 experiences that build confidence.
               </p>
-              <small>Local SEO · Strategy · Digital marketing</small>
+              <small>Local SEO Â· Strategy Â· Digital marketing</small>
             </div>
             <div>
               <span>04</span>
@@ -929,7 +948,7 @@ function HomePage() {
                 Measurement, learning, and prioritization so the next
                 improvement is based on evidence.
               </p>
-              <small>Search Console · Reporting · Iteration</small>
+              <small>Search Console Â· Reporting Â· Iteration</small>
             </div>
           </div>
         </section>
@@ -1396,7 +1415,7 @@ function HomePage() {
           <div className="section-kicker">Questions, answered</div>
           <div className="split-heading">
             <h2>
-              Let’s make SEO <em>less mysterious.</em>
+              Letâ€™s make SEO <em>less mysterious.</em>
             </h2>
             <p>
               Clear thinking starts with clear answers. Here are a few of the
@@ -1435,7 +1454,7 @@ function HomePage() {
             </h2>
             <p>
               Tell me where you are, where you want to go, and what is getting
-              in the way. I’ll reply with a thoughtful next step.
+              in the way. Iâ€™ll reply with a thoughtful next step.
             </p>
             <div className="contact-detail">
               <span>Prefer a detailed brief?</span>
@@ -1450,7 +1469,7 @@ function HomePage() {
               <Check size={28} />
               <h3>Thank you.</h3>
               <p>
-                Your consultation request has been received. I’ll be in touch
+                Your consultation request has been received. Iâ€™ll be in touch
                 soon.
               </p>
             </div>
@@ -1532,7 +1551,7 @@ function HomePage() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 SK Khorrum. All Rights Reserved.</span>
+          <span>Â© 2026 SK Khorrum. All Rights Reserved.</span>
           <span>SEO first. Always.</span>
         </div>
       </footer>
@@ -1664,7 +1683,7 @@ function SiteChrome({ children }: { children: ReactNode }) {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 SK Khorrum. All Rights Reserved.</span>
+          <span>Â© 2026 SK Khorrum. All Rights Reserved.</span>
           <span>SEO first. Always.</span>
         </div>
       </footer>
@@ -1685,12 +1704,14 @@ function InnerPage({
   children: ReactNode;
   seo?: { title?: string; description?: string; type?: string; canonicalUrl?: string; image?: string; imageAlt?: string; keywords?: string; structuredData?: string };
 }) {
+  const path = window.location.pathname;
+  const defaultType = path === "/about" ? "AboutPage" : path === "/contact" ? "ContactPage" : ["/blog", "/portfolio", "/case-studies", "/services"].includes(path) ? "CollectionPage" : "WebPage";
   return (
     <SiteChrome>
       <SeoSignals
         title={seo?.title || `${title} | SK Khorrum`}
         description={seo?.description || intro}
-        type={seo?.type || "WebPage"}
+        type={seo?.type || defaultType}
         canonicalUrl={seo?.canonicalUrl}
         image={seo?.image}
         imageAlt={seo?.imageAlt}
@@ -1748,7 +1769,7 @@ function ServicesPage() {
         <div className="detail-service-grid">
           {detailServices.map(([slug, title, tagline, desc]) => (
             <a className="detail-service" href={`/services/${slug}`} key={slug}>
-              <span className="service-number">→</span>
+              <span className="service-number">â†’</span>
               <div className="section-kicker">SEO service</div>
               <h2>{title}</h2>
               <h3>{tagline}</h3>
@@ -1789,7 +1810,7 @@ function ServicePage({ service }: { service: string[] }) {
           </div>
         </div>
         <aside className="detail-aside">
-          <b>What’s included</b>
+          <b>Whatâ€™s included</b>
           {[
             "Discovery and goals",
             "Current-state analysis",
@@ -1897,7 +1918,7 @@ function BlogPostPage({ slug }: { slug: string }) {
   return (
     <InnerPage
       title={post.title}
-      kicker={`${post.category} · ${post.time}`}
+      kicker={`${post.category} Â· ${post.time}`}
       intro={post.description}
       seo={{
         title: post.title,
@@ -1912,7 +1933,7 @@ function BlogPostPage({ slug }: { slug: string }) {
     >
       <article className="article-page">
         <PostThumbnail post={post} iconSize={42} />
-        <p className="article-meta">{post.date} · By SK Khorrum</p>
+        <p className="article-meta">{post.date} Â· By SK Khorrum</p>
         <div
           className="post-content"
           dangerouslySetInnerHTML={{ __html: sanitizeArticleHtml(post.content) }}
@@ -2128,7 +2149,7 @@ function SeoGuidePage() {
             knowledge
           </strong>
           <p>
-            Updated August 2026 · Written by SK Khorrum · SEO Expert & Digital
+            Updated August 2026 Â· Written by SK Khorrum Â· SEO Expert & Digital
             Marketer
           </p>
         </div>
@@ -2341,7 +2362,7 @@ function ContentDetailPage({ item, kind, backHref }: { item: SiteContent; kind: 
     >
       <article className="article-page">
         <PostThumbnail post={item} iconSize={42} />
-        <p className="article-meta">{item.date} · By SK Khorrum</p>
+        <p className="article-meta">{item.date} Â· By SK Khorrum</p>
         {(item.content || item.html) ? (
           <div className="post-content" dangerouslySetInnerHTML={{ __html: sanitizeArticleHtml(item.content || item.html || "") }} />
         ) : (
@@ -2419,7 +2440,7 @@ function DynamicContentResolver({ path }: { path: string }) {
     const kind = path.startsWith("/projects/") ? "Project" : path.startsWith("/case-studies/") ? "Case Study" : "Page";
     return <ContentDetailPage item={item} kind={kind} backHref={kind === "Project" ? "/portfolio" : kind === "Case Study" ? "/case-studies" : "/"} />;
   }
-  if (!loaded) return <InnerPage title="Loading content" kicker="SK Khorrum" intro="Opening this page…"><section className="section-pad inner-section"><p>Loading content…</p></section></InnerPage>;
+  if (!loaded) return <InnerPage title="Loading content" kicker="SK Khorrum" intro="Opening this pageâ€¦"><section className="section-pad inner-section"><p>Loading contentâ€¦</p></section></InnerPage>;
   return <InnerPage title="Page not found" kicker="SK Khorrum" intro="This page could not be found or may have moved."><section className="section-pad inner-section"><h2>This link is not available.</h2><a className="button button-primary" href="/">Back to home <ArrowUpRight size={17} /></a></section></InnerPage>;
 }
 
@@ -2487,4 +2508,5 @@ function App() {
 }
 
 export default App;
+
 
