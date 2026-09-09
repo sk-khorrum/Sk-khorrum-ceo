@@ -4,4 +4,4 @@ Disallow: /admin
 Disallow: /admin/
 Disallow: /requirements/private
 
-Sitemap: https://sk-khorrum-ceo.vercel.app/sitemap.xml
+Sitemap: https://khorrum.pro.bd/sitemap.xml
