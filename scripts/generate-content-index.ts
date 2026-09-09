@@ -8,7 +8,6 @@ const siteUrl = "https://sk-khorrum-ceo.vercel.app";
 const excludedContent = new Set([
   "pages/test.html",
   "posts/Ggggg.html",
-  "posts/tgy.html",
   "case-studies/seo-foundation.json",
 ]);
 
@@ -93,5 +92,6 @@ const urls = [...staticUrls, ...Object.values(records).flat().map((item) => item
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map((url) => `<url><loc>${siteUrl}${url}</loc></url>`).join("")}</urlset>`;
 await writeFile(join(root, "public/sitemap.xml"), sitemap);
 console.log(`Generated ${Object.values(records).flat().length} content records and sitemap.`);
+
 
 
